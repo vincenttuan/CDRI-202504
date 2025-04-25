@@ -40,7 +40,7 @@ public class TodoListServlet extends HttpServlet  {
 					// 重跑指定頁(首頁)
 					resp.sendRedirect("/JavaWebTodoList/todolist/");
 					return;
-				} else if(text != null) {
+				} else if(text != null) { // 修改 text
 					service.updateTodoText(Integer.parseInt(id), text);
 					// 重跑指定頁(首頁)
 					resp.sendRedirect("/JavaWebTodoList/todolist/");
