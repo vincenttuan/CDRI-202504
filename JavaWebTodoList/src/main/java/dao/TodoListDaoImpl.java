@@ -111,8 +111,17 @@ public class TodoListDaoImpl extends BaseDao implements TodoListDao {
 
 	@Override
 	public void deleteTodo(Integer id) {
-		// TODO Auto-generated method stub
-		
+		String sql = "delete from todo where id=?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, id);
+			
+			int rowcount = pstmt.executeUpdate();
+			System.out.println("刪除 todo 筆數: " + rowcount);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
