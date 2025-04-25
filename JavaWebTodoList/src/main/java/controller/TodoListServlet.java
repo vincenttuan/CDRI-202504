@@ -23,6 +23,7 @@ public class TodoListServlet extends HttpServlet  {
 		String pathInfo = req.getPathInfo();
 		resp.getWriter().print("pathInfo = " + pathInfo);
 		String id = req.getParameter("id");
+		String completed = req.getParameter("checked");
 		
 		switch (pathInfo) {
 			case "/":  // 顯示 Todo List 首頁
@@ -32,6 +33,15 @@ public class TodoListServlet extends HttpServlet  {
 				req.setAttribute("todos", todos);
 				rd.forward(req, resp);
 				return;
+			case "/update": // 修改
+				if(completed != null) { // 修改 completed 
+					service.updateTodoComplete(Integer.parseInt(id), Boolean.parseBoolean(completed));
+					// 重跑指定頁(首頁)
+					resp.sendRedirect("/JavaWebTodoList/todolist/");
+					return;
+				}
+				
+				
 			case "/delete": // 刪除
 				service.deleteTodo(Integer.parseInt(id));
 				// 重跑指定頁(首頁)
