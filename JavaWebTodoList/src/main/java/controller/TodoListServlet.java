@@ -23,7 +23,8 @@ public class TodoListServlet extends HttpServlet  {
 		String pathInfo = req.getPathInfo();
 		resp.getWriter().print("pathInfo = " + pathInfo);
 		switch (pathInfo) {
-			case "/": // 顯示 Todo List 首頁
+			case "/":  // 顯示 Todo List 首頁
+			case "/*": // 顯示 Todo List 首頁
 				List<TodoDTO> todos = service.findAllTodos();
 				RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/todolist.jsp");
 				req.setAttribute("todos", todos);
