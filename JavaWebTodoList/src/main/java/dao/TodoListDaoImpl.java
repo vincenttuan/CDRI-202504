@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,7 +38,26 @@ public class TodoListDaoImpl extends BaseDao implements TodoListDao {
 
 	@Override
 	public Todo getTodo(Integer id) {
-		// TODO Auto-generated method stub
+		String sql = "select id, text, completed from todo where id=?";
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id);
+			// 得到 rs 中的紀錄(1或0筆)
+			// 再將該筆紀錄轉成 Todo 物件並回傳
+			try(ResultSet rs = pstmt.executeQuery()) {
+				if(rs.next()) {
+					Todo todo = new Todo();
+					todo.setId(rs.getInt("id"));
+					todo.setText(rs.getString("text"));
+					todo.setCompleted(rs.getBoolean("completed"));
+					
+					return todo;
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
