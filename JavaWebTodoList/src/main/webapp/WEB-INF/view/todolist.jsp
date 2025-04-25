@@ -62,7 +62,7 @@
                        <input type="checkbox" ${todo.completed ? "checked" : ""}
                               onchange="location.href='/JavaWebTodoList/todolist/update?id=${todo.id}&checked=' + this.checked;" />
                        已完成
-                       <a href="/javaweb/todolist/delete?id=${todo.id}"
+                       <a href="/JavaWebTodoList/todolist/delete?id=${todo.id}"
                           style="display: ${todo.completed ? 'none' : 'inline'}"
                           class="btn btn-danger btn-sm ms-2">刪除</a>
                    </div>

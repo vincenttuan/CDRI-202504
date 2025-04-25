@@ -22,6 +22,8 @@ public class TodoListServlet extends HttpServlet  {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo();
 		resp.getWriter().print("pathInfo = " + pathInfo);
+		String id = req.getParameter("id");
+		
 		switch (pathInfo) {
 			case "/":  // 顯示 Todo List 首頁
 			case "/*": // 顯示 Todo List 首頁
@@ -29,6 +31,11 @@ public class TodoListServlet extends HttpServlet  {
 				RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/todolist.jsp");
 				req.setAttribute("todos", todos);
 				rd.forward(req, resp);
+				return;
+			case "/delete": // 刪除
+				service.deleteTodo(Integer.parseInt(id));
+				// 重跑指定頁(首頁)
+				resp.sendRedirect("/JavaWebTodoList/todolist/");
 				return;
 			default:  // 錯誤路徑
 				resp.getWriter().print("path error");
