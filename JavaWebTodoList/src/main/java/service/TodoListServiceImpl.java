@@ -12,6 +12,7 @@ public class TodoListServiceImpl implements TodoListService {
 	
 	private TodoListDao dao = new TodoListDaoImpl();
 	
+	/*
 	@Override
 	public List<TodoDTO> findAllTodos() {
 		List<Todo> todos = dao.findAllTodos();
@@ -21,6 +22,15 @@ public class TodoListServiceImpl implements TodoListService {
 			todoDTOs.add(transferToDTO(todo));
 		}
 		return todoDTOs;
+	}
+	*/
+	@Override
+	public List<TodoDTO> findAllTodos() {
+		return dao.findAllTodos()
+				  .stream()
+				  .map(this::transferToDTO)
+				  //.map(todo -> transferToDTO(todo))
+				  .toList();
 	}
 
 	@Override
