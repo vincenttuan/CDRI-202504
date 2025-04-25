@@ -63,8 +63,17 @@ public class TodoListDaoImpl extends BaseDao implements TodoListDao {
 
 	@Override
 	public void addTodo(Todo todo) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into todo(text, completed) value(?, ?)";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, todo.getText());
+			pstmt.setBoolean(2, todo.getCompleted());
+			
+			int rowcount = pstmt.executeUpdate(); // 執行修改/新增
+			System.out.println("新增 todo 筆數: " + rowcount);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
