@@ -40,26 +40,23 @@ public class TodoListServiceImpl implements TodoListService {
 
 	@Override
 	public void addTodo(String text, Boolean completed) {
-		// TODO Auto-generated method stub
-		
+		Todo todo = new Todo(0, text, completed);
+		dao.addTodo(todo);
 	}
 
 	@Override
 	public void updateTodoComplete(Integer id, Boolean completed) {
-		// TODO Auto-generated method stub
-		
+		dao.updateTodoComplete(id, completed);
 	}
 
 	@Override
 	public void updateTodoText(Integer id, String text) {
-		// TODO Auto-generated method stub
-		
+		dao.updateTodoText(id, text);
 	}
 
 	@Override
 	public void deleteTodo(Integer id) {
-		// TODO Auto-generated method stub
-		
+		dao.deleteTodo(id);
 	}
 	
 	// 轉換成 DTO
