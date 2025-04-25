@@ -45,7 +45,11 @@ public class TodoListServlet extends HttpServlet  {
 			return;
 		}
 		// 進行新增程序
-		
+		String text = req.getParameter("text");
+		Boolean completed = false;
+		service.addTodo(text, completed);
+		// 重跑指定頁(首頁)
+		resp.sendRedirect("/JavaWebTodoList/todolist/");
 	}
 	
 	
