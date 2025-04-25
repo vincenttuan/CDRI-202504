@@ -74,7 +74,7 @@
        const updateText = (event, id, input) => {
            if (event.key === 'Enter') {
                input.readOnly = true;
-               const url = '/JavaWebTodoList/todolist/update/text?id=' + id + '&text=' + encodeURIComponent(input.value);
+               const url = '/JavaWebTodoList/todolist/update?id=' + id + '&text=' + encodeURIComponent(input.value);
                location.href = url;
            }
        };
