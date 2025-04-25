@@ -35,8 +35,7 @@ public class TodoListServiceImpl implements TodoListService {
 
 	@Override
 	public TodoDTO getTodo(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return transferToDTO(dao.getTodo(id));
 	}
 
 	@Override
