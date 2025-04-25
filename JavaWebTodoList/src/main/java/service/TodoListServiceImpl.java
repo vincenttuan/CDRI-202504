@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.TodoListDao;
@@ -15,8 +16,11 @@ public class TodoListServiceImpl implements TodoListService {
 	public List<TodoDTO> findAllTodos() {
 		List<Todo> todos = dao.findAllTodos();
 		// List<Todo> 轉 List<TodoDTO>
-		
-		return null;
+		List<TodoDTO> todoDTOs = new ArrayList<>();
+		for(Todo todo : todos) {
+			todoDTOs.add(transferToDTO(todo));
+		}
+		return todoDTOs;
 	}
 
 	@Override
