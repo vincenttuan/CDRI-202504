@@ -16,7 +16,7 @@ public class ProductService {
 		List<ProductDTO> productDTOs = new ArrayList<>();
 		for(Product product : products) {
 			productDTOs.add(new ProductDTO(product.getItem(), product.getPrice()));
-		}
+		}	
 		return productDTOs;
 	}
 	

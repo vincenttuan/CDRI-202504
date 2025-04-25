@@ -69,5 +69,10 @@ public class OrderService {
 		return orderDTO;
 	}
 	
+	// 取得總價
+	public int getTotalPrice() {
+		return orderDAO.findAll().stream().mapToInt(o -> o.getPrice()).sum();
+	}
+	
 	
 }
