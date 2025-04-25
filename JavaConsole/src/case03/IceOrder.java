@@ -1,4 +1,4 @@
-package case3;
+package case03;
 
 public class IceOrder {
 	private MainDish mainDish; // 主餐
