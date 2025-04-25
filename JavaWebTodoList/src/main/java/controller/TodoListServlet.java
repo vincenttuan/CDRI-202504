@@ -20,6 +20,7 @@ public class TodoListServlet extends HttpServlet  {
 				
 				break;
 			case "/update": // 修改 Todo 紀錄
+				String id = req.getParameter("id");
 				String completed = req.getParameter("checked");
 				String text = req.getParameter("text");
 				
