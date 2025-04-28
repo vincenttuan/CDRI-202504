@@ -28,7 +28,6 @@ public class UserLoginDaoImpl extends BaseDao implements UserLoginDAO {
 					user.setCompleted(rs.getBoolean("completed"));
 					
 					return user;
-					
 				}
 			}
 		} catch (SQLException e) {
