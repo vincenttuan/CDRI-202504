@@ -44,8 +44,8 @@ public class AuthCodeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Random random = new Random();
-		//String authcode = String.format("%04d", random.nextInt(10000)); // 0000~9999 的隨機數
-		String authcode = generateAuthCode();
+		String authcode = String.format("%04d", random.nextInt(10000)); // 0000~9999 的隨機數
+		//String authcode = generateAuthCode();
 		
 		ImageIO.write(getAuthCodeImage(authcode), "JPEG", resp.getOutputStream());
 	}
