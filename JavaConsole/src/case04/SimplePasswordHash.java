@@ -16,7 +16,7 @@ public class SimplePasswordHash {
 	public static String hashPassword(String password, String salt) throws Exception {
 		// 使用 SHA-256 雜湊演算法
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
-		byte[] hashBytes = md.digest((password+salt).getBytes());
+		byte[] hashBytes = md.digest((password+salt).getBytes()); // **密碼與鹽混合加密
 		return bytesToHex(hashBytes);
 	}
 	
