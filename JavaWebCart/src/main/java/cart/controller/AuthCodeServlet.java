@@ -17,11 +17,24 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/user/authcode")
 public class AuthCodeServlet extends HttpServlet {
-
+	
+	// 自訂認證碼 0~9 a-z A-Z
+	private String generateAuthCode() {
+		String chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		StringBuffer authcode = new StringBuffer();
+		Random random = new Random();
+		for(int i=0;i<4;i++) {
+			int index = random.nextInt(chars.length()); // 隨機取位置
+			authcode.append(chars.charAt(index)); // 取得該位置的資料
+		}
+		return authcode.toString();
+	}
+		
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Random random = new Random();
-		String authcode = String.format("%04d", random.nextInt(10000)); // 0000~9999 的隨機數
+		//String authcode = String.format("%04d", random.nextInt(10000)); // 0000~9999 的隨機數
+		String authcode = generateAuthCode();
 		
 		ImageIO.write(getAuthCodeImage(authcode), "JPEG", resp.getOutputStream());
 	}
