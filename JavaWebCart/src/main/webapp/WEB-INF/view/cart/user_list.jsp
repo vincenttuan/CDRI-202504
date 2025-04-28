@@ -23,6 +23,23 @@
 					</thead>
 					<tbody>
 						<!-- 使用者列表紀錄 -->
+						<c:forEach var="userDTO" items="${userDTOs}">
+						    <tr>
+						        <td>${userDTO.id}</td>
+						        <td>${userDTO.username}</td>
+						        <td>${userDTO.email}</td>
+						        <td>
+						            <c:choose>
+						                <c:when test="${userDTO.completed}">
+						                    驗證成功
+						                </c:when>
+						                <c:otherwise>
+						                    尚未驗證
+						                </c:otherwise>
+						            </c:choose>
+						        </td>
+						    </tr>
+						</c:forEach>
 						
 					</tbody>
 				</table>
