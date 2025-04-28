@@ -14,9 +14,12 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 	@Override
 	public void addUser(String username, String password, String email) {
 		try {
+			// 取 Hash
 			String hashSalt = HashUtil.generateSalt(); // 取得鹽
-			String hashPassword = HashUtil.hashPassword(password, hashSalt);
+			String hashPassword = HashUtil.hashPassword(password, hashSalt); // 取 hash 密碼
 			
+			// 建立 User 物件
+			// 注意 User 物件中部可以存放明碼 password 資料 (資訊安全)
 			User user = new User();
 			user.setUsername(username);;
 			user.setHashPassword(hashPassword);
