@@ -18,16 +18,16 @@
 </style>    
 <div style="background: #DDDDDD;padding: 20px">
 	${ username }&nbsp;&nbsp;&nbsp;&nbsp;
-	👨‍👨‍👧‍👧<a href="/javaweb/user/list">使用者列表</a> | 
+	👨‍👨‍👧‍👧<a href="/JavaWebCart/user/list">使用者列表</a> | 
 	
-	📄<a href="/javaweb/product/list">商品管理</a> | 
-	📝<a href="/javaweb/product/order">商品訂購</a> | 
-	<span class="item-count">${ itemCount }</span> 🛒<a href="/javaweb/product/cart">商品購物車</a> | 
-	📃<a href="/javaweb/product/order/history">訂單歷史紀錄</a> |
-	📊<a href="/javaweb/product/statistics">商品統計</a> |
+	📄<a href="/JavaWebCart/product/list">商品管理</a> | 
+	📝<a href="/JavaWebCart/product/order">商品訂購</a> | 
+	<span class="item-count">${ itemCount }</span> 🛒<a href="/JavaWebCart/product/cart">商品購物車</a> | 
+	📃<a href="/JavaWebCart/product/order/history">訂單歷史紀錄</a> |
+	📊<a href="/JavaWebCart/product/statistics">商品統計</a> |
 	 
-	📴<a href="/javaweb/user/logout">使用者登出</a> |
-	🎅<a href="/javaweb/user/register">使用者註冊</a> |
-	👦<a href="/javaweb/user/login">使用者登入</a> |
+	📴<a href="/JavaWebCart/user/logout">使用者登出</a> |
+	🎅<a href="/JavaWebCart/user/register">使用者註冊</a> |
+	👦<a href="/JavaWebCart/user/login">使用者登入</a> |
 	
 </div>
