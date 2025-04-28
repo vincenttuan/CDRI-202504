@@ -19,7 +19,7 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 			String hashPassword = HashUtil.hashPassword(password, hashSalt); // 取 hash 密碼
 			
 			// 建立 User 物件
-			// 注意 User 物件中部可以存放明碼 password 資料 (資訊安全)
+			// 注意 User 物件中不可以存放明碼 password 資料 (資訊安全)
 			User user = new User();
 			user.setUsername(username);;
 			user.setHashPassword(hashPassword);
