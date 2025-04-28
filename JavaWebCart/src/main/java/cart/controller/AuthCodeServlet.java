@@ -29,12 +29,23 @@ public class AuthCodeServlet extends HttpServlet {
 		}
 		return authcode.toString();
 	}
+	
+	private String generateAuthCode2() {
+	    String[] emojis = {"😀", "🚀", "🎉", "🐶", "🍕", "🌟", "🎵", "📚", "⚽", "🏖️"};
+	    StringBuilder authcode = new StringBuilder();
+	    Random random = new Random();
+	    for (int i = 0; i < 4; i++) {
+	        int index = random.nextInt(emojis.length); // 隨機選擇一個 emoji
+	        authcode.append(emojis[index]); // 加入到認證碼中
+	    }
+	    return authcode.toString();
+	}
 		
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Random random = new Random();
 		//String authcode = String.format("%04d", random.nextInt(10000)); // 0000~9999 的隨機數
-		String authcode = generateAuthCode();
+		String authcode = generateAuthCode2();
 		
 		ImageIO.write(getAuthCodeImage(authcode), "JPEG", resp.getOutputStream());
 	}
