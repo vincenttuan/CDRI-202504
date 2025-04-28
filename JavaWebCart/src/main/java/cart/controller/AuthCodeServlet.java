@@ -14,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/user/authcode")
 public class AuthCodeServlet extends HttpServlet {
@@ -46,6 +47,10 @@ public class AuthCodeServlet extends HttpServlet {
 		Random random = new Random();
 		String authcode = String.format("%04d", random.nextInt(10000)); // 0000~9999 的隨機數
 		//String authcode = generateAuthCode();
+		
+		// 將 authcode 存入到 HttpSession 屬性中
+		HttpSession session = req.getSession();
+		session.setAttribute("authcode", session);
 		
 		ImageIO.write(getAuthCodeImage(authcode), "JPEG", resp.getOutputStream());
 	}
