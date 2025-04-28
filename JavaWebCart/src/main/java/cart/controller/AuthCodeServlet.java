@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
@@ -19,7 +20,8 @@ public class AuthCodeServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String authcode = "1234";
+		Random random = new Random();
+		String authcode = String.format("%04d", random.nextInt(10000)); // 0000~9999 的隨機數
 		ImageIO.write(getAuthCodeImage(authcode), "JPEG", resp.getOutputStream());
 	}
 	
