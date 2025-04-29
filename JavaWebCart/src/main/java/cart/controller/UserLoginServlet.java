@@ -39,6 +39,7 @@ public class UserLoginServlet extends HttpServlet {
 			// 當登入資訊存入到 session 中
 			session.setAttribute("userDTO", userDTO);
 		} catch (RuntimeException e) {
+			session.removeAttribute("userDTO"); // 移除舊有的登入資訊
 			resultMessage = e.getMessage();
 		}
 		
