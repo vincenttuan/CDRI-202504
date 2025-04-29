@@ -29,7 +29,7 @@
 					<input name="password" type="password" placeholder="請輸入密碼" required />
 				</div>
 				<div class="pure-control-group" style="padding-bottom: 5px">
-					<label for="authcode">驗證碼</label>
+					<label for="authcode">🔢 驗證</label>
 					<input name="authcode" type="text" placeholder="請輸入驗證碼" required />
 					<img src="/JavaWebCart/user/authcode" valign="middle" title="驗證碼" alt="驗證碼" />
 				</div>
