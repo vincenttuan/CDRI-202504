@@ -20,7 +20,8 @@ public class LoginFilter extends HttpFilter {
 		// 根據 session 屬性是否有 userDTO 物件來判斷是否已經登入 ?
 		HttpSession session = request.getSession();
 		if(session.getAttribute("userDTO") == null) {
-			
+			// 重導到登入頁面
+			response.sendRedirect("/user/login");
 		} else {
 			// By pass
 			chain.doFilter(request, response);
