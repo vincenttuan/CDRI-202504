@@ -20,7 +20,7 @@
 	}
 </style>    
 <div style="background: #DDDDDD;padding: 20px">
-	${ username }&nbsp;&nbsp;&nbsp;&nbsp;
+	${ sessionScope.userDTO.username }&nbsp;&nbsp;&nbsp;&nbsp;
 	👨‍👨‍👧‍👧<a href="/JavaWebCart/user/list">使用者列表</a> | 
 	
 	📄<a href="/JavaWebCart/product/list">商品管理</a> | 
