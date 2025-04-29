@@ -21,7 +21,13 @@ public class LoginFilter extends HttpFilter {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("userDTO") == null) {
 			// 重導到登入頁面
-			response.sendRedirect("/JavaWebCart/user/login");
+			//response.sendRedirect("/JavaWebCart/user/login");
+			
+			// 給 result.jsp 的資訊
+			request.setAttribute("resultTitle", "請先登入");
+			request.setAttribute("resultMessage", "請先登入");
+			// 重導到 result.jsp
+			request.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(request, response);
 		} else {
 			// By pass
 			chain.doFilter(request, response);
