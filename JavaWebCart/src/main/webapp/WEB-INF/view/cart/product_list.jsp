@@ -57,7 +57,7 @@
 										<td align="right">${ productDTO.qty }</td>
 										<td align="right">${ productDTO.total }</td>
 										<td>
-											<img width="100" src="${empty productDTO.imageBase64 ? '' : 'data:image/png;base64,' += productDTO.imageBase64}" />
+											<img width="100" src="${empty productDTO.imageBase64 ? '' : 'data:image/png;base64,' + productDTO.imageBase64}" />
 										</td>
 										<td>
 											<a href="/javaweb/product/delete?productId=${ productDTO.productId }">刪除</a>
