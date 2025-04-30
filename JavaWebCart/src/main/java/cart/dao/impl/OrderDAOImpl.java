@@ -49,6 +49,7 @@ public class OrderDAOImpl extends BaseDao implements OrderDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return;
 		}
 		
 		// 扣抵庫存
