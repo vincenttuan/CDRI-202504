@@ -33,6 +33,16 @@ public class ProductAddServlet extends HttpServlet {
 		// 將 byte[] 轉 base64 字串方便儲存到資料庫中
 		String productImageBase64 = Base64.getEncoder().encodeToString(bytes);
 		
+		// 儲存
+		productService.add(productName, price, qty, productImageBase64);
+		
+		// 重導到 result.jsp
+		String message = String.format("商品新增成功<p/>商品名稱：%s<p/>商品價格：%s<p/>商品庫存：%s<p/>商品照片：%s<p/>", 
+				productName, price, qty, productImageBase64);
+		req.setAttribute("resultTitle", "商品新增");
+		req.setAttribute("resultMessage", message);
+		req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(req, resp);
+		
 	}
 	
 }
