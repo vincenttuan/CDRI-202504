@@ -51,6 +51,8 @@ public class OrderAddCartServlet extends HttpServlet {
 		
 		// 回到訂單主頁
 		resp.sendRedirect("/JavaWebCart/product/order");
+		
+		System.out.println(session.getAttribute("cart"));
 	}
 	
 	
