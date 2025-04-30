@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 public class EmailService {
 	
 	public static void main(String[] args) {
-		new EmailService().sendEmail("vincenttuan@gmail.com", "http://localhost:8080/JavaWebCart/");
+		new EmailService().sendEmail("gga99095@gmail.com", "http://localhost:8080/JavaWebCart/");
 	}
 	
 	// Google應用程式密碼
