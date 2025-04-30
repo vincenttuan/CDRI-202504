@@ -37,7 +37,32 @@ public class OrderDAOImpl extends BaseDao implements OrderDAO {
 
 	@Override
 	public void addOrderItem(Integer orderId, Integer productId, Integer quantity) {
-		// TODO Auto-generated method stub
+		String sql = "insert into order_item(order_id, product_id, quantity) values(?, ?, ?)";
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, orderId);
+			pstmt.setInt(2, productId);
+			pstmt.setInt(3, quantity);
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 扣抵庫存
+		sql = "update product set qty = qty - ? where product_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, quantity);
+			pstmt.setInt(2, productId);
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
