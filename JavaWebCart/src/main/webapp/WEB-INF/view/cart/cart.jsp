@@ -44,17 +44,7 @@
                                     <td align="center">${item.productId}</td>
                                     <td>${item.productName}</td>
                                     <td align="right">${item.price}</td>
-                                    <td>
-                                        <c:choose>
-                                            <c:when test="${not empty item.imageBase64}">
-                                                <img width="100" src="data:image/png;base64,${item.imageBase64}" />
-                                            </c:when>
-                                            <c:otherwise>
-                                                <img width="100" src="" />
-                                                <%-- 或顯示預設圖：src="default.png" --%>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
+                                    <td><img width="100" src="data:image/png;base64,${item.imageBase64}" /></td>
                                 </tr>
                             </c:forEach>
                             <!-- 總計 -->
