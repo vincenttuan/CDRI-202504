@@ -38,7 +38,7 @@
                                 <tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
                                     onmouseout="this.style.backgroundColor=''">
                                     <td>
-                                        X
+                                        <a href="/JavaWebCart/product/cart/item/delete?index=${ status.index }">X</a>
                                     </td>
                                     <td align="center">${status.index}</td>
                                     <td align="center">${item.productId}</td>
