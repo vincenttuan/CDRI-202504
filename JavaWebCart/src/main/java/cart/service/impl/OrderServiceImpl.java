@@ -1,11 +1,15 @@
 package cart.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cart.dao.OrderDAO;
 import cart.dao.impl.OrderDAOImpl;
 import cart.model.dto.OrderDTO;
+import cart.model.dto.OrderItemDTO;
 import cart.model.dto.ProductDTO;
+import cart.model.entity.Order;
+import cart.model.entity.OrderItem;
 import cart.service.OrderService;
 
 public class OrderServiceImpl implements OrderService {
@@ -25,8 +29,28 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<OrderDTO> findAllOrdersByUserId(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<OrderDTO> orderDTOs = new ArrayList<>();
+		// 取得該使用者的訂單主檔資訊
+		List<Order> orders = orderDAO.findAllOrdersByUserId(userId);
+		for(Order order : orders) {
+			// OrderDTO Mapping
+			OrderDTO orderDTO = new OrderDTO();
+			orderDTO.setOrderId(order.getOrderId());
+			orderDTO.setUserId(order.getUserId());
+			orderDTO.setOrderDate(order.getOrderDate());
+			// 明細
+			for(OrderItem item : orderDAO.findAllOrderItemsByOrderId(order.getOrderId())) {
+				// OrderItem 轉 OrderItemDTO
+				OrderItemDTO itemDTO = new OrderItemDTO();
+				itemDTO.setItemId(item.getItemId());
+				itemDTO.setOrderId(item.getOrderId());
+				itemDTO.setProductId(item.getProductId());
+				itemDTO.setQuantity(item.getQuantity());
+				// 注入
+				orderDTO.getItems().add(itemDTO);
+			}
+		}
+		return orderDTOs;
 	}
 
 }
