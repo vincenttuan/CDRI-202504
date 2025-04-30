@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpSession;
 public class CartItemDeleteServlet extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int index = Integer.parseInt(req.getParameter("index"));
 		HttpSession session = req.getSession();
 		if(session.getAttribute("cart") != null) {

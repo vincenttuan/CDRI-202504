@@ -38,7 +38,10 @@
                                 <tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
                                     onmouseout="this.style.backgroundColor=''">
                                     <td>
-                                        <a href="/JavaWebCart/product/cart/item/delete?index=${ status.index }">X</a>
+                                        <form method="post" action="/JavaWebCart/product/cart/item/delete">
+                                        	<input type="hidden" name="index" value="${ status.index }" />
+                                        	<input type="submit" value="X" />
+                                        </form>
                                     </td>
                                     <td align="center">${status.index}</td>
                                     <td align="center">${item.productId}</td>
