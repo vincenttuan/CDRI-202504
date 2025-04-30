@@ -19,7 +19,7 @@ public class CartServlet extends HttpServlet {
 		if(session.getAttribute("cart") == null) {
 			req.setAttribute("resultTitle", "購物車");
 			req.setAttribute("resultMessage", "購物車無任何商品");
-			req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp");
+			req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(req, resp);
 			return;
 		}
 		
