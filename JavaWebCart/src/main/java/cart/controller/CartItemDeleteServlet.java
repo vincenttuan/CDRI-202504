@@ -22,6 +22,7 @@ public class CartItemDeleteServlet extends HttpServlet {
 		if(session.getAttribute("cart") != null) {
 			List<OrderDTO> cart = (List<OrderDTO>)session.getAttribute("cart");
 			cart.remove(index);
+			// 回存給 session (可以不用加)
 			session.setAttribute("cart", cart);
 		}
 		
