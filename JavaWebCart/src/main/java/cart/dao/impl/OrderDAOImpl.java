@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import cart.dao.OrderDAO;
@@ -69,7 +70,26 @@ public class OrderDAOImpl extends BaseDao implements OrderDAO {
 
 	@Override
 	public List<Order> findAllOrdersByUserId(Integer userId) {
-		// TODO Auto-generated method stub
+		List<Order> orders = new ArrayList<>();
+		String sql = "select order_id, user_id, order_date from `order` where user_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, userId);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				while (rs.next()) {
+					// Mapping
+					Order order = new Order();
+					order.setOrderId(rs.getInt("order_id"));
+					order.setUserId(rs.getInt("user_id"));
+					order.setOrderDate(rs.getDate("order_date"));
+					// 注入到 orders 集合中
+					orders.add(order);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
