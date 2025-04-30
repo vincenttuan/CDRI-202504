@@ -37,7 +37,7 @@ public class ProductAddServlet extends HttpServlet {
 		productService.add(productName, price, qty, productImageBase64);
 		
 		// 重導到 result.jsp
-		String message = String.format("商品新增成功<p/>商品名稱：%s<p/>商品價格：%s<p/>商品庫存：%s<p/>商品照片：%s<p/>", 
+		String message = String.format("商品新增成功<p/>商品名稱：%s<p/>商品價格：%s<p/>商品庫存：%s<p/>商品照片：<img src='data:image/png;base64,%s'><p/>", 
 				productName, price, qty, productImageBase64);
 		req.setAttribute("resultTitle", "商品新增");
 		req.setAttribute("resultMessage", message);
