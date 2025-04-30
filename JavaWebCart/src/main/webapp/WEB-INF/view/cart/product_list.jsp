@@ -25,7 +25,7 @@
 				<td valign="top">
 					<fieldset>
 						<legend>商品表單</legend>
-						<form enctype="multipart/form-data" method="post" action="/JavaWwebCart/product/add">
+						<form enctype="multipart/form-data" method="post" action="/JavaWebCart/product/add">
 							商品名稱：<input type="text" id="productName" name="productName" required="true"><p />
 							商品價格：<input type="number" id="price" name="price" required="true" min="1" max="200"><p />
 							商品庫存：<input type="number" id="qty" name="qty" required="true" min="1" max="999999"><p />
@@ -60,7 +60,7 @@
 											<img width="100" src="${empty productDTO.imageBase64 ? '' : 'data:image/png;base64,' + productDTO.imageBase64}" />
 										</td>
 										<td>
-											<a href="/javaweb/product/delete?productId=${ productDTO.productId }">刪除</a>
+											<a href="/JavaWebCart/product/delete?productId=${ productDTO.productId }">刪除</a>
 										</td>
 									</tr>
 								</c:forEach>
