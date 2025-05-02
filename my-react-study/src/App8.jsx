@@ -16,7 +16,7 @@ function App() {
     ];
 
     // 計算價格總和
-    const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
+    const totalPrice = products.reduce((sum, product) => sum + product.price*product.qty, 0);
 
     return(
         <>
@@ -29,16 +29,19 @@ function App() {
                 </thead>
                 <tbody>
                     {
-                        products.map((product) => (
-                            <tr key={product.id}>
-                                <td>{product.id}</td>
-                                <td>{product.name}</td>
-                                <td align="right">{product.price}</td>
-                                <td align="right">{product.qty}</td>
-                                <td align="right">0</td>
-                                <td>{product.category}</td>
-                            </tr>
-                        ))
+                        products.map((product) => {
+                            const subtotal = product.price * product.qty;
+                            return (
+                                <tr key={product.id}>
+                                    <td>{product.id}</td>
+                                    <td>{product.name}</td>
+                                    <td align="right">{product.price}</td>
+                                    <td align="right">{product.qty}</td>
+                                    <td align="right">{subtotal}</td>
+                                    <td>{product.category}</td>
+                                </tr>
+                            );
+                        })
                     }
                 </tbody>
                 <tfoot>
