@@ -1,3 +1,7 @@
+// 建立組件有二種寫法 
+// 1. function
+// 2. () => 函數式
+
 // 子組件
 function Hello() {
     return (
@@ -6,7 +10,7 @@ function Hello() {
 }
 
 // 子組件
-function World() {
+const World = () => {
     return (
         <h1>World</h1>
     )
