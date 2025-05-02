@@ -8,9 +8,12 @@ function App() {
     ]
 
     // 陣列過濾
+    /*
     const filterItems = items.filter((item) => {
         return item.price > 25;
     })
+    */
+    const filterItems = items.filter((item) => item.price > 25)
 
     // 陣列 map
     const items2 = filterItems.map((item, index) => (
@@ -19,7 +22,6 @@ function App() {
                 </div>
     ))
     
-
     return (
         <>
             {items2}
