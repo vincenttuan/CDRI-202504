@@ -8,10 +8,14 @@ function App() {
     const handleInputChange = (e) => {
         // e.target.value 是 input 欄位的內容
         console.log(e.target.value)
-        // 若使用者輸入的是 enter 則自動呼叫 handleAddMessage()
-        
         setInputMessage(e.target.value);
+    }
 
+    const handleKeyDown = (e) => {
+        // 若使用者輸入的是 enter 則自動呼叫 handleAddMessage()
+        if(e.key === 'Enter') {
+            handleAddMessage();
+        }
     }
 
     const handleAddMessage = () => {
@@ -20,7 +24,7 @@ function App() {
     }
 
     return(<>
-        <input type='text' value={inputMessage} onChange={handleInputChange} />
+        <input type='text' value={inputMessage} onChange={handleInputChange} onKeyDown={handleKeyDown} />
         <button onClick={handleAddMessage}>Send</button><p />
         {messages}
         <p />
