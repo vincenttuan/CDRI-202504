@@ -8,6 +8,8 @@ function App() {
     const handleInputChange = (e) => {
         // e.target.value 是 input 欄位的內容
         console.log(e.target.value)
+        // 若使用者輸入的是 enter 則自動呼叫 handleAddMessage()
+        
         setInputMessage(e.target.value);
 
     }
