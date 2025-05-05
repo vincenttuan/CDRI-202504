@@ -38,7 +38,7 @@ function App() {
             <ul>
                 {
                     todos.map((todo) => (
-                        <li key={todo.id}>
+                        <li key={todo.id} style={{textDecoration: todo.completed ? 'line-through': 'none'}}>
                             {todo.id}
                             <input type="checkbox" 
                                    onChange={() =>toggleCompletion(todo.id)} 
