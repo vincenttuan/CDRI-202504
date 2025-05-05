@@ -10,9 +10,9 @@ function App() {
                 <button>加入</button>
             </div>
             <ul>
-                <li>吃早餐</li>
-                <li>做體操</li>
-                <li>寫程式</li>
+                <li><input type="checkbox" />吃早餐</li>
+                <li><input type="checkbox" />做體操</li>
+                <li><input type="checkbox" />寫程式</li>
             </ul>
         </>
     )
