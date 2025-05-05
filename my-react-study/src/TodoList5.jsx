@@ -10,6 +10,7 @@ src/
 import './App.css'
 import { useState } from 'react';
 import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
 
 function App() {
 
@@ -45,27 +46,15 @@ function App() {
     return (
         <>
             <h1>My TodoList</h1>
+            
             <TodoInput todo={todo} 
                        handleTodoChange={handleTodoChange} 
                        handleTodoAdd={handleTodoAdd} />
 
-            <ul>
-                {
-                    todos.map((todo) => (
-                        <li key={todo.id} style={{textDecoration: todo.completed ? 'line-through': 'none'}}>
-                            {todo.id}
-
-                            <input type="checkbox" 
-                                   onChange={() => toggleCompletion(todo.id)} 
-                                   checked={todo.completed} />
-
-                            {todo.text}
-
-                            <button onClick={() => handleTodoDelete(todo.id)}>X</button>
-                        </li>
-                    ))
-                }
-            </ul>
+            <TodoList todos={todos} 
+                      toggleCompletion={toggleCompletion} 
+                      handleTodoDelete={handleTodoDelete} />
+            
         </>
     )
 }
