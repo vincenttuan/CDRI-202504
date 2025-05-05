@@ -22,6 +22,12 @@ function App() {
         setTodo(''); // 清空欄位資料
     }
 
+    const toggleCompletion = (id) => {
+        setTodos(
+            todos.map((todo) => todo.id === id ? {...todo, completed: !todo.completed} : todo)
+        )
+    }
+
     return (
         <>
             <h1>My TodoList</h1>
@@ -34,7 +40,9 @@ function App() {
                     todos.map((todo) => (
                         <li key={todo.id}>
                             {todo.id}
-                            <input type="checkbox" checked={todo.completed} />
+                            <input type="checkbox" 
+                                   onChange={() =>toggleCompletion(todo.id)} 
+                                   checked={todo.completed} />
                             {todo.text}
                         </li>
                     ))
