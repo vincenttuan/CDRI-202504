@@ -16,7 +16,9 @@ function App() {
     }
 
     const handleTodoAdd = () => {
-        setTodos([...todos, todo]);
+        const newId = todos.length > 0 ? Math.max(...todos.map((t)=>t.id)) + 1 : 1;
+        const newTodo = {id:newId, text:todo, completed:false};
+        setTodos([...todos, newTodo]);
         setTodo(''); // 清空欄位資料
     }
 
