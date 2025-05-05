@@ -1,14 +1,15 @@
 /* TodoList 拆分模組練習
 src/
 ├── components/
-│   ├── TodoInput.js
-│   ├── TodoItem.js
-│   └── TodoList.js
-├── TodoList5.js
+│   ├── TodoInput.jsx
+│   ├── TodoItem.jsx
+│   └── TodoList.jsx
+├── TodoList5.jsx
 ├── App.css
 */
 import './App.css'
 import { useState } from 'react';
+import TodoInput from './components/TodoInput';
 
 function App() {
 
@@ -44,10 +45,10 @@ function App() {
     return (
         <>
             <h1>My TodoList</h1>
-            <div>
-                <input type='text' value={todo} onChange={handleTodoChange} />
-                <button onClick={handleTodoAdd}>加入</button>
-            </div>
+            <TodoInput todo={todo} 
+                       handleTodoChange={handleTodoChange} 
+                       handleTodoAdd={handleTodoAdd} />
+
             <ul>
                 {
                     todos.map((todo) => (
