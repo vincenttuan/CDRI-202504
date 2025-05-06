@@ -8,6 +8,7 @@ function Cart() {
 
   const handleAdd = () => {
     const newItem = { name, price: Number(price) };
+    //const newItem = { name, price: price*1 };
     setItems([...items, newItem]);
     setName("");
     setPrice("");
@@ -35,15 +36,20 @@ function Cart() {
 
       <h3>購物車內容:</h3>
       <ul>
-        {items.length === 0 ? (
-          <li>無商品</li>
-        ) : (
-          items.map((item, index) => (
-            <li key={index}>
-              {index + 1}. {item.name} - ${item.price}
-            </li>
-          ))
-        )}
+        {
+            items.length === 0 ? 
+            (
+                <li>無商品</li>
+            )
+            : 
+            (
+                items.map((item, index) => (
+                    <li key={index}>
+                        {index + 1}. {item.name} - ${item.price}
+                    </li>
+                ))
+            )
+        }
       </ul>
 
       <h3>總金額: {total}</h3>
