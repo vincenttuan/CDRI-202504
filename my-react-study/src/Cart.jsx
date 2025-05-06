@@ -16,7 +16,7 @@ function Cart() {
 
   const handleDelete = (index) => {
     // 利用 filter 來過濾不需要的資料
-    // i 是指 index, 無非 Item 裡面有另外設計 id (請參考 TodoList 練習)
+    // i 是指 index, 除非 Item 裡面有另外設計 id (請參考 TodoList 練習)
     setItems(items.filter((item, i) => i !== index));
   }
 
