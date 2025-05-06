@@ -49,6 +49,10 @@ function Cart() {
 
   const total = items.reduce((sum, item) => sum + item.price, 0);
 
+  const handleCheckout = () => {
+    
+  }
+
   return (
     <div>
       <h2>簡易購物車</h2>
@@ -97,6 +101,9 @@ function Cart() {
       </ul>
 
       <h3>總金額: {total}</h3>
+
+      <button onClick={handleCheckout}>結帳</button>
+
     </div>
   );
 }
