@@ -14,6 +14,11 @@ function Cart() {
     setPrice("");
   };
 
+  const handleDelete = (index) => {
+    // 利用 filter 來過濾不需要的資料
+    setItems(items.filter((_, i) => i !== index));
+  }
+
   const total = items.reduce((sum, item) => sum + item.price, 0);
 
   return (
@@ -46,6 +51,7 @@ function Cart() {
                 items.map((item, index) => (
                     <li key={index}>
                         {index + 1}. {item.name} - ${item.price}
+                        <button onClick={() => handleDelete(index)}>X</button>
                     </li>
                 ))
             )
