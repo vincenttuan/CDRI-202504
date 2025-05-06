@@ -63,7 +63,7 @@ function Cart() {
       body: JSON.stringify({
         items,
         total,
-        createdAt: new Date().toDateString()
+        createdAt: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString()
       })
     })
     .then(res => res.json())
