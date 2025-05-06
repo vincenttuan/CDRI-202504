@@ -9,6 +9,9 @@ src/
 */
 import './App.css'
 import React, { useState, useEffect } from "react";
+import ProductSelector from './components/ProductSelector';
+import CartList from './components/CartList';
+import TotalAmount from './components/TotalAmount';
 
 function Cart() {
 
@@ -89,15 +92,7 @@ function Cart() {
   return (
     <div>
       <h2>簡易購物車</h2>
-      <select onChange={handleSelectChange}>
-        {
-          products.map((p) => (
-            <option key={p.id} value={p.name}>
-              {p.name} ${p.price}
-            </option>
-          ))    
-        }
-      </select>
+      <ProductSelector products={products} handleSelectChange={handleSelectChange} />
       <br />
       <input
         value={name}
@@ -114,26 +109,9 @@ function Cart() {
       <p />
       <button onClick={handleAdd}>新增</button>
 
-      <h3>購物車內容:</h3>
-      <ul>
-        {
-            items.length === 0 ? 
-            (
-                <li>無商品</li>
-            )
-            : 
-            (
-                items.map((item, index) => (
-                    <li key={index}>
-                        {index + 1}. {item.name} - ${item.price}
-                        <button onClick={() => handleDelete(index)}>X</button>
-                    </li>
-                ))
-            )
-        }
-      </ul>
+      <CartList items={items} handleDelete={handleDelete} />
 
-      <h3>總金額: {total}</h3>
+      <TotalAmount total={total} />
 
       <button onClick={handleCheckout}>結帳</button>
 
