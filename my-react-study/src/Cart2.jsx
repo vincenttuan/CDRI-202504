@@ -27,11 +27,28 @@ function Cart() {
     setItems(items.filter((item, i) => i !== index));
   }
 
+  const handleSelectChange = (e) => {
+    const selectedName = e.target.value;
+    const selectedProduct = products.find(p => p.name === selectedName);
+    setName(selectedProduct.name);
+    setPrice(selectedProduct.price);
+  }
+
   const total = items.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div>
       <h2>簡易購物車</h2>
+      <select onChange={handleSelectChange}>
+        {
+          products.map((p, i) => (
+            <option key={i} value={p.name}>
+              {p.name} ${p.price}
+            </option>
+          ))    
+        }
+      </select>
+      <br />
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}
