@@ -9,8 +9,8 @@ function Cart() {
   const handleAdd = () => {
     const newItem = { name, price: Number(price) };
     setItems([...items, newItem]);
-    setName("蘋果");
-    setPrice("50");
+    setName("");
+    setPrice("");
   };
 
   const total = items.reduce((sum, item) => sum + item.price, 0);
