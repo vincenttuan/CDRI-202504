@@ -50,7 +50,31 @@ function Cart() {
   const total = items.reduce((sum, item) => sum + item.price, 0);
 
   const handleCheckout = () => {
-    
+    if(items.length === 0) {
+      alert('購物車是空的');
+      return;
+    }
+
+    fetch("http://localhost:3000/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        items,
+        total,
+        createdAt: new Date().toDateString()
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert("結帳成功");
+      setItems([]); // 清空購物車
+    })
+    .catch(err => {
+      console.log("結帳失敗:". err);
+      alert("結帳失敗");
+    });
   }
 
   return (
