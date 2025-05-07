@@ -18,8 +18,6 @@ public class Grouping {
 		
 		Map<String, Long> result = fruits.stream().collect(groupingBy(identity(), counting()));
 		System.out.println(result);
-		
-
 	}
 
 }
