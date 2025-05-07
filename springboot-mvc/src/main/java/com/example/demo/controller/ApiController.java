@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController // 免去撰寫 @ResponseBody, 但若要透過 jsp 渲染則不適用
@@ -30,6 +31,14 @@ public class ApiController {
 	 * 結果: Hi Mary, 0 (未成年)
 	 * 限制: name 參數一定要加, age 為可選參數(有初始值 0)
 	 * */
+	@GetMapping("/greet")
+	public String greet(@RequestParam(value = "name", required = true) String username,
+						@RequestParam(value = "age", required = false, defaultValue = "0") Integer userage) {
+		
+		String result = String.format("Hi %s %d (%s)", 
+				username, userage, userage >= 18 ? "成年" : "未成年");
+		return result;
+	}
 	
 	
 }
