@@ -55,7 +55,32 @@ public class ApiController {
 	 * 4. Lab 練習 I
 	 * 路徑: /bmi?h=170&w=60
 	 * 網址: http://localhost:8080/api/bmi?h=170&w=60
-	 * 執行結果: bmi = 20.76
+	 * 執行結果: 
+	 * {
+	 *   "status": 200,
+	 *   "message": "BMI 計算成功",
+	 *   "data": {
+	 *     "height": 170.0,
+	 *     "weight": 60.0,
+	 *     "bmi": 20.76
+	 *   }
+	 * }
 	 * */
+	@GetMapping("/bmi")
+	public String calcBmi(@RequestParam double h, @RequestParam double w) {
+		double bmi = w / Math.pow(h/100, 2);
+		return """
+				{
+				  "status": 200,
+				  "message": "BMI 計算成功",
+				  "data": {
+				    "height": %.1f,
+				    "weight": %.1f,
+				    "bmi": %.2f
+				  }
+				}
+			   """.formatted(h, w, bmi);
+	}
+	
 	
 }
