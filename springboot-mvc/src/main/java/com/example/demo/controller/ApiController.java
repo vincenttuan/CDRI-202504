@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -70,13 +71,13 @@ public class ApiController {
 	 * }
 	 * */
 	@GetMapping(value = "/bmi", produces = "application/json;charset=utf-8")
-	public ApiResponse<BMI> calcBmi(@RequestParam(required = false) Double h, 
+	public ResponseEntity<ApiResponse<BMI>> calcBmi(@RequestParam(required = false) Double h, 
 						            @RequestParam(required = false) Double w) {
 		if(h == null || w == null) {
-			return ApiResponse.error(400, "請提供身高(h)或體重(w)");
+			return ResponseEntity.badRequest().body(ApiResponse.error("請提供身高(h)或體重(w)"));
 		}
 		double bmi = w / Math.pow(h/100, 2);
-		return ApiResponse.success("BMI 計算成功", new BMI(h, w, bmi));
+		return ResponseEntity.ok(ApiResponse.success("BMI 計算成功", new BMI(h, w, bmi)));
 	}
 	
 	
