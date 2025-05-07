@@ -16,4 +16,10 @@ public class HelloController {
 		return "Hello " + new Date();
 	}
 	
+	@GetMapping("/hi")
+	@ResponseBody
+	public String hi() {
+		return "Hi " + new Date();
+	}
+	
 }
