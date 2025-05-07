@@ -49,6 +49,7 @@ public class ApiController {
 		String result = String.format("Hi %s %d (%s)", 
 								name, age, age >= 18 ? "成年" : "未成年");
 		return result;
+		
 	}
 	
 }
