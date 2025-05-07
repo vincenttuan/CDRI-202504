@@ -40,5 +40,15 @@ public class ApiController {
 		return result;
 	}
 	
+	// 3. 上述 2 的精簡寫法
+	// 方法參數名與請求參數名相同
+	@GetMapping("/greet2")
+	public String greet2(@RequestParam String name,
+						 @RequestParam(defaultValue = "0") Integer age) {
+
+		String result = String.format("Hi %s %d (%s)", 
+								name, age, age >= 18 ? "成年" : "未成年");
+		return result;
+	}
 	
 }
