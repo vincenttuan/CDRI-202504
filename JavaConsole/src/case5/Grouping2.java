@@ -19,9 +19,9 @@ public class Grouping2 {
 		);
 		System.out.println(students);
 		
-		// 利用 gender 來分組
+		// 利用 gender 來分組每組有幾人
 		
-		// 利用 grade 來分組
+		// 利用 grade 來分組每組有幾人
 				
 	}
 
