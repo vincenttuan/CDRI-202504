@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.BMI;
+import com.example.demo.response.ApiResponse;
+
 @RestController // 免去撰寫 @ResponseBody, 但若要透過 jsp 渲染則不適用
 @RequestMapping("/api") // 以下路徑統一都有 URL 前綴 "/api"
 public class ApiController {
@@ -67,29 +70,13 @@ public class ApiController {
 	 * }
 	 * */
 	@GetMapping(value = "/bmi", produces = "application/json;charset=utf-8")
-	public String calcBmi(@RequestParam(required = false) Double h, 
+	public ApiResponse calcBmi(@RequestParam(required = false) Double h, 
 						  @RequestParam(required = false) Double w) {
 		if(h == null || w == null) {
-			return """
-					{
-					  "status": 400,
-					  "message": "請提供身高(h)或體重(w)",
-					  "data": null
-					}
-				   """;
+			return ApiResponse.error(400, "請提供身高(h)或體重(w)");
 		}
 		double bmi = w / Math.pow(h/100, 2);
-		return """
-				{
-				  "status": 200,
-				  "message": "BMI 計算成功",
-				  "data": {
-				    "height": %.1f,
-				    "weight": %.1f,
-				    "bmi": %.2f
-				  }
-				}
-			   """.formatted(h, w, bmi);
+		return ApiResponse.success("BMI 計算成功", new BMI(h, w, bmi));
 	}
 	
 	
