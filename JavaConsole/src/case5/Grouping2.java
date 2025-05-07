@@ -11,15 +11,17 @@ public class Grouping2 {
 
 	public static void main(String[] args) {
 		List<Map> students = List.of(
-				Map.of("gender", "男", "score", 100),
-				Map.of("gender", "男", "score", 50),
-				Map.of("gender", "女", "score", 40),
-				Map.of("gender", "女", "score", 80),
-				Map.of("gender", "男", "score", 90)
+				Map.of("gender", "男", "grade", "A"),
+				Map.of("gender", "男", "grade", "B"),
+				Map.of("gender", "女", "grade", "C"),
+				Map.of("gender", "女", "grade", "B"),
+				Map.of("gender", "男", "grade", "A")
 		);
+		System.out.println(students);
+		
 		// 利用 gender 來分組
 		
-		// 利用 score 來分組
+		// 利用 grade 來分組
 				
 	}
 
