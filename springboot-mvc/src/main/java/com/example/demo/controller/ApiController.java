@@ -90,9 +90,12 @@ public class ApiController {
 	 * 請計算出平均年齡
 	 * */
 	@GetMapping(value = "/age", produces = "application/json;charset=utf-8")
-	public ResponseEntity<ApiResponse<Object>> getAverage(@RequestParam("age") List<String> ages) {
+	public ResponseEntity<ApiResponse<Object>> getAverage(@RequestParam(name = "age", required = false) List<String> ages) {
+		if(ages == null || ages.size() == 0) {
+			return ResponseEntity.badRequest().body(ApiResponse.error("請輸入年齡(age)"));
+		}
 		double avg = ages.stream().mapToInt(Integer::parseInt).average().orElseGet(() -> 0);
-		Object map = Map.of("平均年齡", String.format("%.1f", avg));
+		Object map = Map.of("年齡", ages, "平均年齡", String.format("%.1f", avg));
 		return ResponseEntity.ok(ApiResponse.success("計算成功", map));
 	}
 	
