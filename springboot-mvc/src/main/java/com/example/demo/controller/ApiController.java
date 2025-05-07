@@ -11,8 +11,8 @@ public class ApiController {
 	
 	/**
 	 * 1. 首頁
-	 * 路徑: /api/home
-	 * 路徑: /api/
+	 * 路徑: /home
+	 * 路徑: /
 	 * 網址: http://localhost:8080/api/home
 	 * 網址: http://localhost:8080/api/
 	 * */
