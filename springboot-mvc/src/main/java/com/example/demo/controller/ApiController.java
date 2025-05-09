@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.BMI;
+import com.example.demo.model.Book;
 import com.example.demo.response.ApiResponse;
 
 @RestController // 免去撰寫 @ResponseBody, 但若要透過 jsp 渲染則不適用
@@ -143,6 +144,15 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("回應成功", bookMap));
 	}
 	
+	/* 8. 多筆參數轉指定 model 物件
+	 * 路徑: 承上
+	 * 網址: 承上
+	 * */
+	@GetMapping(value = "/book2", produces = "application/json;charset=utf-8")
+	public ResponseEntity<ApiResponse<Object>> getBookInfo2(Book book) {
+		System.out.println(book);
+		return ResponseEntity.ok(ApiResponse.success("回應成功", book));
+	}
 	
 	
 	
