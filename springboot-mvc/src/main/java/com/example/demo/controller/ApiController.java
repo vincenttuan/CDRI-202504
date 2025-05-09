@@ -185,7 +185,8 @@ public class ApiController {
 				new Book(4, "尼羅河的女兒", 14.5, 50, true)
 		);
 		// 根據 id 搜尋該筆書籍
-		Optional<Book> optBook = books.stream().filter(book -> book.getId().equals(id)).findFirst();
+		Optional<Book> optBook = books.stream()
+									  .filter(book -> book.getId().equals(id)).findFirst();
 		// 判斷是否有找到
 		if(optBook.isEmpty()) {
 			return ResponseEntity.badRequest().body(ApiResponse.error("查無此書"));
