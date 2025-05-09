@@ -220,6 +220,7 @@ public class ApiController {
 				new Book(3, "好小子", 8.5, 40, true),
 				new Book(4, "尼羅河的女兒", 14.5, 50, true)
 		);
+		// 過濾出刊/停刊
 		List<Book> queryBooks = books.stream()
 									 .filter(book -> book.getPub().equals(isPub))
 									 .toList();
