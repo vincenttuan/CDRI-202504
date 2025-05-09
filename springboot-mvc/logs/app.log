@@ -231,3 +231,113 @@
 2025-05-09T10:38:55.138+08:00  INFO 3852 --- [springboot-mvc] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-05-09T10:38:55.138+08:00  INFO 3852 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-05-09T10:38:55.139+08:00  INFO 3852 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-05-09T10:43:02.656+08:00  INFO 3852 --- [springboot-mvc] [RMI TCP Connection(15)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-05-09T10:43:02.657+08:00  INFO 3852 --- [springboot-mvc] [RMI TCP Connection(15)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-09T10:43:02.659+08:00  INFO 3852 --- [springboot-mvc] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-09T10:43:02.660+08:00  INFO 3852 --- [springboot-mvc] [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-09T10:43:02.664+08:00  INFO 3852 --- [springboot-mvc] [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-09T10:43:03.862+08:00  INFO 12104 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Starting SpringbootMvcApplication using Java 21.0.6 with PID 12104 (E:\EclipseProject\springboot-mvc\target\classes started by NTPU in E:\EclipseProject\springboot-mvc)
+2025-05-09T10:43:03.863+08:00  INFO 12104 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-09T10:43:04.151+08:00  INFO 12104 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-05-09T10:43:04.161+08:00  INFO 12104 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+2025-05-09T10:43:04.364+08:00  INFO 12104 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-09T10:43:04.372+08:00  INFO 12104 --- [springboot-mvc] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-09T10:43:04.373+08:00  INFO 12104 --- [springboot-mvc] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-09T10:43:04.472+08:00  INFO 12104 --- [springboot-mvc] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-05-09T10:43:04.475+08:00  INFO 12104 --- [springboot-mvc] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-09T10:43:04.476+08:00  INFO 12104 --- [springboot-mvc] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 592 ms
+2025-05-09T10:43:04.536+08:00  INFO 12104 --- [springboot-mvc] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-09T10:43:04.686+08:00  INFO 12104 --- [springboot-mvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-09T10:43:04.778+08:00  INFO 12104 --- [springboot-mvc] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@24134cbc
+2025-05-09T10:43:04.779+08:00  INFO 12104 --- [springboot-mvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-09T10:43:04.866+08:00  INFO 12104 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-09T10:43:04.871+08:00  INFO 12104 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Started SpringbootMvcApplication in 1.219 seconds (process running for 1.527)
+2025-05-09T10:43:06.385+08:00  INFO 12104 --- [springboot-mvc] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-09T10:43:06.386+08:00  INFO 12104 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-09T10:43:06.386+08:00  INFO 12104 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-05-09T10:46:21.807+08:00  INFO 12104 --- [springboot-mvc] [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-05-09T10:46:21.808+08:00  INFO 12104 --- [springboot-mvc] [RMI TCP Connection(11)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-09T10:46:21.811+08:00  INFO 12104 --- [springboot-mvc] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-09T10:46:21.812+08:00  INFO 12104 --- [springboot-mvc] [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-09T10:46:21.816+08:00  INFO 12104 --- [springboot-mvc] [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-09T10:46:22.837+08:00  INFO 12852 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Starting SpringbootMvcApplication using Java 21.0.6 with PID 12852 (E:\EclipseProject\springboot-mvc\target\classes started by NTPU in E:\EclipseProject\springboot-mvc)
+2025-05-09T10:46:22.838+08:00  INFO 12852 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-09T10:46:23.119+08:00  INFO 12852 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-05-09T10:46:23.129+08:00  INFO 12852 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+2025-05-09T10:46:23.330+08:00  INFO 12852 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-09T10:46:23.338+08:00  INFO 12852 --- [springboot-mvc] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-09T10:46:23.338+08:00  INFO 12852 --- [springboot-mvc] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-09T10:46:23.437+08:00  INFO 12852 --- [springboot-mvc] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-05-09T10:46:23.441+08:00  INFO 12852 --- [springboot-mvc] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-09T10:46:23.441+08:00  INFO 12852 --- [springboot-mvc] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 582 ms
+2025-05-09T10:46:23.498+08:00  INFO 12852 --- [springboot-mvc] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-09T10:46:23.650+08:00  INFO 12852 --- [springboot-mvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-09T10:46:23.739+08:00  INFO 12852 --- [springboot-mvc] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6d0e45a5
+2025-05-09T10:46:23.740+08:00  INFO 12852 --- [springboot-mvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-09T10:46:23.826+08:00  INFO 12852 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-09T10:46:23.830+08:00  INFO 12852 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Started SpringbootMvcApplication in 1.202 seconds (process running for 1.516)
+2025-05-09T10:46:29.407+08:00  INFO 12852 --- [springboot-mvc] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-09T10:46:29.407+08:00  INFO 12852 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-09T10:46:29.408+08:00  INFO 12852 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-05-09T10:46:29.433+08:00 ERROR 12852 --- [springboot-mvc] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.core.annotation.AnnotationConfigurationException: Different @AliasFor mirror values for annotation [org.springframework.web.bind.annotation.PathVariable] declared on public org.springframework.http.ResponseEntity com.example.demo.controller.ApiController.getBookById(java.lang.Integer); attribute 'name' and its alias 'value' are declared with values of [id] and [1].] with root cause
+
+org.springframework.core.annotation.AnnotationConfigurationException: Different @AliasFor mirror values for annotation [org.springframework.web.bind.annotation.PathVariable] declared on public org.springframework.http.ResponseEntity com.example.demo.controller.ApiController.getBookById(java.lang.Integer); attribute 'name' and its alias 'value' are declared with values of [id] and [1].
+	at org.springframework.core.annotation.AnnotationTypeMapping$MirrorSets$MirrorSet.resolve(AnnotationTypeMapping.java:790) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.AnnotationTypeMapping$MirrorSets.resolve(AnnotationTypeMapping.java:745) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.TypeMappedAnnotation.<init>(TypeMappedAnnotation.java:128) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.TypeMappedAnnotation.<init>(TypeMappedAnnotation.java:112) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.TypeMappedAnnotation.from(TypeMappedAnnotation.java:609) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.MergedAnnotation.from(MergedAnnotation.java:550) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotation(AnnotationUtils.java:1229) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotationArray(AnnotationUtils.java:1315) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.SynthesizingMethodParameter.adaptAnnotationArray(SynthesizingMethodParameter.java:104) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.MethodParameter.getParameterAnnotations(MethodParameter.java:651) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.annotation.AnnotatedMethod$AnnotatedMethodParameter.getParameterAnnotations(AnnotatedMethod.java:295) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.MethodParameter.getParameterAnnotation(MethodParameter.java:674) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.core.MethodParameter.hasParameterAnnotation(MethodParameter.java:689) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.web.method.annotation.ModelFactory.findSessionAttributeArguments(ModelFactory.java:181) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.method.annotation.ModelFactory.initModel(ModelFactory.java:113) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:970) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.40.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.40.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+

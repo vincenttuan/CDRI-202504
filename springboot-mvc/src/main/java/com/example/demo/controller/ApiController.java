@@ -174,6 +174,14 @@ public class ApiController {
 	 * 路徑: /book/3 得到 id = 3 的書
 	 * 網址: http://localhost:8080/api/book/1
 	 * 網址: http://localhost:8080/api/book/3
+	 * 
+	 * @PathVariable(name = "id") Integer id
+	 * 等價於
+	 * @PathVariable(value = "id") Integer id
+	 * 也等價於
+	 * @PathVariable("id") Integer id
+	 * ps: 就只是符合不同開發者的需要 !
+	 * 
 	 * */
 	@GetMapping(value = "/book/{id}", produces = "application/json;charset=utf-8")
 	//public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable(name = "id") Integer id) {
