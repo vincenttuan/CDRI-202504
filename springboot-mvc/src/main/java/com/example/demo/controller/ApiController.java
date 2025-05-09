@@ -135,7 +135,7 @@ public class ApiController {
 	 * 路徑: /book?name=English&price=10.5&amount=20&pub=false
 	 * 網址: http://localhost:8080/api/book?name=Math&price=12.5&amount=10&pub=true
 	 * 網址: http://localhost:8080/api/book?name=English&price=10.5&amount=20&pub=false
-	 * 讓參數自動轉成 Map 集合
+	 * 讓參數自動轉成 key/value 的 Map 集合
 	 * */
 	@GetMapping("/book")
 	public ResponseEntity<ApiResponse<Object>> getBookInfo(@RequestParam Map<String, Object> bookMap) {
