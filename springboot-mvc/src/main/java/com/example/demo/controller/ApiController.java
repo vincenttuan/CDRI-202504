@@ -176,8 +176,9 @@ public class ApiController {
 	 * 網址: http://localhost:8080/api/book/3
 	 * */
 	@GetMapping(value = "/book/{id}", produces = "application/json;charset=utf-8")
-	public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable(name = "id") Integer id) {
-		// 書庫
+	//public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable(name = "id") Integer id) {
+	public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable Integer id) {
+				// 書庫
 		List<Book> books = List.of(
 				new Book(1, "機器貓小叮噹", 12.5, 20, false),
 				new Book(2, "老夫子", 10.5, 30, false),
