@@ -204,5 +204,9 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
 	}
 	
+	/**
+	 * 請利用"路徑參數"設計出可以只顯示出刊或停刊的設計風格與方法
+	 * 
+	 * */
 		
 }
