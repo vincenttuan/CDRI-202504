@@ -18,6 +18,7 @@ public class GlobalExceptionHandler {
 		String errorMessage = e.toString();
 		switch (e.getClass().getSimpleName()) {
 			case "MethodArgumentTypeMismatchException": 
+			case "MethodArgumentNotValidException":
 				errorMessage = "參數錯誤(" + e.getClass().getSimpleName() + ")";
 				break;
 			case "NoResourceFoundException":
