@@ -1,10 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Spring AI Ollama</title>
+		</head>
+	<body>
+		<h1>Spring AI Ollama</h1>
+		問題:<br />
+		<textarea rows="3" cols="50" id="questionInput" placeholder="請輸入問題"></textarea>
+		<div id="chat">等待回復...</div>
+		
+		<script type="text/javascript">
+			// EventSource 連線
+			// Server-Send-Events(SSE) 可以讓瀏覽器持續接收來自伺服器的即時更新資料
+			// 適合用來實現 LLM 逐字文字串流的回應(Streaming Chat)
+			var eventSource;
+			const questionInput = document.getElementById('questionInput');
+			const chatDiv = document.getElementById('chat');
+			
+			// questionInput 綁定 enter 事件
+			questionInput.addEventListener("keydown", function(event) {
+				const question = questionInput.value.trim();
+				if(event.key != 'Enter' || !question) {
+					return;
+				}
+				
+				// 清空先前對話紀錄
+				chatDiv.innerText = '';
+				
+				if(eventSource) {
+					eventSource.close();
+				}
+				
+				// 建立 EventSource 物件
+				eventSource = new EventSource("/chat/ask2?q=" + encodURLComponent(question));
+				
+				// 處理訊息接收
+				eventSource.onmessage = function(event) {
+					chatDiv.innerText += event.data + ""; // 將訊息逐字顯示
+				};
+				
+				// 關閉/錯誤處理
+				eventSource.onerror = function(err) {
+					chatDiv.innerText += err.data + "(訊息接收完畢)";
+					eventSource.close();
+				};
+				
+			});
+		
+		
+		</script>
+		
+	</body>
 </html>
