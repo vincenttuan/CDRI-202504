@@ -33,7 +33,7 @@
 				}
 				
 				// 建立 EventSource 物件
-				eventSource = new EventSource("/chat/ask2?q=" + encodURLComponent(question));
+				eventSource = new EventSource("/chat/ask2?q=" + encodeURIComponent(question));
 				
 				// 處理訊息接收
 				eventSource.onmessage = function(event) {
