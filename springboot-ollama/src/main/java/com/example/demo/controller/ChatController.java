@@ -14,6 +14,7 @@ public class ChatController {
 	@Autowired
 	private ChatClient chatClient;
 	
+	// 測試:http://localhost:8081/chat/ask?q=Hello
 	@GetMapping("/ask")
 	public String ask(@RequestParam String q) {
 		return chatClient.prompt().user(q).call().content();
