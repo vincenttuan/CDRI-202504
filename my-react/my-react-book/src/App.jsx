@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   return (
     <div>
-      <h2>書籍管理系統(使用 fetch)</h2>
+      <h2>📚 書籍管理系統(使用 fetch)</h2>
       <form>
         id: <input name="id" readOnly /><p />
         書名: <input name="name" required /><p />
