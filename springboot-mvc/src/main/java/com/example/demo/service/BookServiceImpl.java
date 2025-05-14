@@ -32,37 +32,46 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public void addBook(Book book) throws BookException {
-		// TODO Auto-generated method stub
+		if(!bookRepository.addBook(book)) {
+			throw new BookException("新增失敗, " + book);
+		}
 		
 	}
 
 	@Override
 	public void updateBook(Integer id, Book book) throws BookException {
-		// TODO Auto-generated method stub
-		
+		if(!bookRepository.updateBook(id, book)) {
+			throw new BookException("修改失敗, id: " + id + ", " + book);
+		}
 	}
 
 	@Override
 	public void updateBookName(Integer id, String name) throws BookException {
-		// TODO Auto-generated method stub
-		
+		Book book = getBookById(id);
+		book.setName(name);
+		updateBook(book.getId(), book);
 	}
 
 	@Override
-	public void updateBookPrice(Integer id, Integer price) throws BookException {
-		// TODO Auto-generated method stub
-		
+	public void updateBookPrice(Integer id, Double price) throws BookException {
+		Book book = getBookById(id);
+		book.setPrice(price);
+		updateBook(book.getId(), book);
 	}
 
 	@Override
-	public void updateBookNameAndPrice(Integer id, String name, Integer price) throws BookException {
-		// TODO Auto-generated method stub
-		
+	public void updateBookNameAndPrice(Integer id, String name, Double price) throws BookException {
+		Book book = getBookById(id);
+		book.setName(name);
+		book.setPrice(price);
+		updateBook(book.getId(), book);
 	}
 
 	@Override
 	public void deleteBook(Integer id) throws BookException {
-		// TODO Auto-generated method stub
+		if(!bookRepository.deleteBook(id)) {
+			throw new BookException("刪除失敗, id: " + id);
+		}
 		
 	}
 	

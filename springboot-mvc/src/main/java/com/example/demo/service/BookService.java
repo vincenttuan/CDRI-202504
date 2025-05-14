@@ -12,8 +12,8 @@ public interface BookService {
 	
 	void updateBook(Integer id, Book book) throws BookException;
 	void updateBookName(Integer id, String name) throws BookException;
-	void updateBookPrice(Integer id, Integer price) throws BookException;
-	void updateBookNameAndPrice(Integer id, String name, Integer price) throws BookException;
+	void updateBookPrice(Integer id, Double price) throws BookException;
+	void updateBookNameAndPrice(Integer id, String name, Double price) throws BookException;
 	
 	void deleteBook(Integer id) throws BookException;
 }
