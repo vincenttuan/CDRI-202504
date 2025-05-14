@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.stereotype.Repository;
@@ -30,6 +31,12 @@ public class BookRepositoryImpl implements BookRepository {
 	}
 	
 	public boolean addBook(Book book) {
+		// 建立 newId
+		OptionalInt optMaxId = books.stream().mapToInt(Book::getId).max();
+		int newId = optMaxId.isEmpty() ? 1 : optMaxId.getAsInt() + 1;
+		// 將 newId 設定給 book
+		book.setId(newId);
+		
 		return books.add(book);
 	}
 	
