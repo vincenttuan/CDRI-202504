@@ -1,11 +1,13 @@
 package com.example.demo.controller;
 
-import java.util.Collections;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,8 @@ import com.example.demo.response.ApiResponse;
 @RestController // 免去撰寫 @ResponseBody, 但若要透過 jsp 渲染則不適用
 @RequestMapping("/api") // 以下路徑統一都有 URL 前綴 "/api"
 public class ApiController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ApiController.class);
 	
 	/**
 	 * 1. 首頁
@@ -48,6 +52,7 @@ public class ApiController {
 	public String greet(@RequestParam(value = "name", required = true) String username,
 						@RequestParam(value = "age", required = false, defaultValue = "0") Integer userage) {
 		
+		logger.info("執行路徑: /greet 參數: name=" + username + ", age=" + userage);
 		String result = String.format("Hi %s %d (%s)", 
 				username, userage, userage >= 18 ? "成年" : "未成年");
 		return result;
