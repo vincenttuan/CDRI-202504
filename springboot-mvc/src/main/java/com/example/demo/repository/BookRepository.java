@@ -21,21 +21,20 @@ public class BookRepository {
 		books.add(new Book(4, "尼羅河的女兒", 14.5, 50, true));
 	}
 	
-	private List<Book> findAllBooks() {
+	public List<Book> findAllBooks() {
 		return books;
 	}
 	
-	private Optional<Book> getBookById(Integer id) {
+	public Optional<Book> getBookById(Integer id) {
 		return books.stream().filter(book -> book.getId().equals(id)).findFirst();
 	}
 	
-	private boolean addBook(Book book) {
+	public boolean addBook(Book book) {
 		return books.add(book);
 	}
 	
 	public boolean updateBook(Integer id, Book book) {
-		Book uptBook = books.set(id, book);
-		return uptBook != null;
+		return books.set(id, book) != null;
 	}
 	
 	public boolean deleteBook(Integer id) {
