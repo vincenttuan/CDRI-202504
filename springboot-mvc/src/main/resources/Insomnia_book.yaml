@@ -1,0 +1,238 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1747193293062
+  modified: 1747193293062
+collection:
+  - name: Book
+    meta:
+      id: fld_3eb17735b9a444e186d1edcace55aab5
+      created: 1747193352427
+      modified: 1747193352427
+      sortKey: -1747193352427
+    children:
+      - url: http://localhost:8080/book
+        name: 查詢所有書籍
+        meta:
+          id: req_dd8ba5ddf4a444d5b8b2b470fe26813b
+          created: 1747193364402
+          modified: 1747193403106
+          isPrivate: false
+          sortKey: -1747193364402
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/5
+        name: 查詢指定書籍
+        meta:
+          id: req_7dbdf7dc815644819f5aac8f59eff567
+          created: 1747193422572
+          modified: 1747194336563
+          isPrivate: false
+          sortKey: -1747193422572
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book
+        name: 新增書籍
+        meta:
+          id: req_e422a4acdd934c7a808b74ba69e8f247
+          created: 1747194211830
+          modified: 1747194303764
+          isPrivate: false
+          sortKey: -1747194211830
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "無敵鐵金剛",
+            	"price": 15.5,
+            	"amount": 15,
+            	"pub": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/5
+        name: 刪除指定書籍
+        meta:
+          id: req_9706ff778a1d424483203012ec2982e2
+          created: 1747195445552
+          modified: 1747195915776
+          isPrivate: false
+          sortKey: -1747195445552
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/5
+        name: 修改指定書籍
+        meta:
+          id: req_8cfa925f35e946048c6b911390c18205
+          created: 1747195886200
+          modified: 1747196131099
+          isPrivate: false
+          sortKey: -1747195886200
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 5,
+            	"name": "無敵鐵金剛",
+            	"price": 15.5,
+            	"amount": 15,
+            	"pub": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/5
+        name: 修改書籍名稱與價格
+        meta:
+          id: req_32d4ec8310f44d5589ec700675a30ef5
+          created: 1747196495611
+          modified: 1747201990144
+          isPrivate: false
+          sortKey: -1747196495611
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 5,
+            	"name": "元子小金剛",
+            	"price": 15.5
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/name/5
+        name: 修改書籍名稱
+        meta:
+          id: req_5286cbd42d604803af51fb47492e2937
+          created: 1747201900288
+          modified: 1747201993884
+          isPrivate: false
+          sortKey: -1747196190905.5
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 5,
+            	"name": "元子小金剛"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/price/5
+        name: 修改書籍價格
+        meta:
+          id: req_2c4e207ed179414eb76a7d6e6e8a8128
+          created: 1747201914757
+          modified: 1747201997603
+          isPrivate: false
+          sortKey: -1747196343258.25
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 5,
+            	"price": 15.5
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1747193327178
+    modified: 1747193327178
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1747193327093
+    modified: 1747193327093
+    isPrivate: false
