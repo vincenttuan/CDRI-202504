@@ -8,7 +8,7 @@ import com.example.demo.model.Book;
 
 public interface BookService {
 	List<Book> findAllBooks();
-	Optional<Book> getBookById(Integer id);
+	Book getBookById(Integer id) throws BookException;
 	void addBook(Book book) throws BookException;
 	
 	void updateBook(Integer id, Book book) throws BookException;
