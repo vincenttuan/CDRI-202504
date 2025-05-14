@@ -34,7 +34,7 @@ public class BookRepositoryImpl implements BookRepository {
 	}
 	
 	public boolean updateBook(Integer id, Book updateBook) {
-		// 找到該 book
+		// 找到要修改的 book
 		Optional<Book> optBook = getBookById(id);
 		if(optBook.isEmpty()) {
 			return false;
@@ -44,6 +44,7 @@ public class BookRepositoryImpl implements BookRepository {
 		if(index == -1) {
 			return false;
 		}
+		// 替換
 		return books.set(index, updateBook) != null;
 	}
 	
