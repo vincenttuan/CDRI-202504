@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,8 +30,8 @@ public class BookController {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功:", books));
 	}
 	
-	@GetMapping
-	public ResponseEntity<ApiResponse<Book>> getBookById(Integer id) {
+	@GetMapping("/{id}")
+	public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable Integer id) {
 		try {
 			Book book = bookService.getBookById(id);
 			return ResponseEntity.ok(ApiResponse.success("查詢成功:", book));
