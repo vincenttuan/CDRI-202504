@@ -1,13 +1,13 @@
 import './App.css'
 import React, { useEffect, useState } from 'react';
 
-const API_URL = 'http://localhost:8080/book';
+const API_URL = 'http://localhost:8080/book'; // 後台 API
 
 function App() {
 
-  const [books, setBooks] = useState([]);
-  const [form, setForm] = useState({ id: null, name: '', price: '', amount: '', pub: false });
-  const [editing, setEditing] = useState(false);
+  const [books, setBooks] = useState([]); // 書籍列表
+  const [form, setForm] = useState({ id: null, name: '', price: '', amount: '', pub: false }); // 表單內容
+  const [editing, setEditing] = useState(false); // 是否為編輯模式
 
   // 讀取書籍資料
   const fetchBooks = async () => {
@@ -52,9 +52,9 @@ function App() {
       });
       const result = await res.json();
       if (res.ok) {
-        await fetchBooks();
-        setForm({ id: null, name: '', price: '', amount: '', pub: false });
-        setEditing(false);
+        await fetchBooks(); // 重新查詢所有書籍
+        setForm({ id: null, name: '', price: '', amount: '', pub: false }); // 清空表單
+        setEditing(false); // 恢復到新增狀態
       } else {
         alert(result.message || '操作失敗');
       }
@@ -65,8 +65,8 @@ function App() {
 
   // 編輯功能
   const handleEdit = (book) => {
-    setForm(book);
-    setEditing(true);
+    setForm(book); // 將 book 的資料填入到表單
+    setEditing(true); // 啟用編輯模式
   };
 
   // 刪除功能
@@ -97,8 +97,8 @@ function App() {
         {
           editing && (
             <button type="button" onClick={() => {
-              setEditing(false);
-              setForm({ id: null, name: '', price: '', amount: '', pub: false });
+              setEditing(false); // 取消編輯模式
+              setForm({ id: null, name: '', price: '', amount: '', pub: false }); // 表格清空
             }}>取消</button>
           )
         }
