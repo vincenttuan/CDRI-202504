@@ -21,7 +21,7 @@ import com.example.demo.model.Book;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.BookService;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173") // 允許跨域請求
 @RestController
 @RequestMapping("/book")
 public class BookController {
