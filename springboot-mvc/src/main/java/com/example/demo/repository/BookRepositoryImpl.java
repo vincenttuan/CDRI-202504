@@ -33,8 +33,18 @@ public class BookRepositoryImpl implements BookRepository {
 		return books.add(book);
 	}
 	
-	public boolean updateBook(Integer id, Book book) {
-		return books.set(id, book) != null;
+	public boolean updateBook(Integer id, Book updateBook) {
+		// 找到該 book
+		Optional<Book> optBook = getBookById(id);
+		if(optBook.isEmpty()) {
+			return false;
+		}
+		// 找到該 book 在 books 的 index
+		int index = books.indexOf(optBook.get());
+		if(index == -1) {
+			return false;
+		}
+		return books.set(index, updateBook) != null;
 	}
 	
 	public boolean deleteBook(Integer id) {
