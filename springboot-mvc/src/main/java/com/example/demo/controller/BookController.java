@@ -36,7 +36,7 @@ public class BookController {
 			Book book = bookService.getBookById(id);
 			return ResponseEntity.ok(ApiResponse.success("查詢成功:", book));
 		} catch (BookException e) {
-			return ResponseEntity.badRequest().body(ApiResponse.error("查無此書"));
+			return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
 		}
 	}
 	
