@@ -2,11 +2,39 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Book List</title>
+	</head>
+	<body>
+		<%@ include file="include/menu.jsp" %>
+		<div>
+			<form>
+			
+			</form>
+		</div>
+		<div>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>ID</th><th>書名</th><th>價格</th><th>數量</th><th>出刊</th><th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="book" items="${ books }">
+						<tr>
+							<td>${ book.id }</td>
+							<td>${ book.name }</td>
+							<td>${ book.price }</td>
+							<td>${ book.amount }</td>
+							<td>${ book.pub }</td>
+							<td>
+								修改 | 刪除
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</body>
 </html>
