@@ -5,6 +5,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Book List</title>
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"/>
+		
+		<!-- jQuery（必要）-->
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		
+		<!-- DataTables JS -->
+		<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 	</head>
 	<body>
 		<%@ include file="include/menu.jsp" %>
@@ -18,7 +26,7 @@
 			</form>
 		</div>
 		<div>
-			<table border="1">
+			<table border="1" id="bookTable">
 				<thead>
 					<tr>
 						<th>ID</th><th>書名</th><th>價格</th><th>數量</th><th>出刊</th><th>操作</th>
@@ -59,6 +67,18 @@
 					}
 				}
 			}
+		</script>
+		
+		<!-- DataTables 初始化 -->
+		<script>
+			$(document).ready(function() {
+				$('#bookTable').DataTable({
+					language: {
+						url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/zh-HANT.json'
+					},
+					
+				});
+			});
 		</script>
 		
 	</body>
