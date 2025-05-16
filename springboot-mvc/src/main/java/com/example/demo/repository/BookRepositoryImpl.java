@@ -5,11 +5,13 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Book;
 
 @Repository
+//@Primary
 public class BookRepositoryImpl implements BookRepository {
 	// InMemory 版
 	private List<Book> books = new CopyOnWriteArrayList<>();
