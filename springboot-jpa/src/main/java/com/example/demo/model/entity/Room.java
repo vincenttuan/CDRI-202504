@@ -2,6 +2,8 @@ package com.example.demo.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -23,7 +25,8 @@ Table name: room
 @Entity // 實體類與資料表對應(會自動建立資料表)
 @Table(name = "room") // 若資料表名稱與實體類一致可以不用設定此行
 public class Room {
-	@Id
+	@Id // 主鍵
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // room_id 會從 1 開始自動生成, 每次 +1, 過號不補
 	@Column(name = "room_id")
 	private Integer roomId;
 	
