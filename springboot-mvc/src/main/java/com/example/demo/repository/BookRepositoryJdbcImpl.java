@@ -47,8 +47,9 @@ public class BookRepositoryJdbcImpl implements BookRepository {
 
 	@Override
 	public boolean addBook(Book book) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "insert into book(name, price, amount, pub) values(?, ?, ?, ?)";
+		int rows = jdbcTemplate.update(sql, book.getName(), book.getPrice(), book.getAmount(), book.getPub());
+		return rows > 0;
 	}
 
 	@Override
