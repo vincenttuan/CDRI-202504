@@ -54,7 +54,9 @@
 			async function deleteBook(id) {
 				if(confirm('確定要刪除嗎?')) {
 					const response = await fetch('/ssr/book/delete/' + id, {method:'DELETE'});
-					window.location.href='/ssr/book';
+					if(response.redirected) {
+						window.location.href=response.url;
+					}
 				}
 			}
 		</script>
