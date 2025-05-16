@@ -13,7 +13,7 @@
 				書名: <input type="text" name="name" value="${ book.name }" required /><br />
 				價格: <input type="number" name="price" value="${ book.price }" step="0.1" required /><br />
 				數量: <input type="number" name="amount" value="${ book.amount }" required /><br />
-				出刊: <input type="checkbox" name="pub" ${ book.pub ? "checked" : "" } required /><br />
+				出刊: <input type="checkbox" name="pub" ${ book.pub ? "checked" : "" } /><br />
 				<button type="submit">修改</button>
 			</form>
 		</div>
