@@ -84,15 +84,22 @@
 		<script>
 			$(document).ready(function() {
 				$('#bookTable').DataTable({
-					dom: 'Bfrtip', // 顯示按鈕區塊
+					// Bfrtpi [Buttons (匯出 Excel, PDF 等...), f(搜尋框), r(處理中的訊息), t(表格本體), i(顯示第n到m筆), p(分頁按鈕)]
+					dom: 'Bfrtpi', // 顯示按鈕區塊
 			        buttons: [
 			            {
 			                extend: 'excelHtml5',
-			                text: '匯出 Excel'
+			                text: '匯出 Excel',
+			                exportOptions: {
+			                    columns: [0, 1, 2, 3] // 匯出 ID、書名、價格、數量
+			                }
 			            },
 			            {
 			                extend: 'pdfHtml5',
 			                text: '匯出 PDF',
+			                exportOptions: {
+			                    columns: [0, 1, 2, 3] // 匯出 ID、書名、價格、數量
+			                },
 			                orientation: 'landscape', // 橫向（可選）
 			                pageSize: 'A4'
 			            },
