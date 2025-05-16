@@ -55,5 +55,17 @@ public class SSRBookController {
 		return "redirect:/ssr/book";
 	}
 	
+	// 取得修改頁面
+	@GetMapping("/ssr/book/edit/{id}")
+	public String getEditPage(@PathVariable Integer id, Model model) {
+		try {
+			Book book = bookService.getBookById(id);
+			model.addAttribute("book", book);
+			return "book-edit";
+		} catch (BookException e) {
+			model.addAttribute("message", "查無該筆書籍資料: " + e.getMessage());
+			return "error";
+		}
+	}
 	
 }
