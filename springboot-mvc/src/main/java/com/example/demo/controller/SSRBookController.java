@@ -19,7 +19,6 @@ import com.example.demo.service.BookService;
 
 @Controller
 @RequestMapping("/ssr/book")
-@CrossOrigin(origins = "*") // 允許跨域請求
 public class SSRBookController {
 	
 	@Autowired
