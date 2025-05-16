@@ -68,4 +68,16 @@ public class SSRBookController {
 		}
 	}
 	
+	// 修改書籍
+	@PostMapping("/ssr/book/edit/{id}")
+	public String editBook(@PathVariable Integer id, Book book, Model model) {
+		try {
+			bookService.updateBook(id, book);
+		} catch (BookException e) {
+			model.addAttribute("message", "修改錯誤: " + e.getMessage());
+			return "error";
+		}
+		return "redirect:/ssr/book";
+	}
+	
 }
