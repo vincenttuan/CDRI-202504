@@ -37,7 +37,7 @@ public class SSRBookController {
 			model.addAttribute("message", "新增錯誤: " + e.getMessage());
 			return "error.jsp";
 		}
-		return "redirect: /ssr/book";
+		return "redirect:/ssr/book";
 	}
 	
 	
