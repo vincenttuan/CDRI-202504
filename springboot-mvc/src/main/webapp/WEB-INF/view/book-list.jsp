@@ -13,6 +13,17 @@
 		
 		<!-- DataTables JS -->
 		<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+		
+		<!-- Buttons 插件 -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"/>
+		<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+		
+		<!-- PDF & Excel 匯出支援 -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
 	</head>
 	<body>
 		<%@ include file="include/menu.jsp" %>
@@ -73,6 +84,23 @@
 		<script>
 			$(document).ready(function() {
 				$('#bookTable').DataTable({
+					dom: 'Bfrtip', // 顯示按鈕區塊
+			        buttons: [
+			            {
+			                extend: 'excelHtml5',
+			                text: '匯出 Excel'
+			            },
+			            {
+			                extend: 'pdfHtml5',
+			                text: '匯出 PDF',
+			                orientation: 'landscape', // 橫向（可選）
+			                pageSize: 'A4'
+			            },
+			            {
+			                extend: 'print',
+			                text: '列印'
+			            }
+			        ],
 					language: {
 						url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/zh-HANT.json'
 					},
