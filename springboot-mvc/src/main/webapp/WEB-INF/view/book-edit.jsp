@@ -10,6 +10,7 @@
 		<%@ include file="include/menu.jsp" %>
 		<div>
 			<form method="post" action="/ssr/book/edit/${ book.id }">
+				<input type="hidden" name="_method" value="PUT"/>
 				書名: <input type="text" name="name" value="${ book.name }" required /><br />
 				價格: <input type="number" name="price" value="${ book.price }" step="0.1" required /><br />
 				數量: <input type="number" name="amount" value="${ book.amount }" required /><br />
