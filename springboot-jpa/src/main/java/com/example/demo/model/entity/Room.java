@@ -26,7 +26,7 @@ Table name: room
 @Table(name = "room") // 若資料表名稱與實體類一致可以不用設定此行
 public class Room {
 	@Id // 主鍵
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // room_id 會從 1 開始自動生成, 每次 +1, 過號不補
+	//@GeneratedValue(strategy = GenerationType.IDENTITY) // room_id 會從 1 開始自動生成, 每次 +1, 過號不補
 	@Column(name = "room_id")
 	private Integer roomId;
 	
