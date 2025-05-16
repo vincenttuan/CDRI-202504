@@ -36,6 +36,11 @@
 								<a href="/ssr/book/edit/${ book.id }">修改</a> 
 								&nbsp;|&nbsp; 
 								<a href="/ssr/book/delete/${ book.id }">刪除</a>
+								&nbsp;|&nbsp;
+								<form style="display:inline" method="post" action="/ssr/book/delete/${ book.id }">
+									<input type="hidden" name="_method" value="DELETE"/>
+									<button type="submit">刪除</button>
+								</form>
 							</td>
 						</tr>
 					</c:forEach>
