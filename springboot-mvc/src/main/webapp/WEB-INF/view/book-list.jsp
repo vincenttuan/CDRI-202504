@@ -34,7 +34,7 @@
 							<td>${ book.pub }</td>
 							<td>
 								<a href="/ssr/book/edit/${ book.id }">修改</a> 
-								| 
+								&nbsp;|&nbsp; 
 								<a href="/ssr/book/delete/${ book.id }">刪除</a>
 							</td>
 						</tr>
