@@ -64,6 +64,7 @@ public class BookRepositoryJdbcImpl implements BookRepository {
 		String sql = "delete from book where id = ?";
 		int rows = jdbcTemplate.update(sql, id);
 		return rows > 0;
+		//return jdbcTemplate.update("delete from book where id = ?", id) > 0;
 	}
 
 }
