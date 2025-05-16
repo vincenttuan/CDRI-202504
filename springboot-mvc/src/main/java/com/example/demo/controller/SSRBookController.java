@@ -35,9 +35,11 @@ public class SSRBookController {
 			bookService.addBook(book);
 		} catch (BookException e) {
 			model.addAttribute("message", "新增錯誤: " + e.getMessage());
-			return "error.jsp";
+			return "error";
 		}
 		return "redirect:/ssr/book";
+		//return "redirect:http://localhost:8080/ssr/book";
+		//return "redirect:https://tw.yahoo.com";
 	}
 	
 	
