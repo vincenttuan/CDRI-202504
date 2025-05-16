@@ -41,11 +41,22 @@
 									<input type="hidden" name="_method" value="DELETE"/>
 									<button type="submit">刪除</button>
 								</form>
+								&nbsp;|&nbsp;
+								<a href="#" onclick="deleteBook(${ book.id })">刪除</a>
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+		
+		<script>
+			function deleteBook(id) {
+				if(confirm('確定要刪除嗎?')) {
+					fetch(`/ssr/book/delete/${id}`, {method:'DELETE'}).then(() => location.reload());
+				}
+			}
+		</script>
+		
 	</body>
 </html>
