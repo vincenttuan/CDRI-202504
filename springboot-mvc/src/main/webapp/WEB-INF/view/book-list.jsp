@@ -51,9 +51,10 @@
 		</div>
 		
 		<script>
-			function deleteBook(id) {
+			async function deleteBook(id) {
 				if(confirm('確定要刪除嗎?')) {
-					fetch(`/ssr/book/delete/${id}`, {method:'DELETE'}).then(() => location.reload());
+					const response = await fetch('/ssr/book/delete/' + id, {method:'DELETE'});
+					location.reload();
 				}
 			}
 		</script>
