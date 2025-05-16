@@ -44,7 +44,7 @@ public class SSRBookController {
 	}
 	
 	// 刪除書籍
-	@GetMapping("/ssr/book/delete/{id}")
+	@GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable Integer id, Model model) {
 		try {
 			bookService.deleteBook(id);
