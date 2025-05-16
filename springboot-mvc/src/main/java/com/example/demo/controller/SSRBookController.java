@@ -56,7 +56,7 @@ public class SSRBookController {
 	}
 	
 	// 取得修改頁面
-	@GetMapping("/ssr/book/edit/{id}")
+	@GetMapping("/edit/{id}")
 	public String getEditPage(@PathVariable Integer id, Model model) {
 		try {
 			Book book = bookService.getBookById(id);
@@ -69,7 +69,7 @@ public class SSRBookController {
 	}
 	
 	// 修改書籍
-	@PostMapping("/ssr/book/edit/{id}")
+	@PostMapping("/edit/{id}")
 	public String editBook(@PathVariable Integer id, Book book, Model model) {
 		try {
 			bookService.updateBook(id, book);
