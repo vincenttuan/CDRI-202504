@@ -11,13 +11,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * 
 Table name: room
 +---------+-----------+-----------+
 | room_id | room_name | room_size |
 +---------+-----------+-----------+
 |  101    |  101(L)   |   100     |  
 +---------+-----------+-----------+
-*/
+
+SQL:
+create table room(
+	room_id integer primary key,
+	room_name varchar(50) not null unique,
+	room_size integer default 0
+);
+
+* */
 
 @Data
 @AllArgsConstructor
