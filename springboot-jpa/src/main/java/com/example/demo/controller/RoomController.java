@@ -89,6 +89,7 @@ public class RoomController {
 	
 	@ExceptionHandler({Exception.class})
 	public String handleException(Exception e, Model model) {
+		e.printStackTrace();
 		model.addAttribute("message", e.getMessage());
 		return "error";
 	}
