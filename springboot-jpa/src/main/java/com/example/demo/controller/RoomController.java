@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,7 +21,7 @@ import jakarta.validation.Valid;
  * Method URI            功能
  * --------------------------------------------------------------------
  * GET    /rooms                查詢所有會議室(多筆)
- * GET    /room/{roomId}        查詢指定會議室(單筆)
+ * GET    /room/{roomId}        查詢指定會議室(單筆)-修改專用
  * POST   /room                 新增會議室
  * POST   /room/update/{roomId} 完整修改會議室(同時修改 roomName 與 roomSize)
  * GET    /room/delete/{roomId} 刪除會議室
@@ -39,6 +40,13 @@ public class RoomController {
 		List<RoomDto> roomDtos = roomService.findAllRooms();
 		model.addAttribute("roomDtos", roomDtos);
 		return "room/room";
+	}
+	
+	@GetMapping("/{roomId}")
+	public String getRoom(@PathVariable Integer roomId, Model model) {
+		RoomDto roomDto = roomService.getRoomById(roomId);
+		model.addAttribute("roomDto", roomDto);
+		return "room/room_update";
 	}
 	
 	/*
