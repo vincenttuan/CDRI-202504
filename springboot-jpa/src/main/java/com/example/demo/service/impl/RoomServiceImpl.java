@@ -49,8 +49,10 @@ public class RoomServiceImpl implements RoomService {
 		// DTO 轉 Entity
 		Room room = roomMapper.toEntity(roomDto);
 		// 將 Entity room 存入
-		roomRepository.save(room); // 更新(可以配合交易模式, 若交易失敗則會回滾)
-	}
+		roomRepository.save(room); // 更新(可以配合交易模式, 若交易失敗則會回滾), 只是先暫存起來
+		roomRepository.flush(); // 提早手動寫入資料庫
+		// ... 其他 code
+	} // 方法結束會自動 flush()
 
 	@Override
 	public void addRoom(Integer roomId, String roomName, Integer roomSize) {
