@@ -68,6 +68,7 @@ public class RoomServiceImpl implements RoomService {
 		roomDto.setRoomId(roomId);
 		Room room = roomMapper.toEntity(roomDto);
 		roomRepository.saveAndFlush(room); // 更新(馬上強制寫入更新)
+		//roomRepository.save(room); // 更新(可以配合交易模式, 若交易失敗則會回滾)
 	}
 
 	@Override
