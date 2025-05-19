@@ -67,7 +67,7 @@ public class RoomController {
 		return "redirect:/rooms";
 	}
 	
-	@PutMapping("/room/update/{roomId}")
+	@PutMapping("/update/{roomId}")
 	public String updateRoom(@PathVariable Integer roomId, @Valid RoomDto roomDto, BindingResult bindingResult) {
 		// 驗證資料
 		if(bindingResult.hasErrors()) { // 若驗證時有錯誤發生
