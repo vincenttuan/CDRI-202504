@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.exception.RoomException;
 import com.example.demo.model.dto.RoomDto;
 import com.example.demo.service.RoomService;
 
@@ -87,7 +88,7 @@ public class RoomController {
 		return "redirect:/rooms"; // 重導到 /rooms 頁面
 	}
 	
-	@ExceptionHandler({Exception.class})
+	@ExceptionHandler({RoomException.class})
 	public String handleException(Exception e, Model model) {
 		e.printStackTrace();
 		model.addAttribute("message", e.getMessage());
