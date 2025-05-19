@@ -42,14 +42,14 @@ public class RoomServiceImpl implements RoomService {
 	public void addRoom(RoomDto roomDto) {
 		// 判斷該房號是否已經存在 ?
 		Optional<Room> optRoom = roomRepository.findById(roomDto.getRoomId());
-		if(optRoom.isPresent()) {
+		if(optRoom.isPresent()) { // 房間已存在
 			throw new RoomAlreadyExistsException("新增失敗: 房號 " + roomDto.getRoomId() + " 已經存在");
 		}
 		// 進入新增程序
 		// DTO 轉 Entity
 		Room room = roomMapper.toEntity(roomDto);
 		// 將 Entity room 存入
-		roomRepository.save(room);
+		roomRepository.save(room); // 更新(可以配合交易模式, 若交易失敗則會回滾)
 	}
 
 	@Override
@@ -60,8 +60,14 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public void updateRoom(Integer roomId, RoomDto roomDto) {
-		// TODO Auto-generated method stub
-		
+		// 判斷該房號是否已經存在 ?
+		Optional<Room> optRoom = roomRepository.findById(roomId);
+		if(optRoom.isEmpty()) { // 房間不存在
+			throw new RoomAlreadyExistsException("修改失敗: 房號 " + roomDto.getRoomId() + " 不存在");
+		}
+		roomDto.setRoomId(roomId);
+		Room room = roomMapper.toEntity(roomDto);
+		roomRepository.saveAndFlush(room); // 更新(馬上強制寫入更新)
 	}
 
 	@Override
