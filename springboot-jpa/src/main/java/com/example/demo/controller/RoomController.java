@@ -46,9 +46,10 @@ public class RoomController {
 	 * RoomDto 要進行屬性資料驗證, 驗證結果放到 bindingResult
 	 * */
 	@PostMapping
-	public String addRoom(@Valid RoomDto roomDto, BindingResult bindingResult) {
+	public String addRoom(@Valid RoomDto roomDto, BindingResult bindingResult, Model model) {
 		// 驗證資料
 		if(bindingResult.hasErrors()) { // 若驗證時有錯誤發生
+			model.addAttribute("roomDtos", roomService.findAllRooms());
 			return "room/room";
 		}
 		
