@@ -3,6 +3,7 @@ package com.example.demo.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.Room;
@@ -14,4 +15,9 @@ public interface RoomRepository extends JpaRepository<Room, Integer> { // Room: 
 	// 自定義查詢
 	// 1. 查詢 roomSize 大於指定值得房間(自動生成 SQL)
 	List<Room> findByRoomSizeGreaterThan(Integer size);
+	
+	// 2. 查詢 roomSize 大於指定值得房間(自行撰寫 T-SQL)
+	@Query(value = "select room_id, room_name, room_size from room where room_size > :roomSize", nativeQuery = true)
+	List<Room> findRooms(Integer roomSize);
+	
 }
