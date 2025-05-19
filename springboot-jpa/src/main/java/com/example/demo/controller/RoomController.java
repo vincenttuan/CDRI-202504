@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.dto.RoomDto;
@@ -23,8 +24,8 @@ import jakarta.validation.Valid;
  * GET    /rooms                查詢所有會議室(多筆)
  * GET    /room/{roomId}        查詢指定會議室(單筆)-修改專用
  * POST   /room                 新增會議室
- * POST   /room/update/{roomId} 完整修改會議室(同時修改 roomName 與 roomSize)
- * GET    /room/delete/{roomId} 刪除會議室
+ * PUT    /room/update/{roomId} 完整修改會議室(同時修改 roomName 與 roomSize)
+ * DELETE /room/delete/{roomId} 刪除會議室
  * --------------------------------------------------------------------
  * */
 
@@ -66,5 +67,16 @@ public class RoomController {
 		return "redirect:/rooms";
 	}
 	
+	@PutMapping("/room/update/{roomId}")
+	public String updateRoom(@PathVariable Integer roomId, @Valid RoomDto roomDto, BindingResult bindingResult) {
+		// 驗證資料
+		if(bindingResult.hasErrors()) { // 若驗證時有錯誤發生
+			return "room/room_update";
+		}
+		
+		// 進行修改
+		roomService.updateRoom(roomId, roomDto);
+		return "redirect:/rooms";
+	}
 	
 }
