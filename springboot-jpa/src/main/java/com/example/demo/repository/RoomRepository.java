@@ -20,7 +20,7 @@ public interface RoomRepository extends JpaRepository<Room, Integer> { // Room: 
 	@Query(value = "select room_id, room_name, room_size from room where room_size > :roomSize", nativeQuery = true)
 	List<Room> findRooms(Integer roomSize);
 	
-	// 3. 查詢 roomSize 大於指定值得房間(自行撰寫 PQL, 注意:欄位名要符合 entity 中的設定)
+	// 3. 查詢 roomSize 大於指定值得房間(自行撰寫 PQL, 注意:欄位名要符合 entity 中的設定, 會自動生成 SQL)
 	@Query(value = "select r from Room r where r.roomSize > :roomSize")
 	List<Room> readRooms(Integer roomSize);
 	

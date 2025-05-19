@@ -17,7 +17,8 @@ public class RoomJPARead {
 	@Test
 	public void test() {
 		//List<Room> rooms = roomRepository.findByRoomSizeGreaterThan(30);
-		List<Room> rooms = roomRepository.findRooms(30);
+		//List<Room> rooms = roomRepository.findRooms(30);
+		List<Room> rooms = roomRepository.readRooms(30);
 		System.out.println(rooms.size());
 		System.out.println(rooms);
 		
