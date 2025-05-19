@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- Spring Form 表單標籤 -->
+<%@ taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
+<sp:form class="pure-form" method="post" modelAttribute="roomDto" action="/room" >
+	<fieldset>
+		<legend>Room 表單</legend>
+		Room 房號: <sp:input type="number" path="roomId" />
+		<sp:errors path="roomId" style="color: red" />
+		<p />
+		Room 名稱: <sp:input type="text" path="roomName" />
+		<sp:errors path="roomName" style="color: red" />
+		<p />
+		Room 人數: <sp:input type="number" path="roomSize" />
+		<sp:errors path="roomSize" style="color: red" />
+		<p />
+		<button type="submit" class="pure-button pure-button-primary">新增</button>
+	</fieldset>
+</sp:form>
