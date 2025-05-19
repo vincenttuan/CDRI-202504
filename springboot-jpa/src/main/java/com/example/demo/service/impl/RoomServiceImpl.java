@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.exception.RoomNotFoundException;
 import com.example.demo.mapper.RoomMapper;
 import com.example.demo.model.dto.RoomDto;
 import com.example.demo.model.entity.Room;
