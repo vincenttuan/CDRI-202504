@@ -31,6 +31,7 @@ public class RoomRestController {
 	@Autowired
 	private RoomService roomService;
 	
+	// 取得所有房間列表
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<RoomDto>>> findAllRooms() {
 		List<RoomDto> roomDtos = roomService.findAllRooms(); // payload
@@ -38,5 +39,14 @@ public class RoomRestController {
 		return ResponseEntity.ok(ApiResponse.success(message, roomDtos));
 	}
 	
+	// 新增房間
+	
+	// 取得單筆
+	
+	// 修改房間
+	
+	// 刪除房間
+	
+	// 錯誤處理
 	
 }
