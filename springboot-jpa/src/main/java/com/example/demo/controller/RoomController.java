@@ -35,7 +35,7 @@ public class RoomController {
 		List<RoomDto> roomDtos = roomService.findAllRooms();
 		model.addAttribute("roomDto", roomDto);
 		model.addAttribute("roomDtos", roomDtos);
-		return "room/room.jsp";
+		return "room/room";
 	}
 	
 }
