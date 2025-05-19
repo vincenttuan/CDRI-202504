@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.dto.RoomDto;
 import com.example.demo.service.RoomService;
+
+import jakarta.validation.Valid;
 
 /**
  * Method URI            功能
@@ -38,8 +41,18 @@ public class RoomController {
 		return "room/room";
 	}
 	
+	/*
+	 * @Valid RoomDto roomDto, BindingResult bindingResult
+	 * RoomDto 要進行屬性資料驗證, 驗證結果放到 bindingResult
+	 * */
 	@PostMapping
-	public String addRoom(RoomDto roomDto) {
+	public String addRoom(@Valid RoomDto roomDto, BindingResult bindingResult) {
+		// 驗證資料
+		if(bindingResult.hasErrors()) { // 若驗證時有錯誤發生
+			return "room/room";
+		}
+		
+		// 進行新增
 		roomService.addRoom(roomDto);
 		return "redirect:/rooms";
 	}
