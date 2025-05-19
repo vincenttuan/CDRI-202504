@@ -65,7 +65,7 @@ public class RoomServiceImpl implements RoomService {
 		// 判斷該房號是否已經存在 ?
 		Optional<Room> optRoom = roomRepository.findById(roomId);
 		if(optRoom.isEmpty()) { // 房間不存在
-			throw new RoomAlreadyExistsException("修改失敗: 房號 " + roomDto.getRoomId() + " 不存在");
+			throw new RoomAlreadyExistsException("修改失敗: 房號 " + roomId + " 不存在");
 		}
 		roomDto.setRoomId(roomId);
 		Room room = roomMapper.toEntity(roomDto);
@@ -75,14 +75,18 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public void updateRoom(Integer roomId, String roomName, Integer roomSize) {
-		// TODO Auto-generated method stub
-		
+		RoomDto roomDto = new RoomDto(roomId, roomName, roomSize);
+		updateRoom(roomId, roomDto);
 	}
 
 	@Override
 	public void deleteRoom(Integer roomId) {
-		// TODO Auto-generated method stub
-		
+		// 判斷該房號是否已經存在 ?
+		Optional<Room> optRoom = roomRepository.findById(roomId);
+		if(optRoom.isEmpty()) { // 房間不存在
+			throw new RoomAlreadyExistsException("刪除失敗: 房號 " + roomId + " 不存在");
+		}
+		roomRepository.deleteById(roomId);
 	}
 
 }
