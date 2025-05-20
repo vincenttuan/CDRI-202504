@@ -32,6 +32,7 @@ DELETE /rest/room/{roomId} 刪除指定房間    roomId (路徑參數，房間 I
 
 @RestController
 @RequestMapping(value = {"/rest/room", "/rest/rooms"})
+// allowCredentials = "true" 允許接收客戶端傳來的憑證資料,例如: session id
 @CrossOrigin(origins = {"http://localhost:5173", "http://localhost:8002"}, allowCredentials = "true")
 public class RoomRestController {
 	
