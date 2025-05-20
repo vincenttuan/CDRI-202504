@@ -32,11 +32,36 @@ function App() {
     setForm(prev => ({...prev, [name]: value}));
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const method = 'POST';
+      const url = API_BASE;
+      const res = await fetch(url, {
+        method,
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(form)
+      })
+
+      if(!res.ok) throw new Error('回應失敗');
+
+      setForm({roomId:'', roomName:'', roomSize:''})
+      fetchRooms();
+
+    } catch(err) {
+      console.log('表單傳送失敗:', err.message);
+      alert('表單傳送失敗:' + err.message);
+    }
+  }
+
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial' }}>
       <h1>房間管理系統</h1>
 
-      <form style={{ marginBottom: '30px' }}>
+      <form onSubmit={handleSubmit} style={{ marginBottom: '30px' }}>
         <fieldset>
           <legend>新增房間</legend>
           <div>
