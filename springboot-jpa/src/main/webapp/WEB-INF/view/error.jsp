@@ -18,6 +18,7 @@
 				<fieldset>
 					<legend>發生錯誤</legend>
 					${ message }
+					<%=exception %>
 				</fieldset>	
 			</div>
 			
