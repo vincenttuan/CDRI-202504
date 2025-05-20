@@ -71,7 +71,10 @@ public class RoomRestController {
 	
 	// 修改房間
 	@PutMapping("/{roomId}")
-	public ResponseEntity<ApiResponse<RoomDto>> updateRoom(@PathVariable Integer roomId, @RequestBody RoomDto roomDto) {
+	public ResponseEntity<ApiResponse<RoomDto>> updateRoom(@PathVariable Integer roomId, @Valid @RequestBody RoomDto roomDto, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			throw new RoomException("修改失敗:" + bindingResult.getAllErrors().get(0).getDefaultMessage());
+		}
 		roomService.updateRoom(roomId, roomDto);
 		return ResponseEntity.ok(ApiResponse.success("Room 修改成功", roomDto));
 	}
