@@ -65,6 +65,31 @@ function App() {
     }
   }
 
+  // 刪除
+  const handleDelete = async (roomId) => {
+    if(!window.confirm('確定要刪除嗎?')) return;
+    try {
+      const method = 'DELETE';
+      const url = `${API_BASE}/${roomId}`;
+      const res = await fetch(url, {
+        method,
+        credentials: 'include'
+      });
+
+      if(!res.ok) throw new Error(res);
+
+      const resData = await res.json();
+      if(resData.status == 200) {
+        fetchRooms();
+      } else {
+        alert('刪除失敗:' + resData.message);
+      }
+
+    } catch(err) {
+      alert('刪除失敗:' + err.message);
+    }
+  }
+
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial' }}>
       <h1>房間管理系統</h1>

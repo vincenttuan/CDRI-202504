@@ -55,8 +55,8 @@ public class RoomRestController {
 	public ResponseEntity<ApiResponse<RoomDto>> addRoom(@Valid @RequestBody RoomDto roomDto, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
 			//return ResponseEntity.badRequest().body(ApiResponse.error(500, "新增失敗"));
-			
-			return ResponseEntity.ok(ApiResponse.error(500, "新增失敗:" + bindingResult.getAllErrors().get(0).getDefaultMessage()));
+			//return ResponseEntity.ok(ApiResponse.error(500, "新增失敗:" + bindingResult.getAllErrors().get(0).getDefaultMessage()));
+			throw new RoomException("新增失敗:" + bindingResult.getAllErrors().get(0).getDefaultMessage());
 		}
 		roomService.addRoom(roomDto);
 		return ResponseEntity.ok(ApiResponse.success("Room 新增成功", roomDto));
@@ -86,7 +86,7 @@ public class RoomRestController {
 	// 錯誤處理
 	@ExceptionHandler({RoomException.class})
 	public ResponseEntity<ApiResponse<Void>> handleRoomExceptions(RoomException e) {
-		return ResponseEntity.status(500).body(ApiResponse.error(500, e.getMessage()));
+		return ResponseEntity.ok(ApiResponse.error(500, e.getMessage()));
 	}
 	
 }
