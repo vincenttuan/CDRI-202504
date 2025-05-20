@@ -154,7 +154,7 @@ function App() {
                     <button onClick={() => {}}>編輯</button>
                   </td>
                   <td>
-                    <button onClick={() => {}}>刪除</button>
+                    <button onClick={() => {handleDelete(room.roomId)}}>刪除</button>
                   </td>
                 </tr>
               )
