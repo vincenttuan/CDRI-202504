@@ -5,6 +5,7 @@ const API_BASE = 'http://localhost:8081/rest/room'
 
 function App() {
   const [rooms, setRooms] = useState([]);
+  const [form, setForm] = useState({roomId:'', roomName:'', roomSize:''});
 
   useEffect(() => {
     console.log('查詢所有房間');
@@ -26,6 +27,11 @@ function App() {
 
   };
 
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setForm(prev => ({...prev, [name]: value}));
+  }
+
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial' }}>
       <h1>房間管理系統</h1>
@@ -38,14 +44,19 @@ function App() {
             <input
               type="number"
               name="roomId"
+              value={form.roomId}
+              onChange={handleChange}
               required
             />
           </div>
           <div>
-            <label>名稱：</label>
+            <label>房名：</label>
             <input
               type="text"
               name="roomName"
+              value={form.roomName}
+              onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -53,6 +64,8 @@ function App() {
             <input
               type="number"
               name="roomSize"
+              value={form.roomSize}
+              onChange={handleChange}
               required
             />
           </div>
@@ -65,7 +78,7 @@ function App() {
         <thead>
           <tr>
             <th>房號</th>
-            <th>名稱</th>
+            <th>房名</th>
             <th>人數</th>
             <th>編輯</th>
             <th>刪除</th>
