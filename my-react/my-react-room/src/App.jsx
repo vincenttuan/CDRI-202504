@@ -7,6 +7,7 @@ function App() {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
+    console.log('查詢所有房間');
     fetchRooms();
   }, [])
 
@@ -71,7 +72,23 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          
+          {
+            rooms.map(room => {
+              return (
+                <tr key={room.roomId}>
+                  <td>{room.roomId}</td>
+                  <td>{room.roomName}</td>
+                  <td>{room.roomSize}</td>
+                  <td>
+                    <button onClick={() => {}}>編輯</button>
+                  </td>
+                  <td>
+                    <button onClick={() => {}}>刪除</button>
+                  </td>
+                </tr>
+              )
+            })
+          }
         </tbody>
       </table>
     </div>
