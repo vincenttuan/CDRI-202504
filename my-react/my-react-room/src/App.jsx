@@ -46,10 +46,18 @@ function App() {
         body: JSON.stringify(form)
       })
 
-      if(!res.ok) throw new Error('回應失敗');
+      if(!res.ok) throw new Error(res);
 
-      setForm({roomId:'', roomName:'', roomSize:''})
-      fetchRooms();
+      const resData = await res.json();
+      console.log(resData);
+      console.log(resData.status);
+      console.log(resData.message);
+      if(resData.status == 200) {
+        setForm({roomId:'', roomName:'', roomSize:''})
+        fetchRooms();
+      } else {
+        alert('表單傳送失敗:' + resData.message);
+      }
 
     } catch(err) {
       console.log('表單傳送失敗:', err.message);
