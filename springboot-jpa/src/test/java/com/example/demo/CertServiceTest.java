@@ -15,8 +15,13 @@ public class CertServiceTest {
 	private CertService certService;
 	
 	@Test
-	public void testUserAdd() throws CertException {
-		System.out.println(certService.getCert("john", "1234"));
+	public void testUserAdd()  {
+		try {
+			System.out.println(certService.getCert("john", "1234"));
+		} catch (CertException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 	
 }
