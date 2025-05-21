@@ -10,4 +10,6 @@ import com.example.demo.model.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query(value = "select user_id, username, password_hash, salt, email, active, role from users where username=:username", nativeQuery = true)
 	User getUser(String username);
+	
+	// 可以自行練習其他寫法...
 }
