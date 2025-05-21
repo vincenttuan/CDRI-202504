@@ -7,6 +7,7 @@ import com.example.demo.model.dto.UserDto;
 import com.example.demo.model.entity.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
+import com.example.demo.util.Hash;
 
 public class UserServiceImpl implements UserService {
 	
@@ -26,9 +27,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void addUser(String username, String password, String email, boolean active, String role) {
-		// TODO Auto-generated method stub
-		
+	public void addUser(String username, String password, String email, Boolean active, String role) {
+		String salt = Hash.getSalt();
+		String passwordHash = Hash.getHash(password, salt);
+		User user = new User(null, username, passwordHash, salt, email, active, role);
+		userRepository.save(user);
 	}
 	
 }
