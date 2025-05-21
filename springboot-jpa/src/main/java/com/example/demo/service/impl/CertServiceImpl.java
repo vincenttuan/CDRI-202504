@@ -24,7 +24,7 @@ public class CertServiceImpl implements CertService {
 		}
 		// 2. 密碼 hash 比對
 		String passwordHash = Hash.getHash(password, user.getSalt());
-		if(!password.equals(user.getPasswordHash())) {
+		if(!passwordHash.equals(user.getPasswordHash())) {
 			throw new CertException("密碼錯誤");
 		}
 		// 3. 簽發憑證
