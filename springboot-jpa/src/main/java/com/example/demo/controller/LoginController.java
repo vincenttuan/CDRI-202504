@@ -43,7 +43,6 @@ public class LoginController {
 		// 將憑證放到 session 變數中, 以利其他程式進行取用與驗證
 		session.setAttribute("userCert", userCert);
 		return "redirect:/room"; // 重導到首頁
-		
 	}
 	
 }
