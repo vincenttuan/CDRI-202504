@@ -8,27 +8,20 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.model.entity.Room;
 import com.example.demo.repository.RoomRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.service.UserService;
 
 @SpringBootTest
 public class UserJPAAddTest {
 	
 	@Autowired
-	private RoomRepository roomRepository;
+	private UserService userService;
 	
 	@Test
-	public void testRoomAdd() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("請輸入房號:");
-		Integer roomId = scanner.nextInt();
-		System.out.print("請輸入房名:");
-		String roomName = scanner.next();
-		System.out.print("請輸入人數:");
-		Integer roomSize = scanner.nextInt();
-		// --------------------------------------
-		Room room = new Room(roomId, roomName, roomSize);
-		// 新增到資料庫
-		room = roomRepository.save(room);
-		System.out.println("測試新增:" + room);
+	public void testUserAdd() {
+		userService.addUser("john", "1234", "john@gmail.com", true, "admin");
+		userService.addUser("mary", "1234", "mary@gmail.com", true, "user");
+		System.out.println("User add ok!");
 	}
 	
 }
