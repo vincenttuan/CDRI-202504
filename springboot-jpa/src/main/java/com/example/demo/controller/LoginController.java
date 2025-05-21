@@ -31,6 +31,7 @@ public class LoginController {
 							 Model model, HttpSession session) {
 		// 取得憑證
 		UserCert userCert = null;
+		
 		try {
 			userCert = certService.getCert(username, password);
 		} catch (CertException e) {
