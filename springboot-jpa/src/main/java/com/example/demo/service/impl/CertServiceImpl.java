@@ -20,7 +20,7 @@ public class CertServiceImpl implements CertService {
 	@Override
 	//public UserCert getCert(String username, String password) throws CertException {
 	public UserCert getCert(String username, String password) throws UserNotFoundException, PasswordInvalidException {
-				// 1. 是否有此人
+		// 1. 是否有此人
 		User user = userRepository.getUser(username);
 		if(user == null) {
 			throw new UserNotFoundException("查無此人");
