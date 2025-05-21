@@ -8,7 +8,6 @@ import com.example.demo.model.dto.UserCert;
 import com.example.demo.model.entity.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.CertService;
-import com.example.demo.service.UserService;
 import com.example.demo.util.Hash;
 
 @Service
@@ -32,6 +31,5 @@ public class CertServiceImpl implements CertService {
 		UserCert userCert = new UserCert(user.getUserId(), user.getUsername(), user.getRole());
 		return userCert;
 	}
-	
 	
 }
