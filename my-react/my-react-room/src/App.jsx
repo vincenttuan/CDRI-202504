@@ -7,7 +7,9 @@ function App() {
   const [rooms, setRooms] = useState([]);
   const [form, setForm] = useState({roomId:'', roomName:'', roomSize:''});
   const [isEditing, setIsEditing] = useState(false); // 用來判斷編輯模式
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loginForm, setLoginForm] = useState({ username: '', password: '' });
+
   useEffect(() => {
     console.log('檢查是否已經登入');
     checkLoginStatus();
@@ -102,9 +104,6 @@ function App() {
   };
 
   // -- 登入用 ----------------------------------------------------------------------
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loginForm, setLoginForm] = useState({ username: '', password: '' });
-
   // 檢查登入狀態(是否已經登入過?)
   const checkLoginStatus = async () => {
     try {
