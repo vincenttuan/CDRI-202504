@@ -13,5 +13,4 @@ public class UserCert {
 	private Integer userId; // 使用者 Id
 	private String username; // 使用者名稱
 	private String role; // 角色權限
-	
 }
