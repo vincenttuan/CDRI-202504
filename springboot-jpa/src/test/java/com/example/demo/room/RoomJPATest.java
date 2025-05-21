@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.room;
 
 import java.util.Scanner;
 
