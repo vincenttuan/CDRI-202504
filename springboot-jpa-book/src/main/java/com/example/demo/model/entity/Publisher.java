@@ -4,31 +4,30 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
 @Entity
-public class Book {
-	
+public class Publisher {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(length = 100, nullable = false)
+	@Column(length = 50, nullable = false)
 	private String name;
 	
-	@ManyToMany(mappedBy = "books")
-	private List<Publisher> publishers;
-	
-	@ManyToOne()
-	@JoinColumn(name = "author_id")
-	private Author author;
+	@ManyToMany
+	@JoinTable(
+			name = "publisher_book",
+			joinColumns = @JoinColumn(name = "publisher_id"),
+			inverseJoinColumns = @JoinColumn(name = "book_id")
+	)
+	private List<Book> books;
 	
 }
