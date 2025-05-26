@@ -40,6 +40,7 @@ public class Test_Read {
 			System.out.printf("序號:%d 姓名:%s 著作數量:%d%n", author.getId(), author.getName(), author.getBooks().size());
 			
 		});
+		
 	}
 	
 }
