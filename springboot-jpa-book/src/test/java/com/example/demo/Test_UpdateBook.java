@@ -41,7 +41,7 @@ public class Test_UpdateBook {
 		// 更新設定
 		book.setAuthor(author);
 		
-		// 儲存更新
+		// 儲存更新(save 就是將最新物件狀態寫回給資料表)
 		bookRepository.save(book);
 	}
 	
