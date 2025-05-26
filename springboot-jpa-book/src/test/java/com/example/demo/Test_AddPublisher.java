@@ -28,8 +28,16 @@ public class Test_AddPublisher {
 		publisher1.addBook(book1);
 		publisher1.addBook(book2);
 		
+		Publisher publisher2 = new Publisher();
+		publisher2.setName("第三波資訊");
+		publisher2.addBook(book1);
 		
+		Publisher publisher3 = new Publisher();
+		publisher3.setName("天下文化");
 		
+		publisherRepository.save(publisher1);
+		publisherRepository.save(publisher2);
+		publisherRepository.save(publisher3);
 		
 	}
 	
