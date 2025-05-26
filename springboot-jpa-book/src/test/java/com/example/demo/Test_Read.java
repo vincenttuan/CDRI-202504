@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThatList;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.example.demo.model.entity.Author;
 import com.example.demo.repository.AuthorRepository;
 import com.example.demo.repository.BookRepository;
+
+import jakarta.transaction.Transactional;
 
 @SpringBootTest
 public class Test_Read {
@@ -22,6 +25,7 @@ public class Test_Read {
 	private BookRepository bookRepository;
 	
 	@Test
+	//@Transactional
 	public void read() {
 		// 查詢作者與書籍
 		List<Author> authors = authorRepository.findAll();
