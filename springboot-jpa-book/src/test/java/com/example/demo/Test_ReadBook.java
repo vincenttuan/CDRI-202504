@@ -27,8 +27,6 @@ public class Test_ReadBook {
 		books.forEach(book -> {
 			System.out.printf("序號:%d 書名:%s 作者:%s%n", book.getId(), book.getName(), book.getAuthor().getName());
 		});
-		
-		
 	}
 	
 }
