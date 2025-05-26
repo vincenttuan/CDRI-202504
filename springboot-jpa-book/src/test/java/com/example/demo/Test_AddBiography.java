@@ -21,7 +21,7 @@ public class Test_AddBiography {
 	
 	@Test
 	public void add() {
-		Optional<Author> optAuthor = authorRepository.findById(1);
+		Optional<Author> optAuthor = authorRepository.findById(2);
 		if(optAuthor.isEmpty()) {
 			System.out.println("查無作者");
 			return;
@@ -30,7 +30,7 @@ public class Test_AddBiography {
 		Author author = optAuthor.get();
 		
 		Biography biography = new Biography();
-		biography.setDetails("我是一個技術本位的 IT 作者...");
+		biography.setDetails("我是一個重視實務應用的作者...");
 		biography.setAuthor(author); // 設定關聯
 		
 		biographyRepository.save(biography);
