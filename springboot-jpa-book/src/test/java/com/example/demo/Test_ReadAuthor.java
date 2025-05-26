@@ -16,13 +16,10 @@ import com.example.demo.repository.BookRepository;
 import jakarta.transaction.Transactional;
 
 @SpringBootTest
-public class Test_Read {
+public class Test_ReadAuthor {
 	
 	@Autowired
 	private AuthorRepository authorRepository;
-	
-	@Autowired
-	private BookRepository bookRepository;
 	
 	@Test
 	//@Transactional
