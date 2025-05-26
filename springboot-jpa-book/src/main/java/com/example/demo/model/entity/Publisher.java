@@ -39,4 +39,12 @@ public class Publisher {
 		}
 		books.add(book);
 	}
+	
+	// 自建一個移除書籍的方法
+	public void removeBook(Book book) {
+		if(books == null) {
+			return;
+		}
+		books.remove(book);
+	}
 }
