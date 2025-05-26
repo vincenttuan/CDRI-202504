@@ -21,7 +21,7 @@ public class Author {
 	@Column(length = 50, nullable = false)
 	private String name;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "author")
 	private List<Book> books;
 	
 }
