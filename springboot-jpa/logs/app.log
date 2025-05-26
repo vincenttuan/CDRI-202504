@@ -1751,3 +1751,9 @@ java.lang.IllegalStateException: getWriter() has already been called for this re
 2025-05-21T15:23:36.231+08:00  INFO 9464 --- [springboot-jpa] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-05-21T15:23:36.231+08:00  INFO 9464 --- [springboot-jpa] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-05-21T15:23:36.232+08:00  INFO 9464 --- [springboot-jpa] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-21T16:54:46.122+08:00  INFO 9464 --- [springboot-jpa] [RMI TCP Connection(102)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-05-21T16:54:46.123+08:00  INFO 9464 --- [springboot-jpa] [RMI TCP Connection(102)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-21T16:54:46.125+08:00  INFO 9464 --- [springboot-jpa] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-21T16:54:46.127+08:00  INFO 9464 --- [springboot-jpa] [RMI TCP Connection(102)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-21T16:54:46.129+08:00  INFO 9464 --- [springboot-jpa] [RMI TCP Connection(102)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-21T16:54:46.130+08:00  INFO 9464 --- [springboot-jpa] [RMI TCP Connection(102)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
