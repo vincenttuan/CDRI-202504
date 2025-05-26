@@ -30,4 +30,8 @@ public class Publisher {
 	)
 	private List<Book> books;
 	
+	// 自建一個新增書籍的方法
+	public void addBook(Book book) {
+		books.add(book);
+	}
 }
