@@ -16,7 +16,7 @@ public class Test_AddAuthor {
 	@Test
 	public void addAuthor() {
 		Author author = new Author();
-		author.setName("王小明");
+		author.setName("黃小華");
 		
 		authorRepository.save(author);
 		
