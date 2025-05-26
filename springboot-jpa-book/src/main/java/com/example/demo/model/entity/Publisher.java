@@ -35,16 +35,9 @@ public class Publisher {
 	// 自建一個新增書籍的方法
 	public void addBook(Book book) {
 		if(books == null) {
-			books = new CopyOnWriteArrayList<>();
+			books = new ArrayList<>();
 		}
 		books.add(book);
 	}
 	
-	// 自建一個移除書籍的方法
-	public void removeBook(Book book) {
-		if(books == null) {
-			return;
-		}
-		books.remove(book);
-	}
 }
