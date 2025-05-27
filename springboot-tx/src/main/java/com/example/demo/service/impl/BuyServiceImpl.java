@@ -15,7 +15,7 @@ public class BuyServiceImpl implements BuyService {
 	@Autowired
 	private BookService bookService;
 	
-	@Transactional
+	@Transactional(dontRollbackOn = {RuntimeException.class})
 	@Override
 	public void buyOneBook(String username, Integer bookId) {
 		System.out.printf("%s 要買書%n", username);
