@@ -16,6 +16,8 @@ public class BuyServiceImpl implements BuyService {
 	@Autowired
 	private BookService bookService;
 	
+	// RuntimeException 預設會回滾, 可以透過 dontRollbackOn 來改變
+	// Exception 預設不會回滾, 可以透過 rollbackOn 來定義
 	@Transactional(
 			rollbackOn = {InsufficientAmountException.class},
 			dontRollbackOn = {RuntimeException.class}
