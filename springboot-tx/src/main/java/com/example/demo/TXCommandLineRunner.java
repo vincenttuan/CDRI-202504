@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.example.demo.exception.InsufficientAmountException;
 import com.example.demo.service.BuyService;
 
 @Component
@@ -14,17 +15,16 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	
 	// 買書
 	private void buyBook(String username, Integer bookId) {
-		buyService.buyOneBook(username, bookId);
+		try {
+			buyService.buyOneBook(username, bookId);
+		} catch (InsufficientAmountException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 	
 	@Override
 	public void run(String... args) throws Exception {
-		try {
-			buyBook("john", 1);
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-		}
-		
+		buyBook("john", 1);
 	}
 
 }
