@@ -19,7 +19,12 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		buyBook("john", 1);
+		try {
+			buyBook("john", 1);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
 	}
 
 }

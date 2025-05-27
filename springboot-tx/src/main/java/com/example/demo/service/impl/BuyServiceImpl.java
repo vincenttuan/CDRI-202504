@@ -7,12 +7,15 @@ import com.example.demo.repository.BookRepository;
 import com.example.demo.service.BookService;
 import com.example.demo.service.BuyService;
 
+import jakarta.transaction.Transactional;
+
 @Service // 交易服務
 public class BuyServiceImpl implements BuyService {
 	
 	@Autowired
 	private BookService bookService;
 	
+	@Transactional
 	@Override
 	public void buyOneBook(String username, Integer bookId) {
 		System.out.printf("%s 要買書%n", username);
