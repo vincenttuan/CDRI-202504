@@ -2586,3 +2586,83 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2025-05-26T15:44:28.663+08:00  INFO 9328 --- [springboot-jpa-book] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-26T15:44:28.665+08:00  INFO 9328 --- [springboot-jpa-book] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-05-26T15:44:28.670+08:00  INFO 9328 --- [springboot-jpa-book] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-26T15:55:59.295+08:00  INFO 12968 --- [springboot-jpa-book] [main] c.e.demo.SpringbootJpaBookApplication    : Starting SpringbootJpaBookApplication using Java 21.0.6 with PID 12968 (E:\EclipseProject\springboot-jpa-book\target\classes started by NTPU in E:\EclipseProject\springboot-jpa-book)
+2025-05-26T15:55:59.296+08:00  INFO 12968 --- [springboot-jpa-book] [main] c.e.demo.SpringbootJpaBookApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T15:55:59.673+08:00  INFO 12968 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-26T15:55:59.674+08:00  INFO 12968 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-05-26T15:55:59.699+08:00  INFO 12968 --- [springboot-jpa-book] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.AuthorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-05-26T15:55:59.700+08:00  INFO 12968 --- [springboot-jpa-book] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.BiographyRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-05-26T15:55:59.703+08:00  INFO 12968 --- [springboot-jpa-book] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-05-26T15:55:59.705+08:00  INFO 12968 --- [springboot-jpa-book] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.PublisherRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-05-26T15:55:59.705+08:00  INFO 12968 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 JDBC repository interfaces.
+2025-05-26T15:55:59.714+08:00  INFO 12968 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-26T15:55:59.714+08:00  INFO 12968 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-26T15:55:59.734+08:00  INFO 12968 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
+2025-05-26T15:56:00.021+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-05-26T15:56:00.040+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-26T15:56:00.040+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-05-26T15:56:00.071+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-26T15:56:00.071+08:00  INFO 12968 --- [springboot-jpa-book] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 749 ms
+2025-05-26T15:56:00.154+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-26T15:56:00.178+08:00  INFO 12968 --- [springboot-jpa-book] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-05-26T15:56:00.195+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-26T15:56:00.344+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-26T15:56:00.360+08:00  INFO 12968 --- [springboot-jpa-book] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-26T15:56:00.451+08:00  INFO 12968 --- [springboot-jpa-book] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3dda8a2e
+2025-05-26T15:56:00.453+08:00  INFO 12968 --- [springboot-jpa-book] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-26T15:56:00.496+08:00  INFO 12968 --- [springboot-jpa-book] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-26T15:56:00.992+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-26T15:56:01.497+08:00  INFO 12968 --- [springboot-jpa-book] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T15:56:01.870+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-26T15:56:02.176+08:00  INFO 12968 --- [springboot-jpa-book] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-05-26T15:56:02.181+08:00  INFO 12968 --- [springboot-jpa-book] [main] c.e.demo.SpringbootJpaBookApplication    : Started SpringbootJpaBookApplication in 3.156 seconds (process running for 3.514)
+2025-05-26T16:03:24.118+08:00  INFO 12968 --- [springboot-jpa-book] [RMI TCP Connection(17)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-05-26T16:03:24.120+08:00  INFO 12968 --- [springboot-jpa-book] [RMI TCP Connection(17)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-26T16:03:24.122+08:00  INFO 12968 --- [springboot-jpa-book] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-26T16:03:24.124+08:00  INFO 12968 --- [springboot-jpa-book] [RMI TCP Connection(17)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T16:03:24.125+08:00  INFO 12968 --- [springboot-jpa-book] [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-26T16:03:24.128+08:00  INFO 12968 --- [springboot-jpa-book] [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-26T16:03:33.014+08:00  INFO 15688 --- [springboot-jpa-book] [main] c.e.demo.SpringbootJpaBookApplication    : Starting SpringbootJpaBookApplication using Java 21.0.6 with PID 15688 (E:\EclipseProject\springboot-jpa-book\target\classes started by NTPU in E:\EclipseProject\springboot-jpa-book)
+2025-05-26T16:03:33.015+08:00  INFO 15688 --- [springboot-jpa-book] [main] c.e.demo.SpringbootJpaBookApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T16:03:33.328+08:00  INFO 15688 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-26T16:03:33.328+08:00  INFO 15688 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-05-26T16:03:33.345+08:00  INFO 15688 --- [springboot-jpa-book] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.AuthorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-05-26T16:03:33.347+08:00  INFO 15688 --- [springboot-jpa-book] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.BiographyRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-05-26T16:03:33.347+08:00  INFO 15688 --- [springboot-jpa-book] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-05-26T16:03:33.348+08:00  INFO 15688 --- [springboot-jpa-book] [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.demo.repository.PublisherRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-05-26T16:03:33.349+08:00  INFO 15688 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 JDBC repository interfaces.
+2025-05-26T16:03:33.355+08:00  INFO 15688 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-26T16:03:33.355+08:00  INFO 15688 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-26T16:03:33.371+08:00  INFO 15688 --- [springboot-jpa-book] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 4 JPA repository interfaces.
+2025-05-26T16:03:33.596+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-05-26T16:03:33.605+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-26T16:03:33.605+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-05-26T16:03:33.632+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-26T16:03:33.632+08:00  INFO 15688 --- [springboot-jpa-book] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 597 ms
+2025-05-26T16:03:33.712+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-26T16:03:33.738+08:00  INFO 15688 --- [springboot-jpa-book] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-05-26T16:03:33.758+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-26T16:03:33.905+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-26T16:03:33.921+08:00  INFO 15688 --- [springboot-jpa-book] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-26T16:03:34.011+08:00  INFO 15688 --- [springboot-jpa-book] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3dbb3fb7
+2025-05-26T16:03:34.012+08:00  INFO 15688 --- [springboot-jpa-book] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-26T16:03:34.058+08:00  INFO 15688 --- [springboot-jpa-book] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-26T16:03:34.560+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-26T16:03:35.059+08:00  INFO 15688 --- [springboot-jpa-book] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T16:03:35.398+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-26T16:03:35.713+08:00  INFO 15688 --- [springboot-jpa-book] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-05-26T16:03:35.718+08:00  INFO 15688 --- [springboot-jpa-book] [main] c.e.demo.SpringbootJpaBookApplication    : Started SpringbootJpaBookApplication in 2.929 seconds (process running for 3.249)
