@@ -651,3 +651,9 @@ java.lang.RuntimeException: username: john 餘額不足 (60 < 70)
 2025-05-27T12:12:39.168+08:00  INFO 11896 --- [springboot-tx] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
 2025-05-27T12:12:39.419+08:00  INFO 11896 --- [springboot-tx] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
 2025-05-27T12:12:39.425+08:00  INFO 11896 --- [springboot-tx] [main] c.example.demo.SpringbootTxApplication   : Started SpringbootTxApplication in 2.047 seconds (process running for 2.362)
+2025-05-27T12:23:38.913+08:00  INFO 11896 --- [springboot-tx] [RMI TCP Connection(19)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-05-27T12:23:38.914+08:00  INFO 11896 --- [springboot-tx] [RMI TCP Connection(19)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-27T12:23:38.916+08:00  INFO 11896 --- [springboot-tx] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-27T12:23:38.918+08:00  INFO 11896 --- [springboot-tx] [RMI TCP Connection(19)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27T12:23:38.919+08:00  INFO 11896 --- [springboot-tx] [RMI TCP Connection(19)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-27T12:23:38.922+08:00  INFO 11896 --- [springboot-tx] [RMI TCP Connection(19)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

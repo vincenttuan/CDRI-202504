@@ -21,7 +21,7 @@ public class Test_AddBiography {
 	
 	@Test
 	public void add() {
-		Optional<Author> optAuthor = authorRepository.findById(2);
+		Optional<Author> optAuthor = authorRepository.findById(6);
 		if(optAuthor.isEmpty()) {
 			System.out.println("查無作者");
 			return;
