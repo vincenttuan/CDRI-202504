@@ -21,7 +21,7 @@ public class BuyServiceImpl implements BuyService {
 	// Exception 預設不會回滾, 可以透過 rollbackOn 來定義
 	@Transactional(
 			propagation = Propagation.REQUIRED, // 預設
-			isolation = Isolation.DEFAULT, // 使用資料庫預設
+			isolation = Isolation.DEFAULT, // 預設:使用資料庫預設
 			rollbackFor = {InsufficientAmountException.class},
 			noRollbackFor = {RuntimeException.class}
 	)
