@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +20,8 @@ public class BuyServiceImpl implements BuyService {
 	// RuntimeException 預設會回滾, 可以透過 dontRollbackOn 來改變
 	// Exception 預設不會回滾, 可以透過 rollbackOn 來定義
 	@Transactional(
-			propagation = Propagation.MANDATORY,
+			propagation = Propagation.REQUIRED, // 預設
+			isolation = Isolation.DEFAULT, // 使用資料庫預設
 			rollbackFor = {InsufficientAmountException.class},
 			noRollbackFor = {RuntimeException.class}
 	)
