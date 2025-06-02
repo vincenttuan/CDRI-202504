@@ -11,4 +11,10 @@ public class ChatController {
 	public ChatMessage send(ChatMessage message) {
 		return message;
 	}
+	
+	@MessageMapping("/chat2") // 有訊息到 /app/chat2
+	@SendTo("/topic/messages2") // 訂閱一個主題:/topic, 主題叫做:/messages2
+	public ChatMessage send2(ChatMessage message) {
+		return message;
+	}
 }
