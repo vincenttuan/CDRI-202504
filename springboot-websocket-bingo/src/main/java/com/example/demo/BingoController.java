@@ -26,15 +26,21 @@ public class BingoController {
             messagingTemplate.convertAndSend("/topic/bingoError/" + playerId, error);
             return;
         }
+        /*
         if (bingoGameService.findAllPlayers().size() > 5) {
             Map<String, Object> error = new HashMap<>();
             error.put("error", "人數已經超過(最多 5 人)");
             messagingTemplate.convertAndSend("/topic/bingoError/" + playerId, error);
             return;
         }
+        */
         BingoCard card = bingoGameService.createCardForPlayer(playerId);
         messagingTemplate.convertAndSend("/topic/bingo/" + playerId, card);
         broadcastGameState();
+        // 如果玩家數量大於1且剛好輪到這個人，啟動計時器
+        if (bingoGameService.isPlayerTurn(playerId)) {
+            startTurnTimer();
+        }
     }
 
 
@@ -48,8 +54,9 @@ public class BingoController {
         boolean success = bingoGameService.selectNumber(number, playerId);
         
         if (success) {
-            // 廣播遊戲狀態給所有人
+        	bingoGameService.cancelTurnTimer(); // 玩家有行動，取消計時
             broadcastGameState();
+            startTurnTimer(); // 換人後啟動新計時器
         } else {
             // 回傳錯誤訊息給該玩家
             Map<String, Object> error = new HashMap<>();
@@ -57,7 +64,17 @@ public class BingoController {
             messagingTemplate.convertAndSend("/topic/bingoError/" + playerId, error);
         }
     }
-
+    
+    // 啟動5秒計時器
+    private void startTurnTimer() {
+        bingoGameService.startTurnTimer(() -> {
+            // 這裡是在5秒後自動執行
+            bingoGameService.nextPlayer();
+            broadcastGameState();
+            startTurnTimer(); // 換人後繼續啟動下一個計時器
+        });
+    }
+    
     // 廣播遊戲狀態給所有玩家
     private void broadcastGameState() {
         Map<String, Object> gameState = bingoGameService.getGameState();

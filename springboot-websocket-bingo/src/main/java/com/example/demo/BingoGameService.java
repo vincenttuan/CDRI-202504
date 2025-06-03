@@ -2,6 +2,10 @@ package com.example.demo;
 
 import org.springframework.stereotype.Service;
 import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class BingoGameService {
@@ -9,12 +13,17 @@ public class BingoGameService {
     private final Set<Integer> selectedNumbers = new HashSet<>();
     private final List<String> playerOrder = new ArrayList<>(); // 玩家順序
     private int currentPlayerIndex = 0; // 目前輪到的玩家索引
-
+    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    private ScheduledFuture<?> currentTimer = null;
+    private Runnable timeoutTask = null;
     // 產生新玩家賓果卡
     public BingoCard createCardForPlayer(String playerId) {
-        List<Integer> nums = new ArrayList<>();
-        for (int i = 1; i <= 25; i++) nums.add(i);
-        Collections.shuffle(nums);
+        
+    	List<Integer> nums = new ArrayList<>();
+        for (int i = 1; i <= 99; i++) nums.add(i);
+        Collections.shuffle(nums);           // 打亂
+        nums = nums.subList(0, 25);          // 取前25個作為賓果卡號碼
+        
         BingoCard card = new BingoCard();
         card.setPlayerId(playerId);
         card.setNumbers(nums);
@@ -78,6 +87,24 @@ public class BingoGameService {
     // 檢查名稱是否已存在
     public boolean isPlayerIdTaken(String playerId) {
         return playerCards.containsKey(playerId);
+    }
+    
+    // 每次輪到新玩家時呼叫
+    public void startTurnTimer(Runnable timeoutCallback) {
+        // 取消前一個計時器
+        if (currentTimer != null && !currentTimer.isDone()) {
+            currentTimer.cancel(true);
+        }
+        // 啟動新計時器
+        timeoutTask = timeoutCallback;
+        currentTimer = scheduler.schedule(timeoutCallback, 5, TimeUnit.SECONDS);
+    }
+
+    // 玩家出牌時呼叫，取消計時器
+    public void cancelTurnTimer() {
+        if (currentTimer != null && !currentTimer.isDone()) {
+            currentTimer.cancel(true);
+        }
     }
     
     public BingoCard getCard(String playerId) {
