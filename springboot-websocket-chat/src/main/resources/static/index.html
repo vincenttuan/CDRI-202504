@@ -27,7 +27,8 @@
     <input id="from" placeholder="你的名字">
     <input id="content" placeholder="輸入訊息">
     <button onclick="sendMessage()">送出</button>
-
+	<button onclick="sendBroadcast()">廣播</button>
+	
     <script>
         var stompClient = null;      // STOMP 客戶端物件
         var currentRoomId = null;    // 目前聊天室 ID
@@ -57,9 +58,29 @@
                 stompClient.subscribe('/topic/messages/' + roomId, function (message) {
                     showMessage(JSON.parse(message.body));
                 });
+                // 訂閱全域廣播
+                stompClient.subscribe('/topic/broadcast', function (message) {
+                    showMessage(JSON.parse(message.body));
+                });
             });
         }
-
+	
+     	// 傳送訊息到目前聊天室
+        function sendBroadcast() {
+            var from = document.getElementById('from').value;
+            var content = document.getElementById('content').value;
+            // 檢查是否已選擇聊天室
+            if (!from || !content) {
+                alert('請輸入名字與訊息！');
+                return;
+            }
+            content + '[廣播] ' + content;
+            // 傳送訊息到後端
+            stompClient.send("/app/broadcast", {}, JSON.stringify({'from': from, 'content': + content}));
+            // 清空訊息輸入框
+            document.getElementById('content').value = '';
+        }
+     
         // 傳送訊息到目前聊天室
         function sendMessage() {
             var from = document.getElementById('from').value;
