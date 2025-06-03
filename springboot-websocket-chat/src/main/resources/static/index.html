@@ -76,7 +76,7 @@
             }
             content = '[廣播] ' + content;
             // 傳送訊息到後端
-            stompClient.send("/app/broadcast", {}, JSON.stringify({'from': from, 'content': + content}));
+            stompClient.send("/app/broadcast", {}, JSON.stringify({'from': from, 'content': content}));
             // 清空訊息輸入框
             document.getElementById('content').value = '';
         }
@@ -90,6 +90,7 @@
                 alert('請先選擇並加入聊天室！');
                 return;
             }
+            console.log(content);
             // 傳送訊息到後端
             stompClient.send("/app/chat/" + currentRoomId, {}, JSON.stringify({'from': from, 'content': content}));
             // 清空訊息輸入框
