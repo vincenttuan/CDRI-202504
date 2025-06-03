@@ -74,7 +74,7 @@
                 alert('請輸入名字與訊息！');
                 return;
             }
-            content + '[廣播] ' + content;
+            content = '[廣播] ' + content;
             // 傳送訊息到後端
             stompClient.send("/app/broadcast", {}, JSON.stringify({'from': from, 'content': + content}));
             // 清空訊息輸入框
