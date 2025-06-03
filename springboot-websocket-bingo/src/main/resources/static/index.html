@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>多人賓果遊戲</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <style>
+        #bingo { border-collapse: collapse; }
+        #bingo td {
+            width: 40px; height: 40px; border: 1px solid #333;
+            text-align: center; cursor: pointer; font-size: 1.2em;
+        }
+        #bingo td.selected { background: orange; color: white; }
+        #bingo td.disabled { cursor: not-allowed; opacity: 0.5; }
+        #turnInfo { font-size: 1.5em; font-weight: bold; margin: 10px 0; }
+        .myTurn { color: green; }
+        .notMyTurn { color: red; }
+    </style>
+</head>
+<body>
+    <h2>多人賓果遊戲</h2>
+    <div>
+        你的名字：<input type="text" id="playerId" value="player1">
+        <button onclick="joinGame()">進入遊戲</button>
+    </div>
+    <div id="turnInfo"></div>
+    <table id="bingo"></table>
+    <div id="errorMsg" style="color: red;"></div>
+
+    <script>
+        var stompClient = null;
+        var playerId = '';
+        var cardNumbers = [];
+        var selectedNumbers = new Set();
+        var currentPlayer = '';
+        var allPlayers = '';
+        var isMyTurn = false;
+
+        // 加入遊戲並取得專屬卡片
+        function joinGame() {
+            playerId = document.getElementById('playerId').value;
+            connect();
+        }
+
+        // 連線並訂閱
+        function connect() {
+            var socket = new SockJS('/bingo-websocket');
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function () {
+                // 訂閱自己的卡片
+                stompClient.subscribe('/topic/bingo/' + playerId, function (msg) {
+                    var card = JSON.parse(msg.body);
+                    cardNumbers = card.numbers;
+                    renderCard();
+                });
+                
+                // 訂閱全域遊戲狀態同步
+                stompClient.subscribe('/topic/bingoSync/all', function (msg) {
+                    var gameState = JSON.parse(msg.body);
+                    selectedNumbers = new Set(gameState.selectedNumbers);
+                    currentPlayer = gameState.currentPlayer;
+                    allPlayers = gameState.playerOrder;
+                    isMyTurn = (currentPlayer === playerId);
+                    updateTurnInfo();
+                    renderCard();
+                });
+                
+                // 訂閱錯誤訊息
+                stompClient.subscribe('/topic/bingoError/' + playerId, function (msg) {
+                    var error = JSON.parse(msg.body);
+                    showError(error.error);
+                });
+                
+                // 請求新卡片
+                stompClient.send("/app/bingo/newCard", {}, playerId);
+            });
+        }
+
+        // 更新輪流資訊顯示
+        function updateTurnInfo() {
+            var turnInfo = document.getElementById('turnInfo');
+            if (isMyTurn) {
+                turnInfo.textContent = '輪到你了！請選擇數字';
+                turnInfo.className = 'myTurn';
+            } else {
+                turnInfo.textContent = '輪到 ' + currentPlayer + '，請等待... players => ' + allPlayers;
+                turnInfo.className = 'notMyTurn';
+            }
+        }
+
+        // 畫出賓果卡
+        function renderCard() {
+            var table = document.getElementById('bingo');
+            table.innerHTML = '';
+            for (var r = 0; r < 5; r++) {
+                var tr = document.createElement('tr');
+                for (var c = 0; c < 5; c++) {
+                    var idx = r * 5 + c;
+                    var num = cardNumbers[idx];
+                    var td = document.createElement('td');
+                    td.textContent = num;
+                    
+                    if (selectedNumbers.has(num)) {
+                        td.className = 'selected';
+                    } else if (!isMyTurn) {
+                        td.className = 'disabled';
+                    } else {
+                        td.onclick = (function(n) {
+                            return function() { selectNumber(n); }
+                        })(num);
+                    }
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+        }
+
+        // 選數字並通知後端（包含玩家ID）
+        function selectNumber(num) {
+            if (!isMyTurn || selectedNumbers.has(num)) return;
+            stompClient.send("/app/bingo/select", {}, JSON.stringify({
+                number: num,
+                playerId: playerId
+            }));
+        }
+
+        // 顯示錯誤訊息
+        function showError(msg) {
+            var errorDiv = document.getElementById('errorMsg');
+            errorDiv.textContent = msg;
+            setTimeout(function() {
+                errorDiv.textContent = '';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
