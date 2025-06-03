@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot WebSocket Chat Rooms</title>
+    <!-- 引入 SockJS 和 STOMP JS 客戶端 -->
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <style>
+        .chat-list { list-style: none; padding: 0; }
+        .chat-list li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <!-- 聊天室選單 -->
+    <label for="room">選擇聊天室：</label>
+    <select id="room">
+        <option value="room1">聊天室 1</option>
+        <option value="room2">聊天室 2</option>
+        <option value="room3">聊天室 3</option>
+    </select>
+    <button onclick="joinRoom()">加入聊天室</button>
+    <hr>
+    <!-- 聊天訊息顯示區 -->
+    <ul class="chat-list" id="chat"></ul>
+    <!-- 用戶名稱與訊息輸入 -->
+    <input id="from" placeholder="你的名字">
+    <input id="content" placeholder="輸入訊息">
+    <button onclick="sendMessage()">送出</button>
+
+    <script>
+        var stompClient = null;      // STOMP 客戶端物件
+        var currentRoomId = null;    // 目前聊天室 ID
+
+        // 加入聊天室，根據選擇的聊天室 ID 連線
+        function joinRoom() {
+            var roomId = document.getElementById('room').value;
+            currentRoomId = roomId;
+            connect(roomId);
+        }
+
+        // 連線到 WebSocket 並訂閱指定聊天室
+        function connect(roomId) {
+            // 若已連線則先斷線
+            if (stompClient !== null) {
+                stompClient.disconnect();
+            }
+            // 建立 SockJS 連線
+            var socket = new SockJS('/chat-websocket');
+            // 使用 STOMP 封裝
+            stompClient = Stomp.over(socket);
+            // 連線 STOMP 伺服器
+            stompClient.connect({}, function (frame) {
+                // 清空聊天訊息
+                document.getElementById('chat').innerHTML = '';
+                // 訂閱指定聊天室的 topic
+                stompClient.subscribe('/topic/messages/' + roomId, function (message) {
+                    showMessage(JSON.parse(message.body));
+                });
+            });
+        }
+
+        // 傳送訊息到目前聊天室
+        function sendMessage() {
+            var from = document.getElementById('from').value;
+            var content = document.getElementById('content').value;
+            // 檢查是否已選擇聊天室
+            if (!currentRoomId) {
+                alert('請先選擇並加入聊天室！');
+                return;
+            }
+            // 傳送訊息到後端
+            stompClient.send("/app/chat/" + currentRoomId, {}, JSON.stringify({'from': from, 'content': content}));
+            // 清空訊息輸入框
+            document.getElementById('content').value = '';
+        }
+
+        // 顯示訊息在聊天區塊
+        function showMessage(message) {
+            var chat = document.getElementById('chat');
+            var li = document.createElement('li');
+            li.textContent = message.from + ": " + message.content;
+            chat.appendChild(li);
+        }
+    </script>
+</body>
+</html>
