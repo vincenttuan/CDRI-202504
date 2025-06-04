@@ -20,7 +20,7 @@ public class McpClient8080Application {
 			// 建立 ChatClient 並將 callback provider 註冊進去
 			ChatClient chatClient = chatClientBuilder.defaultTools(toolCallbackProvider).build();
 			
-			String prompt1 = "今天似乎運氣不錯想買5組樂透彩券並顯示這5組號碼, 並幫我結帳";
+			String prompt1 = "想買5組樂透彩券並顯示這5組號碼, 並幫我結帳";
 			//String prompt1 = "今天似乎運氣不錯想買5組樂透彩券並顯示這5組號碼, 不要幫我結帳";
 			System.out.println(prompt1);
 			

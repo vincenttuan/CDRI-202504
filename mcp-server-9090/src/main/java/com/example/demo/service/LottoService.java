@@ -23,7 +23,7 @@ public class LottoService {
 	 * @param amount 購買數量
 	 */
 	@Tool(name = "checkout", description = "樂透結帳/付款")
-	public String checkout(@ToolParam(description = "要結帳的數量") Integer amount) {
+	public String checkout(@ToolParam(description = "要結帳的組數") Integer amount) {
 		System.out.println("呼叫 checkout()");
 		return "LottoService 樂透結帳:$" + (amount * 50);
 	}
