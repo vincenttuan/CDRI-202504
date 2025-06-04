@@ -16,7 +16,7 @@ public class LottoService {
 		Random random = new Random();
 		int number = random.nextInt(10); // 0~9
 		System.out.println("呼叫 lotto() => " + number);
-		return number;
+		return number; 
 	}
 	
 	/** 樂透結帳
