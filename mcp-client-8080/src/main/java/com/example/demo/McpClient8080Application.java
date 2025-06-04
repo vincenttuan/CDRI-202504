@@ -21,7 +21,7 @@ public class McpClient8080Application {
 			ChatClient chatClient = chatClientBuilder.defaultTools(toolCallbackProvider).build();
 			
 			//String prompt1 = "今天似乎運氣不錯想買5張樂透彩券並顯示這5張號碼, 並幫我結帳";
-			String prompt1 = "今天似乎運氣不錯想買5張樂透彩券並顯示這5張號碼, 不要幫我結帳";
+			String prompt1 = "今天似乎運氣不錯想買5組樂透彩券並顯示這5組號碼, 不要幫我結帳";
 			System.out.println(prompt1);
 			
 			String response1 = chatClient.prompt().user(prompt1).call().content();
