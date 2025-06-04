@@ -1,11 +1,11 @@
 package com.example.demo;
 
-import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
 
 @SpringBootApplication
 public class McpClient8080Application {
