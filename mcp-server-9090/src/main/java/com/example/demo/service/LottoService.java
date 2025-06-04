@@ -15,6 +15,7 @@ public class LottoService {
 	@Tool(name = "lotto", description = "得到樂透電腦選號")
 	public String lotto(@ToolParam(description = "樂透電腦選號購買的數量") Integer amount) {
 		Random random = new Random();
+		System.out.println("呼叫 lotto()");
 		return "LottoService 產生樂透號碼:" + random.nextInt(10); // 0~9
 	}
 	
@@ -23,6 +24,7 @@ public class LottoService {
 	 */
 	@Tool(name = "checkout", description = "樂透結帳/付款")
 	public String checkout(@ToolParam(description = "要結帳的數量") Integer amount) {
+		System.out.println("呼叫 checkout()");
 		return "LottoService 樂透結帳:$" + (amount * 50);
 	}
 }
