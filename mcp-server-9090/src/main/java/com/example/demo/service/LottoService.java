@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 public class LottoService {
 	
 	/** 得到樂透電腦選號
-	 * @param amount 購買數量
 	 */
-	@Tool(name = "lotto", description = "得到樂透電腦選號")
-	public String lotto(@ToolParam(description = "樂透電腦選號購買的數量") Integer amount) {
+	@Tool(name = "lotto", description = "得到一組樂透電腦選號")
+	public Integer lotto() {
 		Random random = new Random();
-		System.out.println("呼叫 lotto()");
-		return "LottoService 產生樂透號碼:" + random.nextInt(10); // 0~9
+		int number = random.nextInt(10); // 0~9
+		System.out.println("呼叫 lotto() => " + number);
+		return number;
 	}
 	
 	/** 樂透結帳
