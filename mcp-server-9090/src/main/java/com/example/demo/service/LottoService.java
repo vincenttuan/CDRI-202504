@@ -2,6 +2,9 @@ package com.example.demo.service;
 
 import java.util.Random;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class LottoService {
 	
 	/** 取得樂透號碼
