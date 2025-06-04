@@ -31,12 +31,21 @@
 	</properties>
 	
 	<dependencies>
+	    
+	    <!-- Spring AI OpenAI Support -->
+	    <!--
+	    <dependency>
+	        <groupId>org.springframework.ai</groupId>
+	        <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
+	        <version>1.0.0-M6</version>
+	    </dependency>
+	    -->
 	    <dependency>
 		    <groupId>org.springframework.ai</groupId>
 		    <artifactId>spring-ai-ollama-spring-boot-starter</artifactId>
 		    <version>1.0.0-M6</version>
 		</dependency>
-
+		
 	    <dependency>
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter</artifactId>
