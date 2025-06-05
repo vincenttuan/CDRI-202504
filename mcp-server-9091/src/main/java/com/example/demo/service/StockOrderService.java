@@ -39,7 +39,9 @@ public class StockOrderService {
         }
         portfolio.put(symbol, portfolio.getOrDefault(symbol, 0) + quantity);
         System.out.println("[DEBUG] 呼叫 buyStock() => " + symbol + " x" + quantity);
-        return stockMarket.get(symbol).getName() + " 已買入，持有股數：" + portfolio.get(symbol);
+        Stock stock = stockMarket.get(symbol);
+        int cost = stock.getPrice() * quantity;
+        return stockMarket.get(symbol).getName() + " 已買入，持有股數：" + portfolio.get(symbol) + "，買進成本：" + cost;
     }
 
     /** 查詢持股 */
