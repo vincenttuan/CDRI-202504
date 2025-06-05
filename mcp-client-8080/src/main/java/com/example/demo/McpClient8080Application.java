@@ -16,15 +16,19 @@ public class McpClient8080Application {
 	
 	/**
 	請放2顆橘子與1瓶牛奶到購物車，然後顯示購物車內容，最後幫我結帳。
+	
 	Executing tool call: addToCart
 	Received JSON message: {"jsonrpc":"2.0","id":"2ea4028c-4","result":{"content":[{"type":"text","type":"text","text":"\"橘子 已加入購物車，數量：2\""}],"isError":false}}
 	Received Response: JSONRPCResponse[jsonrpc=2.0, id=2ea4028c-4, result={content=[{type=text, text="橘子 已加入購物車，數量：2"}], isError=false}, error=null]
+	
 	Executing tool call: addToCart
 	Received JSON message: {"jsonrpc":"2.0","id":"2ea4028c-5","result":{"content":[{"type":"text","type":"text","text":"\"牛奶 已加入購物車，數量：1\""}],"isError":false}}
 	Received Response: JSONRPCResponse[jsonrpc=2.0, id=2ea4028c-5, result={content=[{type=text, text="牛奶 已加入購物車，數量：1"}], isError=false}, error=null]
+	
 	Executing tool call: viewCart
 	Received JSON message: {"jsonrpc":"2.0","id":"2ea4028c-6","result":{"content":[{"type":"text","type":"text","text":"\"購物車內容：\\n橘子 x2 (單價：25元)\\n牛奶 x1 (單價：60元)\\n\""}],"isError":false}}
 	Received Response: JSONRPCResponse[jsonrpc=2.0, id=2ea4028c-6, result={content=[{type=text, text="購物車內容：\n橘子 x2 (單價：25元)\n牛奶 x1 (單價：60元)\n"}], isError=false}, error=null]
+	
 	Executing tool call: checkout
 	Received JSON message: {"jsonrpc":"2.0","id":"2ea4028c-7","result":{"content":[{"type":"text","type":"text","text":"\"結帳成功！總金額：110 元。\""}],"isError":false}}
 	Received Response: JSONRPCResponse[jsonrpc=2.0, id=2ea4028c-7, result={content=[{type=text, text="結帳成功！總金額：110 元。"}], isError=false}, error=null]
