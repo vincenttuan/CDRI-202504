@@ -56,8 +56,8 @@ public class McpClient8080Application {
 			// 建立 ChatClient 並將 callback provider 註冊進去
 			ChatClient chatClient = chatClientBuilder.defaultTools(toolCallbackProvider).build();
 			
-			//String prompt1 = "請先加2顆'橘子'到購物車，再加1瓶'牛奶'，然後顯示購物車內容，最後幫我'結帳'。";
-			String prompt1 = "幫我先買入 2454 聯發科 6 股並顯示買入成本，再查詢目前持股。";
+			String prompt1 = "請先加2顆'橘子'到購物車，再加1瓶'牛奶'，然後顯示購物車內容，最後幫我'結帳'。";
+			//String prompt1 = "幫我先買入 2454 聯發科 6 股並顯示買入成本，再查詢目前持股。";
 			//String prompt1 = "幫我先賣出 2454 聯發科 9 股並顯示成交金額，再查詢目前持股。";
 			
 			System.out.println(prompt1);
