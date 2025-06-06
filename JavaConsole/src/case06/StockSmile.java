@@ -6,6 +6,9 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
+import smile.data.DataFrame;
+import smile.data.vector.DoubleVector;
+
 public class StockSmile {
 
 	public static void main(String[] args) throws IOException {
@@ -23,6 +26,10 @@ public class StockSmile {
 				.mapToDouble(Double::parseDouble)
 				.toArray();
 		System.out.println(Arrays.toString(volumes));
+		
+		// 建立一個 DataFrame
+		DataFrame data = DataFrame.of(DoubleVector);
+		
 	}
 
 }
