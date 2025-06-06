@@ -7,7 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import smile.data.DataFrame;
+import smile.data.Tuple;
+import smile.data.formula.Formula;
 import smile.data.vector.DoubleVector;
+import smile.regression.RandomForest;
 
 public class StockSmile {
 
@@ -27,8 +30,23 @@ public class StockSmile {
 				.toArray();
 		System.out.println(Arrays.toString(volumes));
 		
-		// 建立一個 DataFrame
-		DataFrame data = DataFrame.of(DoubleVector);
+		// 建立一個 DataFrame (分別將 prices 與 volumes 放入)
+		DataFrame data = DataFrame.of(DoubleVector.of("Price", prices));
+		data = data.merge(DoubleVector.of("Volume", volumes));
+		
+		// 要預測的變量
+		Formula formula = Formula.lhs("Price");
+		
+		// 使用隨機森林建立回歸模型
+		RandomForest model = RandomForest.fit(formula, data);
+		
+		// 獲取數據集中的最後一條數據（最後一天的價格和成交量），以預測下一個值（明日股價
+		Tuple lastRow = data.stream().skip(data.nrows() - 1).findFirst().orElse(null);
+		
+		// 取得預測價格
+		double predicted = model.predict(lastRow);
+		
+		System.out.printf("預測今日收盤價: %.1f %n", predicted);
 		
 	}
 
