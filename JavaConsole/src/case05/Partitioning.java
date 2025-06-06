@@ -1,4 +1,4 @@
-package case5;
+package case05;
 
 import java.util.List;
 import static java.util.stream.Collectors.partitioningBy;
