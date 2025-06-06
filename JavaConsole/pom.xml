@@ -7,6 +7,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
+		
+		<!-- https://mvnrepository.com/artifact/com.github.signaflo/timeseries -->
+		<dependency>
+		    <groupId>com.github.signaflo</groupId>
+		    <artifactId>timeseries</artifactId>
+		    <version>0.4</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->
 		<dependency>
