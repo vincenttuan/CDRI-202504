@@ -51,20 +51,21 @@ public class Utils {
 	}
 	
 	// 從台灣證交所API獲取股票資訊的JSON字符串
-	private static String getJsonString(String stockNo) throws IOException {
+	private static String getJsonString(String stockNo, String today) throws IOException {
 		disableSSLVerification();
-		String today = dateFormat.format(new Date());
+		if(today == null) today = dateFormat.format(new Date());
 		// 股票資訊API的URL
 		String path = "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY?date=" + today + "&stockNo=" + stockNo + "&response=json";
 		try (Scanner scanner = new Scanner(new URL(path).openStream()).useDelimiter("\\A")) {
-			return scanner.hasNext() ? scanner.next() : "";
+			String result = scanner.hasNext() ? scanner.next() : "";
+			return result;
 		}
 	}
 
 	// 獲取指定股票的時間序列和收盤價格
-	public static double[][] getTimeAndClosingPrice(String stockNo) throws IOException {
+	public static double[][] getTimeAndClosingPrice(String stockNo, String today) throws IOException {
 		// 調用getJsonString獲取JSON數據
-		String jsonString = getJsonString(stockNo);
+		String jsonString = getJsonString(stockNo, today);
 
 		// 使用Gson解析JSON數據
 		Gson gson = new Gson();
@@ -83,9 +84,9 @@ public class Utils {
 	}
 
 	// 單獨獲取指定股票的收盤價格
-	public static double[] getClosingPrice(String stockNo) throws IOException {
+	public static double[] getClosingPrice(String stockNo, String today) throws IOException {
 		// 調用getJsonString獲取JSON數據
-		String jsonString = getJsonString(stockNo);
+		String jsonString = getJsonString(stockNo, today);
 		Gson gson = new Gson();
 		TradingData tradingData = gson.fromJson(jsonString, TradingData.class);
 
@@ -95,9 +96,9 @@ public class Utils {
 	}
 
 	// 獲取指定股票的成交量
-	public static double[] getVolume(String stockNo) throws IOException {
+	public static double[] getVolume(String stockNo, String today) throws IOException {
 		// 調用getJsonString獲取JSON數據
-		String jsonString = getJsonString(stockNo);
+		String jsonString = getJsonString(stockNo, today);
 		Gson gson = new Gson();
 		TradingData tradingData = gson.fromJson(jsonString, TradingData.class);
 

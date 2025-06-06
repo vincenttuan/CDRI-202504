@@ -18,11 +18,18 @@ public class StockSmile {
 		// 利用 Smile 來預測股價
 		// 利用 Utils 將所有股價與成交量放到 double[] 中
 		String symbol = "2330";
-		List<String> list = Files.readAllLines(Path.of("src/case06/2330.txt"));
-		System.out.println(list);
-		double[] prices = Utils.getClosingPrice(symbol);
+		String priceString = Files.readString(Path.of("src/case06/2330_prices.txt"));
+		System.out.println(priceString);
+		double[] prices = Arrays.stream(priceString.split(","))
+				.mapToDouble(Double::parseDouble)
+				.toArray();
 		System.out.println(Arrays.toString(prices));
-		double[] volumes = Utils.getVolume(symbol);
+		
+		String volumeString = Files.readString(Path.of("src/case06/2330_volumes.txt"));
+		System.out.println(priceString);
+		double[] volumes = Arrays.stream(volumeString.split(","))
+				.mapToDouble(Double::parseDouble)
+				.toArray();
 		System.out.println(Arrays.toString(volumes));
 		
 		// 建立一個 DataFrame (分別將 prices 與 volumes 放入)

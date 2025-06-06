@@ -13,10 +13,9 @@ public class StockPredict {
 	public static void main(String[] args) throws Exception {
 		// 利用簡單線性回歸來預測股價
 		// 將 2330.txt 所有股價放到 double[] 中
-		List<String> list = Files.readAllLines(Path.of("src/case06/2330.txt"));
-		System.out.println(list);
-		double[] prices = list.stream()
-				.map(line -> line.split(",")[1])
+		String priceString = Files.readString(Path.of("src/case06/2330_prices.txt"));
+		System.out.println(priceString);
+		double[] prices = Arrays.stream(priceString.split(","))
 				.mapToDouble(Double::parseDouble)
 				.toArray();
 		System.out.println(Arrays.toString(prices));
