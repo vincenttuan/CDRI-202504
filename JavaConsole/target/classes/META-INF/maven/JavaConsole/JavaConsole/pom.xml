@@ -8,6 +8,13 @@
 
 	<dependencies>
 		
+		<!-- https://mvnrepository.com/artifact/com.github.haifengl/smile-core -->
+		<dependency>
+		    <groupId>com.github.haifengl</groupId>
+		    <artifactId>smile-core</artifactId>
+		    <version>4.3.0</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/com.github.signaflo/timeseries -->
 		<dependency>
 		    <groupId>com.github.signaflo</groupId>
