@@ -21,6 +21,7 @@ public class StockARIMA {
 				.mapToDouble(Double::parseDouble)
 				.toArray();
 		System.out.println(Arrays.toString(prices));
+		// --------------------------------------------------------------------------------
 		// 利用 ARIMA
 		// 將股價價格數據轉換為時間序列對象
 		TimeSeries series = TimeSeries.from(prices);

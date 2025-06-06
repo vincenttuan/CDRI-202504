@@ -19,6 +19,7 @@ public class StockPredict {
 				.mapToDouble(Double::parseDouble)
 				.toArray();
 		System.out.println(Arrays.toString(prices));
+		// --------------------------------------------------------------------------------
 		// 利用 SimpleRegression
 		SimpleRegression regression = new SimpleRegression();
 		for(int i=0;i<prices.length;i++) {

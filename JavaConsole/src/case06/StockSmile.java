@@ -31,7 +31,7 @@ public class StockSmile {
 				.mapToDouble(Double::parseDouble)
 				.toArray();
 		System.out.println(Arrays.toString(volumes));
-		
+		// --------------------------------------------------------------------------------
 		// 建立一個 DataFrame (分別將 prices 與 volumes 放入)
 		DataFrame data = DataFrame.of(DoubleVector.of("Price", prices));
 		data = data.merge(DoubleVector.of("Volume", volumes));
