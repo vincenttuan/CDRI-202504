@@ -16,7 +16,14 @@ public class Get {
 		double[] merged = java.util.stream.Stream.of(rows1, rows2, rows3, rows4, rows5, rows6)
 			    .flatMapToDouble(java.util.Arrays::stream)
 			    .toArray();
-		System.out.println(Arrays.toString(merged));
+		
+		StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < merged.length; i++) {
+            sb.append(String.format("%.0f", merged[i]));
+            if (i < merged.length - 1) sb.append(", ");
+        }
+        sb.append("]");
+        System.out.println(sb.toString());
 		
 	}
 

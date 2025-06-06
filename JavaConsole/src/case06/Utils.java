@@ -103,7 +103,7 @@ public class Utils {
 		TradingData tradingData = gson.fromJson(jsonString, TradingData.class);
 
 		// 從tradingData中提取成交量，並轉換為double數組
-		return tradingData.data.stream().mapToDouble(dailyData -> Double.parseDouble(dailyData.get(8).replace(",", ""))) // 成交量是在索引8的位置
+		return tradingData.data.stream().mapToDouble(dailyData -> Double.parseDouble(dailyData.get(1).replace(",", ""))) // 成交量是在索引8的位置
 				.toArray();
 	}
 
