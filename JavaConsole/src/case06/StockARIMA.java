@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.github.signaflo.timeseries.TimeSeries;
+import com.github.signaflo.timeseries.model.arima.Arima;
 import com.github.signaflo.timeseries.model.arima.ArimaOrder;
 
 public class StockARIMA {
@@ -29,6 +30,13 @@ public class StockARIMA {
 		// ArimaOrder.order(p, d, q)中的p、d和q分別是ARIMA模型的自迴歸階數、差分階數和移動平均階數
 		ArimaOrder order = ArimaOrder.order(1, 1, 1); // 參數可以過 LLM 來取得
 		
+		// 擬合 ARIMA 模型
+		Arima model = Arima.model(series, order);
+		
+		// 預測下一個值
+		double predicted = model.forecast(1).pointEstimates().at(0);
+		
+		System.out.printf("預測今日收盤價: %.1f %n", predicted);
 		
 	}
 
