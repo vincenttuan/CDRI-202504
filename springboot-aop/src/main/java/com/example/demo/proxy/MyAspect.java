@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 // 用來集中所有的公用邏輯
-// Aspect 切面程式
+// Aspect 切面程式 (AOP)
 public class MyAspect {
 	
 	// 前置通知(Advice)
