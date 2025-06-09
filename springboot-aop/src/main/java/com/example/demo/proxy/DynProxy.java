@@ -28,16 +28,16 @@ public class DynProxy {
 		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
 			Object result = null;
 			// 前置通知:
-			System.out.printf("前置通知-方法名稱:%s 方法參數:%s%n", method.getName(), Arrays.toString(args));
+			MyAspect.before(method, args);
 			// 執行業務方法
 			try {
 				result = method.invoke(object, args); // object: 被代理的物件, args: 方法參數
 			} catch (Exception e) {
 				// 例外通知:
-				System.out.printf("例外通知-方法名稱:%s 方法參數:%s 例外訊息:%s%n", method.getName(), Arrays.toString(args), e);
+				MyAspect.throwing(method, args, e);
 			} finally {
 				// 後置通知:
-				System.out.printf("後置通知-方法名稱:%s 方法參數:%s%n", method.getName(), Arrays.toString(args));
+				MyAspect.end(method, args);
 			}
 			
 			return result;
