@@ -35,6 +35,9 @@ public class CalcProxy implements Calc {
 		} catch (ArithmeticException e) {
 			// 例外通知
 			System.out.println("分母 y 不可 = 0, " + e.getMessage());
+		} finally {
+			// 後置通知
+			System.out.println("計算完成");
 		}
 		
 		return result;
