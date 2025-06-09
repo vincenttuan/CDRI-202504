@@ -10,7 +10,10 @@ public class DynProxyTest {
 		System.out.println(calc.add(10, 20));
 		System.out.println(calc.add(null, 20));
 		System.out.println(calc.div(10, 0));
-		
+		// -------------------------------------------------------
+		DynProxy dynProxy2 = new DynProxy(new Man()); // 動態代理
+		Person man = (Person)dynProxy2.getProxy();
+		man.work();
 
 	}
 
