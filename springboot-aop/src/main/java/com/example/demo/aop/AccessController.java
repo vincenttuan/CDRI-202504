@@ -17,7 +17,7 @@ public class AccessController {
 		userFloorMap.put("security", Set.of(1, 2, 3, 4, 5)); // 保全
 	}
 	
-	public static boolean hasAccess(String username, int floor) {
+	public boolean hasAccess(String username, int floor) {
 		return userFloorMap.getOrDefault(username, Set.of()).contains(floor);
 	}
 }
