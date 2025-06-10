@@ -1,5 +1,8 @@
 package com.example.demo.proxy;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CalcImpl implements Calc {
 
 	@Override
