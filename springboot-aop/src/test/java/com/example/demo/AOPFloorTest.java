@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.aop.FloorService;
-import com.example.demo.proxy.Calc;
 
 @SpringBootTest
 public class AOPFloorTest {
