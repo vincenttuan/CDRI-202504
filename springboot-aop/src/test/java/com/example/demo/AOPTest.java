@@ -14,11 +14,13 @@ public class AOPTest {
 	
 	@Test
 	public void test() {
+		String threadName = Thread.currentThread().getName();
+		
 		Integer result1 = calc.add(20,  10);
-		System.out.println(result1);
+		System.out.printf("[%s] %s%n", threadName, result1);
 		
 		Integer result2 = calc.div(20,  10);
-		System.out.println(result2);
+		System.out.printf("[%s] %s%n", threadName, result2);
 	}
 	
 }
