@@ -25,6 +25,9 @@ public class MyLoggerAspect {
 	@Pointcut(value = "execution(public Integer com.example.demo.proxy.CalcImpl.div(Integer, Integer))")
 	public void ptDiv() {}
 	
+	@Pointcut(value = "execution(public Integer com.example.demo.proxy.CalcImpl.*(..))")
+	public void ptAll() {}
+	
 	// 前置通知(Advice)
 	//@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.add(Integer, Integer))")
 	//@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.*(Integer, Integer))")
@@ -32,7 +35,9 @@ public class MyLoggerAspect {
 	//@Before(value = "execution(* com.example.demo.proxy.CalcImpl.*(..))")
 	//@Before(value = "execution(* com.example.demo.proxy.*.*(..))")
 	//@Before(value = "execution(* *(..))")
-	@Before(value = "ptAdd()")
+	//@Before(value = "ptAdd()")
+	//@Before(value = "ptAdd() || ptDiv()")
+	@Before(value = "ptAll() && !ptDiv()") // 切入點表達式支援邏輯運算子: &&, ||, !
 	public void beforeAdvice(JoinPoint joinPoint) {
 		String threadName = Thread.currentThread().getName();
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
