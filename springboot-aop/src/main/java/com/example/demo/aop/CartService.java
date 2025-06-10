@@ -5,6 +5,6 @@ package com.example.demo.aop;
 // 商品價格 > 0
 public interface CartService {
 	
-	void addToCart(String productId, int quantity, double price);
+	void addToCart(String productId, Integer quantity, Double price);
 	
 }
