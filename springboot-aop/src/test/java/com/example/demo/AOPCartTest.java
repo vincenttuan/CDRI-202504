@@ -16,12 +16,12 @@ public class AOPCartTest {
 	@Test
 	public void test() {
 		String productId = "A01";
-		Integer quantity = 123;
+		Integer quantity = 10;
 		Double price = 15.5;
 		
 		try {
 			cartService.addToCart(productId, quantity, price);
-		} catch (Exception e) {
+		} catch (Throwable e) {
 			System.err.println(e.getMessage());
 		}
 		
