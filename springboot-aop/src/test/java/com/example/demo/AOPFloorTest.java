@@ -16,7 +16,7 @@ public class AOPFloorTest {
 	@Test
 	public void test() {
 		String username = "alice";
-		int floor = 2;
+		int floor = 4;
 		
 		String result = floorService.enterFloor(username, floor);
 		System.out.println(result);
