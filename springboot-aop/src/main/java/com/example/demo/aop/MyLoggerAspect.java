@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -45,6 +46,14 @@ public class MyLoggerAspect {
 		String dateTime = sdf.format(new Date());
 		// log 紀錄
 		System.out.printf("Log 前置通知[%s]: %s %s %s %n", threadName, dateTime, methodName, Arrays.toString(args));
+	}
+	
+	@After(value = "ptAdd()")
+	public void endAdvice(JoinPoint joinPoint) {
+		String threadName = Thread.currentThread().getName();
+		String methodName = joinPoint.getSignature().getName(); // 方法名稱
+		String dateTime = sdf.format(new Date());
+		System.out.printf("End 前置通知[%s]: %s %s %n", threadName, dateTime, methodName);
 	}
 	
 }
