@@ -15,9 +15,9 @@ public class AOPTest {
 	@Test
 	public void test() {
 		Integer result1 = calc.add(20,  10);
-		Integer result2 = calc.div(20,  10);
-		
 		System.out.println(result1);
+		
+		Integer result2 = calc.div(20,  10);
 		System.out.println(result2);
 	}
 	
