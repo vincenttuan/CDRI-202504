@@ -16,6 +16,7 @@ public class AccessAspect {
 	@Autowired
 	private AccessController accessController;
 	
+	//@Around(value = "execution(* com.example.demo.aop.FloorService.enterFloor(..))")
 	@Around(value = "execution(* com.example.demo.aop.FloorServiceImpl.enterFloor(..))")
 	public Object checkAccess(ProceedingJoinPoint joinPoint) throws Throwable {
 		Object result = null;
