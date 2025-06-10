@@ -38,7 +38,8 @@ public class MyLoggerAspect {
 	//@Before(value = "execution(* *(..))")
 	//@Before(value = "ptAdd()")
 	//@Before(value = "ptAdd() || ptDiv()")
-	@Before(value = "ptAll() && !ptDiv()") // 切入點表達式支援邏輯運算子: &&, ||, !
+	//@Before(value = "ptAll() && !ptDiv()") // 切入點表達式支援邏輯運算子: &&, ||, !
+	@Before(value = "ptDiv()")
 	public void beforeAdvice(JoinPoint joinPoint) {
 		String threadName = Thread.currentThread().getName();
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
@@ -48,12 +49,12 @@ public class MyLoggerAspect {
 		System.out.printf("Log 前置通知[%s]: %s %s %s %n", threadName, dateTime, methodName, Arrays.toString(args));
 	}
 	
-	@After(value = "ptAdd()")
+	@After(value = "ptDiv()") // 不論是否會發生例外都會執行
 	public void endAdvice(JoinPoint joinPoint) {
 		String threadName = Thread.currentThread().getName();
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		String dateTime = sdf.format(new Date());
-		System.out.printf("End 前置通知[%s]: %s %s %n", threadName, dateTime, methodName);
+		System.out.printf("End 後置通知[%s]: %s %s %n", threadName, dateTime, methodName);
 	}
 	
 }

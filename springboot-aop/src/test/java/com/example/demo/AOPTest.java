@@ -21,6 +21,9 @@ public class AOPTest {
 		
 		Integer result2 = calc.div(20,  10);
 		System.out.printf("[%s] %s%n", threadName, result2);
+		
+		Integer result3 = calc.div(20,  0);
+		System.out.printf("[%s] %s%n", threadName, result3);
 	}
 	
 }
