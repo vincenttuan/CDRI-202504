@@ -7,6 +7,7 @@ import java.util.Date;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +18,21 @@ public class MyLoggerAspect {
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
+	// 建立一個切入點邏輯方法
+	@Pointcut(value = "execution(public Integer com.example.demo.proxy.CalcImpl.add(Integer, Integer))")
+	public void ptAdd() {}
+	
+	@Pointcut(value = "execution(public Integer com.example.demo.proxy.CalcImpl.div(Integer, Integer))")
+	public void ptDiv() {}
+	
 	// 前置通知(Advice)
 	//@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.add(Integer, Integer))")
-	@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.*(Integer, Integer))")
+	//@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.*(Integer, Integer))")
+	//@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.*(..))")
+	//@Before(value = "execution(* com.example.demo.proxy.CalcImpl.*(..))")
+	//@Before(value = "execution(* com.example.demo.proxy.*.*(..))")
+	//@Before(value = "execution(* *(..))")
+	@Before(value = "ptAdd()")
 	public void beforeAdvice(JoinPoint joinPoint) {
 		String threadName = Thread.currentThread().getName();
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
