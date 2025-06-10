@@ -21,11 +21,12 @@ public class MyLoggerAspect {
 	//@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.add(Integer, Integer))")
 	@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.*(Integer, Integer))")
 	public void beforeAdvice(JoinPoint joinPoint) {
+		String threadName = Thread.currentThread().getName();
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		Object[] args = joinPoint.getArgs(); // 方法參數
 		String dateTime = sdf.format(new Date());
 		// log 紀錄
-		System.out.printf("Log 前置通知: %s %s %s %n", dateTime, methodName, Arrays.toString(args));
+		System.out.printf("Log 前置通知[%s]: %s %s %s %n", threadName, dateTime, methodName, Arrays.toString(args));
 	}
 	
 }
