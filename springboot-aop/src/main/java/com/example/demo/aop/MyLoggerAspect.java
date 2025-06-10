@@ -5,9 +5,11 @@ import java.util.Arrays;
 import java.util.Date;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -31,6 +33,35 @@ public class MyLoggerAspect {
 	@Pointcut(value = "execution(public Integer com.example.demo.proxy.CalcImpl.*(..))")
 	public void ptAll() {}
 	
+	// 環繞通知
+	@Around("ptDiv()")
+	public Object aroundAdvice(ProceedingJoinPoint joinPoint) {
+		Object result = null;
+		String threadName = Thread.currentThread().getName();
+		String methodName = joinPoint.getSignature().getName(); // 方法名稱
+		Object[] args = joinPoint.getArgs(); // 方法參數
+		String dateTime = sdf.format(new Date());
+		
+		// 前置通知
+		System.out.printf("Log 前置通知[%s]: %s %s %s %n", threadName, dateTime, methodName, Arrays.toString(args));
+		
+		try {
+			// 執行目標方法
+			result = joinPoint.proceed();
+			// 正常返回通知
+			System.out.printf("AfterReturning 正常返回通知[%s]: %s %s 返回結果:%s %n", threadName, dateTime, methodName, result);
+			return result;
+		} catch (Throwable ex) {
+			// 異常返回通知
+			System.out.printf("AfterThrowing 異常返回通知[%s]: %s %s 異常結果:%s %n", threadName, dateTime, methodName, ex);
+		} finally {
+			// 後置通知(不論是否有異常都會執行)
+			System.out.printf("After 後置通知[%s]: %s %s %n", threadName, dateTime, methodName);
+		}
+		return null;
+	}
+	
+	/*
 	// 前置通知(Advice)
 	//@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.add(Integer, Integer))")
 	//@Before(value = "execution(public Integer com.example.demo.proxy.CalcImpl.*(Integer, Integer))")
@@ -78,5 +109,6 @@ public class MyLoggerAspect {
 		String dateTime = sdf.format(new Date());
 		System.out.printf("AfterThrowing 異常返回通知[%s]: %s %s 異常結果:%s %n", threadName, dateTime, methodName, ex);
 	}
+	*/
 	
 }
