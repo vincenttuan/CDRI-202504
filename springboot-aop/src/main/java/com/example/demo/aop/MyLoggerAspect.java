@@ -7,6 +7,7 @@ import java.util.Date;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -41,6 +42,7 @@ public class MyLoggerAspect {
 	//@Before(value = "ptAdd() || ptDiv()")
 	//@Before(value = "ptAll() && !ptDiv()") // 切入點表達式支援邏輯運算子: &&, ||, !
 	@Before(value = "ptDiv()")
+	// 前置通知
 	public void beforeAdvice(JoinPoint joinPoint) {
 		String threadName = Thread.currentThread().getName();
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
@@ -50,7 +52,8 @@ public class MyLoggerAspect {
 		System.out.printf("Log 前置通知[%s]: %s %s %s %n", threadName, dateTime, methodName, Arrays.toString(args));
 	}
 	
-	@After(value = "ptDiv()") // 不論是否會發生例外都會執行
+	@After(value = "ptDiv()") 
+	// 不論是否會發生例外都會執行
 	public void endAdvice(JoinPoint joinPoint) {
 		String threadName = Thread.currentThread().getName();
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
@@ -58,12 +61,22 @@ public class MyLoggerAspect {
 		System.out.printf("After 後置通知[%s]: %s %s %n", threadName, dateTime, methodName);
 	}
 	
-	@AfterReturning(value = "ptDiv()", returning="result")
+	@AfterReturning(value = "ptDiv()", returning="result") 
+	// 正常返回通知
 	public void afterReturningAdvice(JoinPoint joinPoint, Object result) {
 		String threadName = Thread.currentThread().getName();
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		String dateTime = sdf.format(new Date());
 		System.out.printf("AfterReturning 正常返回通知[%s]: %s %s 返回結果:%s %n", threadName, dateTime, methodName, result);
+	}
+	
+	// 異常返回通知
+	@AfterThrowing(value = "ptDiv()", throwing = "ex")
+	public void afterThrowingAdvice(JoinPoint joinPoint, Throwable ex) {
+		String threadName = Thread.currentThread().getName();
+		String methodName = joinPoint.getSignature().getName(); // 方法名稱
+		String dateTime = sdf.format(new Date());
+		System.out.printf("AfterThrowing 異常返回通知[%s]: %s %s 異常結果:%s %n", threadName, dateTime, methodName, ex);
 	}
 	
 }
