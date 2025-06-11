@@ -1,5 +1,7 @@
 package com.example.demo.study.encryption;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Base64;
 
@@ -22,7 +24,9 @@ public class AESSample {
 		// 解密流程: 進行 Base64 解碼 -> 解密(decryptedECB) -> 明文
 		
 		// 1. 建立 AES 密鑰規範
-		SecretKeySpec aesKeySpec = new SecretKeySpec(KEY.getBytes(), "AES"); // AES 金鑰
+		//SecretKeySpec aesKeySpec = new SecretKeySpec(KEY.getBytes(), "AES"); // AES 金鑰
+		String filePath = "aes_key.key";
+		SecretKeySpec aesKeySpec = loadKeyFromFile(filePath);
 		// 2. 選擇使用 ECB 模式對明文進行加密
 		byte[] encryptedECB = KeyUtil.encryptWithAESKey(aesKeySpec, originalText);
 		// 3. 印出加密後的資訊
@@ -41,4 +45,13 @@ public class AESSample {
 		String decryptedECB = KeyUtil.decryptWithAESKey(aesKeySpec, decodingECBBase64);
 		System.out.printf("解密後明文:%s%n", decryptedECB);
 	}
+	
+	// 讀取金鑰檔
+	public static SecretKeySpec loadKeyFromFile(String filePath) throws Exception {
+		String keyBase64 = Files.readString(Path.of(filePath));
+		byte[] keyBytes = Base64.getDecoder().decode(keyBase64);
+		return new SecretKeySpec(keyBytes, "AES");
+	}
+	
+	
 }
