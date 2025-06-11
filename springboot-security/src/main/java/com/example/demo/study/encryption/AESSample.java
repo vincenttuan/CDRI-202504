@@ -20,7 +20,7 @@ public class AESSample {
 		
 		// 利用 AES 進行加密
 		// 加密流程: 明文 -> 加密(encryptedECB) -> 進行 Base64 編碼(以利儲存)
-		// 解密流程: 解密(decryptedECB) -> 明文
+		// 解密流程: 進行 Base64 解碼 -> 解密(decryptedECB) -> 明文
 		
 		// 1. 建立 AES 密鑰規範
 		SecretKeySpec aesKeySpec = new SecretKeySpec(KEY.getBytes(), "AES"); // AES 金鑰
@@ -28,12 +28,18 @@ public class AESSample {
 		byte[] encryptedECB = KeyUtil.encryptWithAESKey(aesKeySpec, originalText);
 		// 3. 印出加密後的資訊
 		System.out.printf("加密後:%s%n", Arrays.toString(encryptedECB));
-		// 4. 將 byte[] 轉 Base64(編碼)
+		// 4. 將 byte[] 轉 Base64 (編碼)
 		String encodingECBBase64 = Base64.getEncoder().encodeToString(encryptedECB);
-		System.out.printf("加密後(Base64):%s%n", encodingECBBase64);
-		
-		
-		
-		
+		System.out.printf("編碼後(Base64):%s%n", encodingECBBase64);
+		// -----------------------------------------------------------------------------
+		System.out.println();
+		// 利用 AES 進行解密
+		// 1. Base64 轉 byte[] (解碼)
+		System.out.printf("解碼前(Base64):%s%n", encodingECBBase64);
+		byte[] decodingECBBase64 = Base64.getDecoder().decode(encodingECBBase64);
+		System.out.printf("解碼後:%s%n", Arrays.toString(decodingECBBase64));
+		// 2. 進行解密
+		String decryptedECB = KeyUtil.decryptWithAESKey(aesKeySpec, decodingECBBase64);
+		System.out.printf("解密後明文:%s%n", decryptedECB);
 	}
 }
