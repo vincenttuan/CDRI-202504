@@ -48,9 +48,8 @@ public class AESSample {
 	
 	// 讀取金鑰檔
 	public static SecretKeySpec loadKeyFromFile(String filePath) throws Exception {
-		String keyBase64 = Files.readString(Path.of(filePath));
-		byte[] keyBytes = Base64.getDecoder().decode(keyBase64);
-		return new SecretKeySpec(keyBytes, "AES");
+		String key = Files.readString(Path.of(filePath));
+		return new SecretKeySpec(key.getBytes(), "AES");
 	}
 	
 	
