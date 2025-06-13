@@ -16,7 +16,7 @@ import com.example.demo.study.security.KeyUtil;
  * 在這種情況下，即由小王簽署。
  *
  * 本程式「DigitalSignatureCreator」的目的是生成一個數位簽章，該簽章對「my_contract.txt」文件進行簽署。
- * 這個數位簽章可以被存儲（在signature.sig文件中）和分享，供其他人或系統進行驗證。
+ * 這個數位簽章可以被存儲（在 signature.sig 文件中）和分享，供其他人或系統進行驗證。
  *
  * 當其他接收者接收到這個簽署的文件和數位簽章時，他們可以使用小王的公鑰來驗證文件的完整性和簽署者的身份。
  */
