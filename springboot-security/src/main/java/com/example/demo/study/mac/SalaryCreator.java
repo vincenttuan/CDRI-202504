@@ -17,7 +17,7 @@ import com.example.demo.study.security.KeyUtil;
 public class SalaryCreator {
 	
 	public static void main(String[] args) throws Throwable {
-		String salaryFilePath = "src/main/java/com/example/demo/study/mac/c";
+		String salaryFilePath = "src/main/java/com/example/demo/study/mac/my_salary.txt";
 		String macKeyFilePath = "src/main/java/com/example/demo/study/mac/mackey.txt";
 		
 		// 生成 mackey
