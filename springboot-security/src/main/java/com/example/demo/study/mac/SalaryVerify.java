@@ -22,7 +22,7 @@ public class SalaryVerify {
 		
 		SecretKey macKey = KeyUtil.getSecretKeyFromFile("HmacSHA256", macKeyFilePath);
 		
-		// 已知
+		// 已知(Copy 自 SalaryCreator.java 執行的結果)
 		String salaryMacHexValue = "d880e838c75991e70e6d505bd325989c44c42aae8e512ecffd8341115b5bd07c";
 		
 		// 生成 computedSalaryMacHexValue
