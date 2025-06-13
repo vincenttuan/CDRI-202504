@@ -18,7 +18,7 @@ public class SalaryCreator {
 	
 	public static void main(String[] args) throws Throwable {
 		String salaryFilePath = "src/main/java/com/example/demo/study/mac/my_salary.txt";
-		String macKeyFilePath = "src/main/java/com/example/demo/study/mac/mackey.txt";
+		String macKeyFilePath = "src/main/java/com/example/demo/study/mac/mackey.key";
 		
 		// 生成 mackey
 		SecretKey macKey = null;
