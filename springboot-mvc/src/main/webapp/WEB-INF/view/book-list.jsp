@@ -40,7 +40,7 @@
 			<table border="1" id="bookTable">
 				<thead>
 					<tr>
-						<th>ID</th><th>書名</th><th>價格</th><th>數量</th><th>出刊</th><th>操作</th>
+						<th>ID1</th><th>書名</th><th>價格</th><th>數量</th><th>出刊</th><th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -105,7 +105,10 @@
 			            },
 			            {
 			                extend: 'print',
-			                text: '列印'
+			                text: '列印',
+			                exportOptions: {
+			                    columns: [0, 1, 2, 3] // 匯出 ID、書名、價格、數量
+			                }
 			            }
 			        ],
 					language: {
