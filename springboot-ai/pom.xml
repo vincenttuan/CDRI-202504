@@ -29,30 +29,54 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	
+	<dependencyManagement>
+	    <dependencies>
+	        <dependency>
+	            <groupId>org.springframework.ai</groupId>
+	            <artifactId>spring-ai-bom</artifactId>
+	            <version>1.0.0-M6</version>
+	            <type>pom</type>
+	            <scope>import</scope>
+	        </dependency>
+	    </dependencies>
+	</dependencyManagement>
+	
 	<dependencies>
-		
-		<dependency>
+	    <dependency>
 		    <groupId>org.springframework.ai</groupId>
-		    <artifactId>spring-ai-ollama-spring-boot-starter</artifactId>
-		    <version>1.0.0-M6</version>
+		    <artifactId>spring-ai-starter-model-ollama</artifactId>
+		    <version>1.0.0</version>
 		</dependency>
-		
+
+	    <!-- Spring Boot 基本依賴 -->
 	    <dependency>
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter</artifactId>
 	    </dependency>
-	    
 	    <dependency>
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter-web</artifactId>
 	    </dependency>
-	    
 	    <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-test</artifactId>
+	        <scope>test</scope>
+	    </dependency>
+	
+	    <!-- Spring AI LLM 與 Embedding（以 Ollama 為例，可換成 openai 等） -->
+	    <dependency>
+	        <groupId>org.springframework.ai</groupId>
+	        <artifactId>spring-ai-ollama-spring-boot-starter</artifactId>
+	    </dependency>
+	
+	    <!-- Spring AI RAG Advisors（自帶 in-memory 向量庫） -->
+	    <dependency>
+	        <groupId>org.springframework.ai</groupId>
+	        <artifactId>spring-ai-advisors-vector-store</artifactId>
+	        <version>1.0.0</version>
+	    </dependency>
+	    
 	</dependencies>
 
 	<build>
