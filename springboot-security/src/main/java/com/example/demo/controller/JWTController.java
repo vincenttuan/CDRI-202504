@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
+import java.text.ParseException;
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,5 +43,28 @@ public class JWTController {
 		String token = KeyUtil.signJWT(claimsSet, signingSecret);
 		return token;
 	}
+	
+	@GetMapping("/verify")
+	// Authorization: Bearer xxxx.xxxx.xxxx
+	public Map<String, String> verifyToken(@RequestHeader("Authorization") String authHeader) throws Exception {
+		String token = authHeader.substring(7);
+		// 驗證 Token(JWT)
+		if(KeyUtil.verifyJWTSignature(token, signingSecret)) {
+			System.out.println("驗證成功");
+			// 讀取 Token(JWT) 中 Claims(Payload) 的資料
+			JWTClaimsSet claims = KeyUtil.getClaimsFromToken(token);
+			return Map.of("status", "success", 
+						  "subject", claims.getSubject(),
+						  "issuer", claims.getIssuer(),
+						  "name", claims.getStringClaim("name"),
+						  "phone", claims.getStringClaim("phone"),
+						  "email", claims.getStringClaim("email")
+						  );
+		} else {
+			System.out.println("驗證失敗");
+			return Map.of("status", "fail");
+		}
+	}
+	
 	
 }
