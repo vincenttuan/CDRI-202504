@@ -27,6 +27,20 @@ public class SimpleJWT {
 		// 將 claimsSet + 簽名 = token
 		String token = KeyUtil.signJWT(claimsSet, signingSecret);
 		System.out.println("Token(JWT): " + token);
+		
+		// 4. 驗證 Token(JWT)
+		if(KeyUtil.verifyJWTSignature(token, signingSecret)) {
+			System.out.println("驗證成功");
+			// 讀取 Token(JWT) 中 Claims(Payload) 的資料
+			JWTClaimsSet claims = KeyUtil.getClaimsFromToken(token);
+			System.out.println("讀取 subject: " + claims.getSubject());
+			System.out.println("讀取 issure: " + claims.getIssuer());
+			System.out.println("讀取 name: " + claims.getStringClaim("name"));
+			System.out.println("讀取 phone: " + claims.getStringClaim("phone"));
+			System.out.println("讀取 email: " + claims.getStringClaim("email"));
+		} else {
+			System.out.println("驗證失敗");
+		}
 	}
 
 }
