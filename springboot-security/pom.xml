@@ -31,6 +31,12 @@
 	</properties>
 	<dependencies>
 		
+		<!-- 配置 Tomcat Web Server -->	
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+	    
 		<!-- JWT -->
 		<dependency>
 			<groupId>com.nimbusds</groupId>
