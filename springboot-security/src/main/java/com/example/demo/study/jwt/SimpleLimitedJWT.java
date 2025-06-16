@@ -35,7 +35,7 @@ public class SimpleLimitedJWT {
 		String token = KeyUtil.signJWT(claimsSet, signingSecret);
 		System.out.println("Token(JWT): " + token);
 		
-		Thread.sleep(11_0000); // 模擬 11 秒後進行驗證
+		Thread.sleep(11_000); // 模擬 11 秒後進行驗證
 		
 		// 4. 驗證 Token(JWT)
 		if(KeyUtil.verifyJWTSignature(token, signingSecret)) {
