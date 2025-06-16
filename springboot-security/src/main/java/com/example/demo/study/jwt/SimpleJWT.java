@@ -1,11 +1,12 @@
 package com.example.demo.study.jwt;
 
 import com.example.demo.study.security.KeyUtil;
+import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jwt.JWTClaimsSet;
 
 public class SimpleJWT {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// 1. 生成簽名密鑰
 		// JWK: 產生簽名用的密鑰(32 bytes)
 		String signingSecret = KeyUtil.generateSecret(32);
@@ -23,7 +24,9 @@ public class SimpleJWT {
 		System.out.println("Payload: " + claimsSet);
 		
 		// 3. 進行簽名
-
+		// 將 claimsSet + 簽名 = token
+		String token = KeyUtil.signJWT(claimsSet, signingSecret);
+		System.out.println("Token(JWT): " + token);
 	}
 
 }
