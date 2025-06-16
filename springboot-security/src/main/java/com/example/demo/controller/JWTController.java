@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ public class JWTController {
 	
 	private static String signingSecret = "12345678901234567890123456789012";
 	
+	@PostMapping("/issue")
 	public String issueToken(@RequestBody Map<String, String> req) throws Exception {
 		String username = req.get("username");
 		String password = req.get("password");
