@@ -1,5 +1,7 @@
 package com.example.demo.study.random;
 
+import java.security.SecureRandom;
+
 /**
  * OTP (One-Time Password) 生成器範例
  *
@@ -11,5 +13,17 @@ package com.example.demo.study.random;
  * 這個範例展示了如何使用Java的SecureRandom類生成這樣的OTP。
  */
 public class OTP {
-
+	
+	public static void main(String[] args) {
+		System.out.println("OTP: " + generateOTP());
+	}
+	
+	// 生成一個四位數的 OTP
+	public static String generateOTP() {
+		// 使用 SecureRandom (在統計學上是不可預測的)
+		SecureRandom secureRandom = new SecureRandom();
+		int number = secureRandom.nextInt(10000); // 0~9999
+		return String.format("%04d", number);
+	}
+	
 }
