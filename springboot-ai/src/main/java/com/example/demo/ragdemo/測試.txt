@@ -1,0 +1,2 @@
+curl -X POST http://localhost:8080/ask -H "Content-Type: text/plain" -d "台灣的首都在哪裡？"
+curl -X POST http://localhost:8080/ask -H "Content-Type: text/plain" -d "最多人使用的程式語言是？"

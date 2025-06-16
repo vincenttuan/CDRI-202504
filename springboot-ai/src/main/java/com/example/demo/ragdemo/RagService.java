@@ -30,7 +30,7 @@ public class RagService {
                 .build();
         List<Document> relevantDocs = vectorStore.similaritySearch(request);
 
-        // 組合提示詞（Spring AI 官方 Document 沒有 getFormattedContent，請用 getContentAsString）
+        // 組合提示詞
         String context = relevantDocs.stream()
                 .map(Document::getFormattedContent)
                 .collect(Collectors.joining("\n"));
