@@ -124,3 +124,8 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2025-06-17T10:55:08.235+08:00  INFO 15192 --- [springboot-mvc] [https-jsse-nio-8443-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-06-17T10:55:08.236+08:00  INFO 15192 --- [springboot-mvc] [https-jsse-nio-8443-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-06-17T10:55:08.236+08:00  INFO 15192 --- [springboot-mvc] [https-jsse-nio-8443-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-17T11:03:55.696+08:00  INFO 15192 --- [springboot-mvc] [RMI TCP Connection(19)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-06-17T11:03:55.697+08:00  INFO 15192 --- [springboot-mvc] [RMI TCP Connection(19)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-17T11:03:55.699+08:00  INFO 15192 --- [springboot-mvc] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-17T11:03:55.701+08:00  INFO 15192 --- [springboot-mvc] [RMI TCP Connection(19)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-17T11:03:55.705+08:00  INFO 15192 --- [springboot-mvc] [RMI TCP Connection(19)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
