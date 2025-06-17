@@ -121,3 +121,6 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2025-06-17T10:54:09.944+08:00  INFO 15192 --- [springboot-mvc] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\NTPU\.keystore] using alias [tomcat] with trust store [null]
 2025-06-17T10:54:09.954+08:00  INFO 15192 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8443 (https) with context path '/'
 2025-06-17T10:54:09.959+08:00  INFO 15192 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Started SpringbootMvcApplication in 1.731 seconds (process running for 2.066)
+2025-06-17T10:55:08.235+08:00  INFO 15192 --- [springboot-mvc] [https-jsse-nio-8443-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-17T10:55:08.236+08:00  INFO 15192 --- [springboot-mvc] [https-jsse-nio-8443-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-17T10:55:08.236+08:00  INFO 15192 --- [springboot-mvc] [https-jsse-nio-8443-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
