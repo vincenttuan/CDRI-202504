@@ -20,7 +20,9 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(auth -> auth // 設定授權
-				.requestMatchers("/login").permitAll() // "/login" 不用授權
+				.requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll() // 不用授權的路徑
+				.requestMatchers("/admin/**").hasRole("ADMIN")
+				.requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
 				.anyRequest().authenticated() // 其餘都要授權
 		)
 		.formLogin(form -> form // 自訂表單授權頁
@@ -49,7 +51,7 @@ public class SecurityConfig {
 		UserDetails admin = User.builder()
 				.username("admin")
 				.password(passwordEncoder.encode("5678"))
-				.roles("USER", "ADMIN")
+				.roles("ADMIN")
 				.build();
 		
 		return new InMemoryUserDetailsManager(user, admin);
