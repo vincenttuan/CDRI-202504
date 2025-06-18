@@ -53,7 +53,14 @@ public class SecurityConfig {
 			// ===== 例外處理（權限不足）設定 =====
 			.exceptionHandling(exception -> exception
 				.accessDeniedPage("/accessDenied") // 權限不足時導向 /accessDenied 頁面
-			);
+			)
+			// ===== HSTS 設定 =====
+			.headers(headers -> headers
+					.httpStrictTransportSecurity(hsts -> hsts
+							.maxAgeInSeconds(31536000) // 有效期(一年)
+					)
+			); 
+			
 		
 		return http.build();
 	}
