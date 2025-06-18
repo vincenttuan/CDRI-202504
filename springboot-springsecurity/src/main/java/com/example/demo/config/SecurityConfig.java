@@ -34,7 +34,9 @@ public class SecurityConfig {
 				// 因為 logout 預設需使用 POST
 				// 若真的需要用 GET 進行 logout 則可以透過 logoutRequestMatcher 來修改成為 GET (非官方建議)
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-				.permitAll());
+				.permitAll())
+		.exceptionHandling(exception -> exception
+				.accessDeniedPage("/accessDenied"));
 		
 		return http.build();
 	}
