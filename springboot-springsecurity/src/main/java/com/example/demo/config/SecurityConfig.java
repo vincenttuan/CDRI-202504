@@ -25,7 +25,10 @@ public class SecurityConfig {
 		.formLogin(form -> form // 自訂表單授權頁
 				.loginPage("/login")
 				.permitAll()
-		);
+		)
+		.logout(logout -> logout
+				.logoutSuccessUrl("/login?logout=true")
+				.permitAll());
 		
 		return http.build();
 	}
