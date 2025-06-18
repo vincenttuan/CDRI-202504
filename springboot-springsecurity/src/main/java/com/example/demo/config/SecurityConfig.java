@@ -59,6 +59,7 @@ public class SecurityConfig {
 					.httpStrictTransportSecurity(hsts -> hsts
 							.maxAgeInSeconds(31536000) // 有效期(一年)
 					)
+					.xssProtection(xss -> xss.disable())
 			); 
 			
 		
