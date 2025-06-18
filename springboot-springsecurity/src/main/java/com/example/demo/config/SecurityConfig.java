@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -28,6 +29,9 @@ public class SecurityConfig {
 		)
 		.logout(logout -> logout
 				.logoutSuccessUrl("/login?logout=true")
+				// 因為 logout 預設需使用 POST
+				// 可以透過 logoutRequestMatcher 來修改成為 GET (非官方建議)
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
 				.permitAll());
 		
 		return http.build();
