@@ -1,4 +1,4 @@
-package com;
+package com.notuse;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,7 +49,7 @@ public class SendDataSwing {
         return result != 0;
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("WM_COPYDATA 傳送端");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

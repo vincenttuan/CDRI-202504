@@ -1,4 +1,4 @@
-package com;
+package com.notuse;
 
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +46,7 @@ public class CopyDataReceiver_Old {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         final String windowClass = "MyJavaReceiver";
         WinDef.HMODULE hInst = Kernel32.INSTANCE.GetModuleHandle(null);
 
