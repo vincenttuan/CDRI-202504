@@ -248,7 +248,7 @@ public class Main {
 
     public static void main(String[] args) {
     	PropertiesConfig.makePropertiesConfig();
-    	windowTitle = PropertiesConfig.PROP.getProperty("window.name", "FAPFrameMgr");
+    	windowTitle = PropertiesConfig.PROP.getProperty("window.name", "e01_Bridge");
         Main app = new Main();
         SwingUtilities.invokeLater(app::createAndShowGUI);
         app.startNativeReceiver();
