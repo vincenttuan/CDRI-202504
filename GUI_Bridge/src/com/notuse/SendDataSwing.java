@@ -3,7 +3,6 @@ package com.notuse;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 import com.sun.jna.*;
 import com.sun.jna.platform.win32.*;
 import com.sun.jna.platform.win32.WinDef.*;
@@ -25,7 +24,7 @@ public class SendDataSwing {
     public static boolean sendData(String destWindowTitle, String msg) {
         HWND targetHwnd = User32.INSTANCE.FindWindow(null, destWindowTitle);
         if (targetHwnd == null) {
-            JOptionPane.showMessageDialog(null, "找不到視窗: " + destWindowTitle, "錯誤", JOptionPane.ERROR_MESSAGE);
+            // 不彈出錯誤訊息，避免干擾自動發送
             return false;
         }
 
@@ -49,7 +48,7 @@ public class SendDataSwing {
         return result != 0;
     }
 
-    public static void main2(String[] args) {
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("WM_COPYDATA 傳送端");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,6 +66,10 @@ public class SendDataSwing {
             JTextField txtMsg = new JTextField("1101", 20);
 
             JButton btnSend = new JButton("發送");
+            
+            // 添加自動發送開關
+            JCheckBox autoSendCheckbox = new JCheckBox("自動發送 (每2秒)");
+            autoSendCheckbox.setSelected(true); // 預設開啟
 
             gbc.gridx = 0; gbc.gridy = 0;
             panel.add(lblTitle, gbc);
@@ -80,16 +83,43 @@ public class SendDataSwing {
 
             gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2;
             panel.add(btnSend, gbc);
+            
+            gbc.gridx = 0; gbc.gridy = 3; gbc.gridwidth = 2;
+            panel.add(autoSendCheckbox, gbc);
 
             frame.setContentPane(panel);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
 
+            // 自動發送計時器
+            Timer autoSendTimer = new Timer(2000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (autoSendCheckbox.isSelected()) {
+                        new Thread(() -> {
+                            String windowTitle = txtTitle.getText().trim();
+                            String message = txtMsg.getText().trim();
+                            boolean ok = sendData(windowTitle, message);
+                            if (!ok) {
+                                System.out.println("自動發送失敗: " + windowTitle);
+                            } else {
+                                System.out.println("自動發送成功: " + message);
+                            }
+                        }).start();
+                    }
+                }
+            });
+            //autoSendTimer.start(); // 啟動自動發送
+
             btnSend.addActionListener(e -> {
-                String windowTitle = txtTitle.getText().trim();
-                String message = txtMsg.getText().trim();
-                boolean ok = sendData(windowTitle, message);
-                JOptionPane.showMessageDialog(frame, ok ? "訊息已送出！" : "發送失敗！");
+                new Thread(() -> {
+                    String windowTitle = txtTitle.getText().trim();
+                    String message = txtMsg.getText().trim();
+                    boolean ok = sendData(windowTitle, message);
+                    if (!ok) {
+                        JOptionPane.showMessageDialog(frame, "發送失敗！", "錯誤", JOptionPane.ERROR_MESSAGE);
+                    }
+                }).start();
             });
         });
     }

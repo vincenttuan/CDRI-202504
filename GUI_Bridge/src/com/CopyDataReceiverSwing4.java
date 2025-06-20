@@ -13,7 +13,7 @@ import com.sun.jna.platform.win32.*;
 import com.sun.jna.platform.win32.WinDef.*;
 import com.sun.jna.platform.win32.WinUser;
 
-public class CopyDataReceiverSwing {
+public class CopyDataReceiverSwing4 {
     public static final int WM_COPYDATA = 0x004A;
     public static final String windowTitle = "GUIReceiver";
     public static final String windowClass = "GUIReceiverClass_" + System.currentTimeMillis();
@@ -130,7 +130,7 @@ public class CopyDataReceiverSwing {
 
     // 健康監控 thread
     private void startHealthMonitor() {
-        Thread monitorThread = new Thread(() -> {
+        new Thread(() -> {
             while (true) {
                 try {
                     Thread.sleep(3000);
@@ -140,8 +140,8 @@ public class CopyDataReceiverSwing {
                 boolean threadAlive = nativeThread != null && nativeThread.isAlive();
                 long now = System.currentTimeMillis();
                 long last = lastMsgTime.get();
-                if (!threadAlive || now - last > 5000) {
-                    System.err.println("重啟接收線程...");
+                if (!threadAlive || now - last > 5000) { // 5秒沒收到訊息或 thread 死掉
+                    System.err.println("Receiver thread 死掉或阻塞，重啟...");
                     running = false;
                     try {
                         if (nativeThread != null) nativeThread.join(2000);
@@ -149,15 +149,11 @@ public class CopyDataReceiverSwing {
                     startNativeReceiver();
                 }
             }
-        }, "HealthMonitor");
-        
-        monitorThread.setDaemon(true); // 設為守護線程
-        monitorThread.start();
+        }, "HealthMonitor").start();
     }
 
-
     public static void main(String[] args) {
-        CopyDataReceiverSwing app = new CopyDataReceiverSwing();
+        CopyDataReceiverSwing4 app = new CopyDataReceiverSwing4();
         SwingUtilities.invokeLater(app::createAndShowGUI);
         app.startNativeReceiver();
         app.startHealthMonitor();
